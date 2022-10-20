@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;400;600;700&display=swap');
+/* Variable sets for different color themes */
+:root {
+    --primary-color: #fb2576;
+    --primary-variant: #3f0071;
+    --secondary-color: #150050;
+    --on-primary: rgb(250, 250, 250);
+    --on-background: #fff;
+    --on-background-alt: rgba(66, 66, 66, 0.7);
+    --background: #111;
+    --box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* [data-theme='space'] {
+    --primary-color: #fb2576;
+    --primary-variant: #3f0071;
+    --secondary-color: #150050;
+    --on-primary: #333;
+    --on-background: rgba(255, 255, 255, 0.9);
+    --on-background-alt: rgba(255, 255, 255, 0.7);
+    --background: #000;
+}
+
+[data-theme='dark'] {
+    --primary-color: rgb(150, 65, 255);
+    --primary-variant: #6c63ff;
+    --secondary-color: #03dac5;
+    --on-primary: #000;
+    --on-background: rgba(255, 255, 255, 0.9);
+    --on-background-alt: rgba(255, 255, 255, 0.7);
+    --background: #121212;
+} */
+
+body {
+    margin: 0;
+    font-family: 'League Spartan', sans-serif;
+    background-color: var(--background) !important;
+    width: 100%;
+}
+
+.scroll-tracker {
+    height: 0.3rem;
+    inset: 0 0 auto;
+    background-color: var(--primary-color);
+    z-index: 3;
+    position: fixed;
+    transform-origin: left;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin: 1rem 0;
+}
+
+p {
+    margin-top: 0;
+    font-size: 1.1em;
+    line-height: 20px;
+}
+
+button .fa-solid {
+    padding-right: 8px;
+    transition: all 0.3s ease;
+}
+button:hover .fa-solid {
+    padding-right: 15px;
+    transition: all 0.3s ease;
+}
+
+#hero {
+    width: 100vw;
+    overflow: hidden;
+    min-height: 50vh;
+}
+
+#hero .flex-container {
+    z-index: 1;
+    filter: drop-shadow(4px 8px 5px rgb(0 0 0 / 0.1));
+    background-color: var(--primary-color);
+    background-image: linear-gradient(
+        130deg,
+        var(--primary-color) 40%,
+        var(--secondary-color) 100%
+    );
+    border-top: 0;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    color: var(--on-primary);
+    height: 100%;
+    padding-bottom: 10%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+#hero .headline {
+    position: relative;
+    top: 80px;
+    right: 50%;
+    transform: translateX(100%);
+    font-family: 'League Spartan', sans-serif;
+    font-size: 2.2rem;
+}
+
+#logo img {
+    max-width: 60%;
+    width: 700px;
+    margin: 80px 0 0 50px;
+    filter: opacity(95%);
+}
+
+.invert {
+    transition: all 0.5s;
+    filter: invert(100%);
+}
+
+/* @keyframes logo-anim {
+    from {
+        filter: invert(0);
+    }
+    to {
+        filter: invert(100%);
+    }
+} */
+
+#hero .image-container {
+    width: auto;
+    position: absolute;
+    overflow: hidden;
+    top: 150px;
+    right: 4%;
+    width: 50%;
+    max-width: 650px;
+    z-index: 2;
+}
+#hero img.diagram {
+    width: 100%;
+    margin-bottom: 20px;
+    filter: drop-shadow(4px 8px 5px rgb(0 0 0 / 0.1));
+}
+
+#intro {
+    color: var(--on-background);
+    min-height: 50vh;
+}
+
+#intro .container {
+    margin: 40px 4%;
+    width: 600px;
+}
+#intro .flex-container {
+    display: flex;
+    flex-direction: row;
+}
+#intro .container p {
+    margin-left: 25px;
+    max-width: 88%;
+}
+
+#intro .btn-container {
+    display: block;
+    height: 40px;
+    margin-top: 3%;
+}
+#intro .btn-container .btn {
+    margin: 10px 20px;
+    width: 60%;
+}
+
+#design .thru-line {
+    position: absolute;
+    background: #fff;
+    border-radius: 50px;
+    height: 900px;
+    top: 0;
+    z-index: 0;
+    left: 15px;
+    width: 20px;
+}
+
+#development #parallax {
+    background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
+    height: 2000px;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1000px) {
+    #hero .image-container {
+        left: 50%;
+    }
+
+    #hero .container .logo {
+        right: 50%;
+    }
+}
+/* Phone breakpoint */
+@media (max-width: 600px) {
+}
+/* Small Phone breakpoint */
+@media (max-width: 350px) {
+}

@@ -1,0 +1,19 @@
+{
+    "name": "profital_webdev",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+        "start": "parcel ./src/index.html",
+        "build": "parcel build"
+    },
+    "author": "Matt Ruetz",
+    "license": "ISC",
+    "dependencies": {
+        "aos": "^3.0.0-beta.6",
+        "bootstrap": "^5.2.2",
+        "jquery": "^3.6.1",
+        "parcel": "^2.7.0",
+        "vanilla-tilt": "^1.7.2"
+    }
+}
