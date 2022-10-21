@@ -148,8 +148,8 @@ button:hover .fa-solid {
     position: absolute;
     background: var(--on-background);
     border-radius: 50px;
-    height: 900px;
-    top: 0;
+    height: 1000px;
+    top: -500;
     z-index: 0;
     left: 15px;
     width: 20px;
@@ -178,7 +178,7 @@ button:hover .fa-solid {
 /* DEVELOPMENT SECTION*/
 #development #parallax {
     background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
-    height: 1000px;
+    min-height: 100vh;
     color: var(--background);
 }
 
@@ -264,6 +264,15 @@ button:hover .fa-solid {
 }
 .control-panel .card-text {
     color: var(--on-background) !important;
+}
+
+#demos {
+    margin-top: 50%;
+    height: 100vh;
+}
+
+#demos .title-container {
+    margin: auto;
 }
 
 /* Tablet breakpoint */
