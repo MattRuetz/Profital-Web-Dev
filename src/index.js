@@ -1,4 +1,5 @@
 import './scripts/scroll-timeline.js';
+import './scripts/GSAP_data.js';
 // import initScrollReveal from './scripts/scrollReveal.js';
 import initTiltEffect from './scripts/tiltAnimation.js';
 // import { targetElements, defaultProps } from './data/scrollRevealConfig';
