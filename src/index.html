@@ -32,16 +32,23 @@
             defer
             src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
         ></script>
+
+        <!-- scripts for particle image transition -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/OrbitControls-2.js"></script>
         <!--  -->
         <title>Profital Web Development</title>
     </head>
     <body>
         <!-- Hero section (Frame 1) -->
         <section id="hero">
-            <div class="flex-container">
+            <div class="container-fluid">
                 <div id="logo">
                     <img src="img/Logo_NoDMA.png" alt="profital logo" />
                 </div>
+
                 <div class="headline">
                     Let's make your business <span id="change-phrase"></span>
                 </div>
@@ -60,6 +67,10 @@
                 />
             </div>
         </section>
+        <!-- 3D image transition - May implement later -->
+        <!-- <div id="three-container"></div>
+        <div id="instructions">click and drag to control the animation</div> -->
+        <!--  -->
         <!-- Intro section (Frame 1) -->
         <section id="intro">
             <div class="container-fluid">
@@ -82,12 +93,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3 col-6">
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary btn-lg">
                             <i class="fa-solid fa-rocket"></i>Get Started
                         </button>
                     </div>
                     <div class="col-md-3 col-6">
-                        <button class="btn btn-outline-info">
+                        <button class="btn btn-lg btn-outline-primary">
                             <i class="fa-solid fa-paintbrush"></i>Customize
                         </button>
                     </div>
@@ -100,12 +111,12 @@
             <div class="thru-line"></div>
             <div class="container-fluid">
                 <div
-                    class="row design-line"
-                    data-aos="fade-right"
+                    class="row design-line-container"
+                    data-aos="slide-right"
                     data-aos-duration="1000"
                     data-aos-easing="ease-in-out-quint"
                 >
-                    <div class="col-10 line">
+                    <div class="col-lg-8 col-10 line">
                         <h2>Design</h2>
                     </div>
                     <div
@@ -138,6 +149,7 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="card-badge">1</div>
                     </div>
                     <div class="col-md-4 justify-content-center">
                         <div class="card mb-2">
@@ -153,6 +165,7 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="card-badge">2</div>
                     </div>
                     <div class="col-md-4 justify-content-center">
                         <div class="card mb-2">
@@ -168,6 +181,7 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="card-badge">3</div>
                     </div>
                 </div>
             </div>
@@ -178,169 +192,184 @@
         <section id="development">
             <!-- <div class="custom-shape-divider-top-1666293396"> -->
 
-            <!-- </div> -->
             <div id="parallax">
-                <div class="custom-shape-divider-top-1666295937">
-                    <svg
-                        data-name="Layer 1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 1200 120"
-                        preserveAspectRatio="none"
-                    >
-                        <path
-                            d="M1200 0L0 0 892.25 114.72 1200 0z"
-                            class="shape-fill"
-                        ></path>
-                    </svg>
-                </div>
-                <!-- <div class="thru-line"></div> -->
-                <div class="container-fluid">
-                    <div class="row dev-line">
-                        <div
-                            class="col dot"
-                            data-aos="flip-left"
-                            data-aos-duration="800"
-                            data-aos-delay="800"
-                            data-aos-easing="ease-in-out-quint"
-                        ></div>
-                        <div
-                            class="col line"
-                            data-aos="fade-left"
-                            data-aos-duration="1000"
-                            data-aos-easing="ease-in-out-quint"
+                <div class="wrapper overlay dark">
+                    <div class="custom-shape-divider-top-1666295937">
+                        <svg
+                            data-name="Layer 1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 1200 120"
+                            preserveAspectRatio="none"
                         >
-                            <h2>Development</h2>
-                        </div>
+                            <path
+                                d="M1200 0L0 0 892.25 114.72 1200 0z"
+                                class="shape-fill"
+                            ></path>
+                        </svg>
                     </div>
-                </div>
-                <div class="container content">
-                    <div class="row justify-content-center">
-                        <div class="col center">
+                    <!-- <div class="thru-line"></div> -->
+                    <div class="container-fluid">
+                        <div class="row dev-line">
                             <div
-                                class="card text-center"
-                                data-aos="zoom-in-up"
-                                data-aos-duration="1400"
+                                class="col dot"
+                                data-aos="flip-left"
+                                data-aos-duration="800"
                                 data-aos-delay="800"
+                                data-aos-offset="150"
+                                data-aos-easing="ease-in-out-quint"
+                            ></div>
+                            <div
+                                class="col line"
+                                data-aos="fade-left"
+                                data-aos-duration="1000"
+                                data-aos-easing="ease-in-out-quint"
                             >
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        You Call the Shots.
-                                    </h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">
-                                        <hr />
-                                    </h6>
-                                    <p class="card-text">
-                                        Once your project starts, we will give
-                                        you a link to watch your site
-                                        <span
-                                            style="
-                                                font-weight: bold;
-                                                font-style: italic;
-                                            "
-                                            >as it is being developed!</span
-                                        >
-                                    </p>
-                                    <p class="card-text">
-                                        This means that you can request
-                                        <span class="emph-text"> any</span>
-                                        changes you see fit, and we will update
-                                        your site on-the-fly.
-                                    </p>
-                                    <p class="card-text">
-                                        Try changing the settings below to see
-                                        how easily we can make big changes!
-                                    </p>
-                                </div>
+                                <h2>Development</h2>
                             </div>
                         </div>
                     </div>
-
-                    <div
-                        class="container control-panel mt-4"
-                        data-tilt
-                        data-tilt-max="4"
-                    >
-                        <div class="row mt-2">
-                            <div class="col">
-                                <h4>
-                                    <i class="fa-solid fa-paintbrush"></i>
-                                    Customize
-                                </h4>
+                    <div class="container content">
+                        <div class="row justify-content-center">
+                            <div class="col center">
+                                <div
+                                    class="card text-center"
+                                    data-aos="zoom-in-up"
+                                    data-aos-duration="1400"
+                                    data-aos-delay="800"
+                                >
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            You Call the Shots.
+                                        </h5>
+                                        <h6
+                                            class="card-subtitle mb-2 text-muted"
+                                        >
+                                            <hr />
+                                        </h6>
+                                        <p class="card-text">
+                                            Once your project starts, we will
+                                            give you a link to watch your site
+                                            <span
+                                                style="
+                                                    font-weight: bold;
+                                                    font-style: italic;
+                                                "
+                                                >as it is being developed!</span
+                                            >
+                                        </p>
+                                        <p class="card-text">
+                                            This means that you can request
+                                            <span class="emph-text"> any</span>
+                                            changes you see fit, and we will
+                                            update your site on-the-fly.
+                                        </p>
+                                        <p class="card-text">
+                                            Try changing the settings below to
+                                            see how easily we can make big
+                                            changes!
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="row mt-2">
-                            <div class="col-md-3 justify-content-center">
-                                <div class="card mb-2">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <h6
-                                            class="card-subtitle mb-2 text-muted"
-                                        >
-                                            Card subtitle
-                                        </h6>
-                                        <p class="card-text">
-                                            Some quick example text to build on
-                                            the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
-                                    </div>
+
+                        <div
+                            class="container control-panel mt-4"
+                            data-tilt
+                            data-tilt-max="4"
+                        >
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <h4>
+                                        <i class="fa-solid fa-paintbrush"></i>
+                                        Customize
+                                    </h4>
                                 </div>
                             </div>
-                            <div class="col-md-3 justify-content-center">
-                                <div class="card mb-2">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <h6
-                                            class="card-subtitle mb-2 text-muted"
-                                        >
-                                            Card subtitle
-                                        </h6>
-                                        <p class="card-text">
-                                            Some quick example text to build on
-                                            the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
+                            <div class="row mt-2">
+                                <div class="col-md-3 justify-content-center">
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Card title
+                                            </h5>
+                                            <h6
+                                                class="card-subtitle mb-2 text-muted"
+                                            >
+                                                Card subtitle
+                                            </h6>
+                                            <p class="card-text">
+                                                Some quick example text to build
+                                                on the card title and make up
+                                                the bulk of the card's content.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3 justify-content-center">
-                                <div class="card mb-2">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <h6
-                                            class="card-subtitle mb-2 text-muted"
-                                        >
-                                            Card subtitle
-                                        </h6>
-                                        <p class="card-text">
-                                            Some quick example text to build on
-                                            the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
+                                <div class="col-md-3 justify-content-center">
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Card title
+                                            </h5>
+                                            <h6
+                                                class="card-subtitle mb-2 text-muted"
+                                            >
+                                                Card subtitle
+                                            </h6>
+                                            <p class="card-text">
+                                                Some quick example text to build
+                                                on the card title and make up
+                                                the bulk of the card's content.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3 justify-content-center">
-                                <div class="card mb-2">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <h6
-                                            class="card-subtitle mb-2 text-muted"
-                                        >
-                                            Card subtitle
-                                        </h6>
-                                        <p class="card-text">
-                                            Some quick example text to build on
-                                            the card title and make up the bulk
-                                            of the card's content.
-                                        </p>
+                                <div class="col-md-3 justify-content-center">
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Card title
+                                            </h5>
+                                            <h6
+                                                class="card-subtitle mb-2 text-muted"
+                                            >
+                                                Card subtitle
+                                            </h6>
+                                            <p class="card-text">
+                                                Some quick example text to build
+                                                on the card title and make up
+                                                the bulk of the card's content.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 justify-content-center">
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Card title
+                                            </h5>
+                                            <h6
+                                                class="card-subtitle mb-2 text-muted"
+                                            >
+                                                Card subtitle
+                                            </h6>
+                                            <p class="card-text">
+                                                Some quick example text to build
+                                                on the card title and make up
+                                                the bulk of the card's content.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- paralax over -->
             </div>
+            <!-- wrapper over -->
         </section>
 
         <!-- Demos -->
@@ -427,6 +456,70 @@
                                     title and make up the bulk of the card's
                                     content.
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="launch">
+            <div class="container text-center">
+                <div class="row title-row">
+                    <div class="col">
+                        <h2 class="title">Hello, World!</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <br />
+                                <h3 class="card-title">
+                                    When your site is ready, we will make it
+                                    official!
+                                </h3>
+
+                                <br />
+                                <div class="card">
+                                    <p style="font-weight: 500">
+                                        Don't worry - we won't leave you behind
+                                    </p>
+                                    <p>
+                                        We can maintain your site with all the
+                                        services you need:
+                                    </p>
+                                    <hr
+                                        style="width: 33%; align-self: center"
+                                    />
+                                    <ul>
+                                        <li>
+                                            🔎 Robust Search Engine Optimization
+                                            (SEO)
+                                        </li>
+                                        <li>🔐 Daily security checks</li>
+                                        <li>
+                                            🕐 Great hosting with caching, CDN,
+                                            and more
+                                        </li>
+                                        <li>
+                                            ❣️ Adding / changing domain names
+                                        </li>
+                                        <li>
+                                            👨🏼‍💻 Dedicated development team, ready
+                                            to assist in any way possible!
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- button container - full width -->
+                            <div class="container-fluid text-center">
+                                <button
+                                    class="btn cta-button btn-success btn-lg"
+                                >
+                                    Get Started
+                                    <i class="fa-solid fa-rocket"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
