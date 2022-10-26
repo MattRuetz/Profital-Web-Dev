@@ -334,9 +334,14 @@ button:hover .fa-solid {
 
 /* Launch (Hello World) section */
 #launch {
-    background: url(/src/img/daniel-olah-HNkgPFBShSw-unsplash.jpg);
-    background-position: center;
+    background: url(/src/img/earth-from-space.jpg);
+    background-position-y: -200px;
+    background-size: cover;
+    box-shadow: 0 -10px 80px 20px rgba(161, 230, 218, 0.9);
+    border-radius: 100%;
+    transform: scale(0.5);
     z-index: 2;
+    height: 200vh;
 }
 #launch .title {
     font-size: 4rem;
@@ -390,12 +395,13 @@ img-comparison-slider img {
     z-index: 1;
 }
 
+#demos .card {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
 .demo-cards {
     padding: 5% 0;
 }
-.demo-cards .card {
-}
-
 /* 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -607,6 +613,19 @@ img-comparison-slider img {
     }
     #demos .client-logo-badge img {
         width: 100%;
+    }
+    #demos #bracket-left {
+        color: var(--on-background-alt);
+        font-size: 25vh;
+        font-weight: 100;
+        transform: scale(80%, 0%);
+
+        transition: all 0.3s ease;
+    }
+
+    #demos #bracket-left.show {
+        transform: scale(80%, 200%);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 }
 

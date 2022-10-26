@@ -48,11 +48,36 @@ gsap.from('.demo-cards .card', {
     duration: 2,
     stagger: 0.8,
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         start: '-200px center',
-        end: '+=20px',
+        end: '+=100px',
         trigger: '.demo-cards .card',
+        onEnter: () =>
+            document.getElementById('bracket-left').classList.add('show'),
+        onLeaveBack: () =>
+            document.getElementById('bracket-left').classList.remove('show'),
         scrub: 5,
+    },
+});
+
+// LAUNCH section float up
+gsap.to('#launch', {
+    borderRadius: 0,
+    backgroundSize: 'auto',
+    height: '100vh',
+    scale: 1,
+    ease: 'SlowMo',
+    duration: 1,
+    scrollTrigger: {
+        markers: true,
+        start: 'top 60%',
+        end: '+=20px',
+        trigger: '#launch',
+        onEnter: () =>
+            document.getElementById('bracket-left').classList.add('show'),
+        onLeaveBack: () =>
+            document.getElementById('bracket-left').classList.remove('show'),
+        scrub: 3,
     },
 });
 
@@ -63,7 +88,7 @@ $(function () {
     var controller = new ScrollMagic.Controller({
         globalSceneOptions: {
             triggerHook: 'onLeave',
-            duration: '100%', // this works just fine with duration 0 as well
+            duration: '200%', // this works just fine with duration 0 as well
             // However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
             // Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
         },

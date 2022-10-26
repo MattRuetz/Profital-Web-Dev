@@ -1,4 +1,3 @@
-import './scripts/scroll-timeline.js';
 import './scripts/animation.js';
 // import initScrollReveal from './scripts/scrollReveal.js';
 import initTiltEffect from './scripts/tiltAnimation.js';
