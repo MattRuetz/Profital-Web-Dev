@@ -14,6 +14,12 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         />
 
+        <!-- image sliders css -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/img-comparison-slider@7/dist/styles.css"
+        />
+
         <!-- Bootstrap + Popper -->
         <link
             rel="stylesheet"
@@ -26,22 +32,26 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"
         ></script>
-
-        <!-- Scroll Reveal (MAY NOT NEED)-->
+        <!-- Scroll magic (works with GSAP) -->
         <script
-            defer
-            src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
+            src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
+            integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
         ></script>
-
         <!-- scripts for particle image transition -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
         <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js"></script>
         <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/OrbitControls-2.js"></script>
-        <!--  -->
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>Profital Web Development</title>
     </head>
     <body>
+        <video autoplay muted loop id="myVideo">
+            <source src="/src/video/graphic2.mp4" type="video/mp4" />
+        </video>
         <!-- Hero section (Frame 1) -->
         <section id="hero">
             <div class="container-fluid">
@@ -128,57 +138,101 @@
                     ></div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container mt-5">
                 <p>
                     At Profital, our development team works directly with you to
                     design the perfect website for your needs.
                 </p>
-
-                <div class="row">
-                    <div class="col-md-4 justify-content-center">
-                        <div class="card mb-2">
+                <!-- CONTROLLER FOR COLLAPSE BOX 1 -->
+                <div
+                    id="collapse-ctrl-1"
+                    class="hidden"
+                    data-bs-toggle="collapse"
+                    aria-expanded="false"
+                    href="#collapse_1"
+                    role="button"
+                    aria-controls="collapse_1"
+                ></div>
+                <div class="row mt-5 justify-content-center">
+                    <div
+                        id="design-col-1"
+                        class="mb-5 design-card-col col-lg-7 col-md-9 col-sm-12 justify-content-center"
+                    >
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
+                                <h6 class="card-subtitle text-muted">
                                     Card subtitle
                                 </h6>
-                                <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
-                                </p>
+                                <div id="collapse_1" class="collapse">
+                                    <p class="card-text">
+                                        Some quick example text to build on the
+                                        card title and make up the bulk of the
+                                        card's content.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="card-badge">1</div>
                     </div>
-                    <div class="col-md-4 justify-content-center">
-                        <div class="card mb-2">
+                    <!-- CONTROLLER FOR COLLAPSE BOX 2 -->
+                    <div
+                        id="collapse-ctrl-2"
+                        class="hidden"
+                        data-bs-toggle="collapse"
+                        aria-expanded="false"
+                        href="#collapse_2"
+                        role="button"
+                        aria-controls="collapse_2"
+                    ></div>
+                    <div
+                        id="design-col-2"
+                        class="mb-5 design-card-col col-lg-7 col-md-9 col-sm-12 justify-content-center"
+                    >
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
+                                <h6 class="card-subtitle text-muted">
                                     Card subtitle
                                 </h6>
-                                <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
-                                </p>
+                                <div id="collapse_2" class="collapse">
+                                    <p class="card-text">
+                                        Some quick example text to build on the
+                                        card title and make up the bulk of the
+                                        card's content.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="card-badge">2</div>
                     </div>
-                    <div class="col-md-4 justify-content-center">
-                        <div class="card mb-2">
+                    <!-- CONTROLLER FOR COLLAPSE BOX 3 -->
+                    <div
+                        id="collapse-ctrl-3"
+                        class="hidden"
+                        data-bs-toggle="collapse"
+                        aria-expanded="false"
+                        href="#collapse_3"
+                        role="button"
+                        aria-controls="collapse_3"
+                    ></div>
+                    <div
+                        id="design-col-3"
+                        class="mb-5 design-card-col col-lg-7 col-md-9 col-sm-12 justify-content-center"
+                    >
+                        <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
+                                <h6 class="card-subtitle text-muted">
                                     Card subtitle
                                 </h6>
-                                <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
-                                </p>
+                                <div id="collapse_3" class="collapse">
+                                    <p class="card-text">
+                                        Some quick example text to build on the
+                                        card title and make up the bulk of the
+                                        card's content.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="card-badge">3</div>
@@ -189,13 +243,13 @@
 
         <!-- Development section (Frame 2) -->
 
-        <section id="development">
+        <section class="panel" id="development">
             <!-- <div class="custom-shape-divider-top-1666293396"> -->
 
             <div id="parallax">
                 <div class="wrapper overlay dark">
-                    <div class="custom-shape-divider-top-1666295937">
-                        <svg
+                    <!-- <div class="custom-shape-divider-top-1666295937"> -->
+                    <!-- <svg
                             data-name="Layer 1"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 1200 120"
@@ -205,9 +259,10 @@
                                 d="M1200 0L0 0 892.25 114.72 1200 0z"
                                 class="shape-fill"
                             ></path>
-                        </svg>
-                    </div>
+                        </svg> 
+                    </div> -->
                     <!-- <div class="thru-line"></div> -->
+                    <br />
                     <div class="container-fluid">
                         <div class="row dev-line">
                             <div
@@ -371,99 +426,232 @@
             </div>
             <!-- wrapper over -->
         </section>
-
-        <!-- Demos -->
-        <section id="demos">
-            <div class="container"></div>
+        <!-- DEMOS section -->
+        <section class="panel" id="demos">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12">
                         <div class="title-container">
-                            <h2 class="title">From the Ground Up.</h2>
+                            <h2 id="demo-section-title" class="title">
+                                <span>From </span><span>the </span
+                                ><span>Ground </span><span>Up.</span>
+                            </h2>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12">
-                        <div class="card mb-2">
+                    <div class="col">
+                        <div class="card">
+                            <a
+                                class="client-logo-badge"
+                                href="http://sids-ponds.com/"
+                                target="_blank"
+                            >
+                                <img
+                                    src="https://sids-ponds.com/wp-content/uploads/2022/05/sids-logo-300x239.png"
+                                    alt="sids-ponds-logo"
+                                />
+                            </a>
+                            <img-comparison-slider hover>
+                                <img
+                                    slot="first"
+                                    src="img/daniel-olah-HNkgPFBShSw-unsplash.jpg"
+                                />
+                                <img
+                                    slot="second"
+                                    src="img/profital_Logo_SVG.svg"
+                                />
+                            </img-comparison-slider>
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
-                                    Card subtitle
-                                </h6>
+                                <h5 class="card-title">
+                                    Sid's Ponds and Gardenscapes
+                                </h5>
                                 <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
+                                    Sid's Ponds is a gardenscape and pond supply
+                                    store located in
+                                    <a
+                                        href="http://sids-ponds.com"
+                                        target="_blank"
+                                        >Mississauga, Ontario</a
+                                    >.<br />
+                                    They asked us to update their site to make
+                                    it more engaging, and add e-commerce so
+                                    customers can browse their products from
+                                    anywhere in the world.
                                 </p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted"
+                                    >Visit:
+                                    <a
+                                        href="http://sids-ponds.com"
+                                        target="_blank"
+                                        >www.sids-ponds.com</a
+                                    ></small
+                                >
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12">
-                        <div class="card mb-2">
+                    <div class="col">
+                        <div class="card">
+                            <a
+                                class="client-logo-badge"
+                                href="http://sids-ponds.com/"
+                                target="_blank"
+                            >
+                                <img
+                                    src="https://sids-ponds.com/wp-content/uploads/2022/05/sids-logo-300x239.png"
+                                    alt="sids-ponds-logo"
+                                />
+                            </a>
+                            <img-comparison-slider hover>
+                                <img
+                                    slot="first"
+                                    src="img/daniel-olah-HNkgPFBShSw-unsplash.jpg"
+                                />
+                                <img
+                                    slot="second"
+                                    src="img/profital_Logo_SVG.svg"
+                                />
+                            </img-comparison-slider>
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
-                                    Card subtitle
-                                </h6>
+                                <h5 class="card-title">
+                                    Sid's Ponds and Gardenscapes
+                                </h5>
                                 <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
+                                    Sid's Ponds is a gardenscape and pond supply
+                                    store located in
+                                    <a
+                                        href="http://sids-ponds.com"
+                                        target="_blank"
+                                        >Mississauga, Ontario</a
+                                    >.<br />
+                                    They asked us to update their site to make
+                                    it more engaging, and add e-commerce so
+                                    customers can browse their products from
+                                    anywhere in the world.
                                 </p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted"
+                                    >Visit:
+                                    <a
+                                        href="http://sids-ponds.com"
+                                        target="_blank"
+                                        >www.sids-ponds.com</a
+                                    ></small
+                                >
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12">
-                        <div class="card mb-2">
+                    <div class="col">
+                        <div class="card">
+                            <a
+                                class="client-logo-badge"
+                                href="http://sids-ponds.com/"
+                                target="_blank"
+                            >
+                                <img
+                                    src="https://sids-ponds.com/wp-content/uploads/2022/05/sids-logo-300x239.png"
+                                    alt="sids-ponds-logo"
+                                />
+                            </a>
+                            <img-comparison-slider hover>
+                                <img
+                                    slot="first"
+                                    src="img/daniel-olah-HNkgPFBShSw-unsplash.jpg"
+                                />
+                                <img
+                                    slot="second"
+                                    src="img/profital_Logo_SVG.svg"
+                                />
+                            </img-comparison-slider>
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
-                                    Card subtitle
-                                </h6>
+                                <h5 class="card-title">
+                                    Sid's Ponds and Gardenscapes
+                                </h5>
                                 <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
+                                    Sid's Ponds is a gardenscape and pond supply
+                                    store located in
+                                    <a
+                                        href="http://sids-ponds.com"
+                                        target="_blank"
+                                        >Mississauga, Ontario</a
+                                    >.<br />
+                                    They asked us to update their site to make
+                                    it more engaging, and add e-commerce so
+                                    customers can browse their products from
+                                    anywhere in the world.
                                 </p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted"
+                                    >Visit:
+                                    <a
+                                        href="http://sids-ponds.com"
+                                        target="_blank"
+                                        >www.sids-ponds.com</a
+                                    ></small
+                                >
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="col-xl-2 col-lg-3 col-md-4 col-sm-12 offset-xl-0 offset-lg-3"
-                    >
-                        <div class="card mb-2">
+                    <div class="col">
+                        <div class="card">
+                            <a
+                                class="client-logo-badge"
+                                href="http://sids-ponds.com/"
+                                target="_blank"
+                            >
+                                <img
+                                    src="https://sids-ponds.com/wp-content/uploads/2022/05/sids-logo-300x239.png"
+                                    alt="sids-ponds-logo"
+                                />
+                            </a>
+                            <img-comparison-slider hover>
+                                <img
+                                    slot="first"
+                                    src="img/daniel-olah-HNkgPFBShSw-unsplash.jpg"
+                                />
+                                <img
+                                    slot="second"
+                                    src="img/profital_Logo_SVG.svg"
+                                />
+                            </img-comparison-slider>
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
-                                    Card subtitle
-                                </h6>
+                                <h5 class="card-title">
+                                    Sid's Ponds and Gardenscapes
+                                </h5>
                                 <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
+                                    Sid's Ponds is a gardenscape and pond supply
+                                    store located in
+                                    <a
+                                        href="http://sids-ponds.com"
+                                        target="_blank"
+                                        >Mississauga, Ontario</a
+                                    >.<br />
+                                    They asked us to update their site to make
+                                    it more engaging, and add e-commerce so
+                                    customers can browse their products from
+                                    anywhere in the world.
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12">
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
-                                    Card subtitle
-                                </h6>
-                                <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
-                                </p>
+                            <div class="card-footer">
+                                <small class="text-muted"
+                                    >Visit:
+                                    <a
+                                        href="http://sids-ponds.com"
+                                        target="_blank"
+                                        >www.sids-ponds.com</a
+                                    ></small
+                                >
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="launch">
+        <!--  -->
+        <!-- LAUNCH section -->
+        <section class="panel" id="launch">
             <div class="container text-center">
                 <div class="row title-row">
                     <div class="col">
@@ -529,5 +717,9 @@
 
         <!-- Script -->
         <script type="module" src="./index.js"></script>
+        <script
+            defer
+            src="https://unpkg.com/img-comparison-slider@7/dist/index.js"
+        ></script>
     </body>
 </html>
