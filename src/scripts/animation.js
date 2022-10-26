@@ -20,6 +20,42 @@ gsap.to('.thru-line', {
     },
 });
 
+// animate slide-in words for demo section wipe-up
+let word_index = 0;
+let word_count = document.getElementById('demo-section-title').children.length;
+for (const word of document.getElementById('demo-section-title').children) {
+    word_index++;
+    gsap.from('#' + word.id, {
+        opacity: 0,
+        scale: 3,
+        x: 1800,
+        ease: 'expo',
+        scrollTrigger: {
+            // markers: true,
+            start: 'top 80%',
+            end: 'top 30%',
+            trigger: '#' + word.id,
+            scrub: 5,
+            // onLeave: word_index == word_count ? showCards : null, //CALLBACK ON FINISH
+        },
+    });
+}
+
+gsap.from('.demo-cards .card', {
+    opacity: 0,
+    y: 400,
+    ease: 'expo',
+    duration: 2,
+    stagger: 0.8,
+    scrollTrigger: {
+        markers: true,
+        start: '-200px center',
+        end: '+=20px',
+        trigger: '.demo-cards .card',
+        scrub: 5,
+    },
+});
+
 // Section Wipe script
 $(function () {
     // wait for document ready

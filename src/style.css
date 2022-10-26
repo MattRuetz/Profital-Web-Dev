@@ -60,7 +60,15 @@ body {
     margin: 0;
     font-family: var(--body-font);
     background-color: var(--background) !important;
-    overflow-x: hidden;
+}
+
+section {
+    width: 100% !important;
+    overflow: hidden;
+}
+
+section.panel {
+    height: 100vh;
 }
 
 h1,
@@ -110,7 +118,6 @@ button:hover .fa-solid {
 }
 
 #hero {
-    width: 100vw;
     overflow: hidden;
 }
 
@@ -159,7 +166,7 @@ button:hover .fa-solid {
 
 #design {
     padding-top: 110px;
-    width: 100%;
+    width: vw;
     /* z-index: 3; */
     /* background-color: rgba(0, 0, 0, 0.5); */
     background-image: linear-gradient(
@@ -222,7 +229,7 @@ button:hover .fa-solid {
         rgba(0, 0, 0, 0.5) 20%,
         var(--primary-low-opacity) 100%
     );
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
     animation: shift 6s ease 0s infinite alternate;
 }
@@ -329,7 +336,7 @@ button:hover .fa-solid {
 #launch {
     background: url(/src/img/daniel-olah-HNkgPFBShSw-unsplash.jpg);
     background-position: center;
-    height: 100vh;
+    z-index: 2;
 }
 #launch .title {
     font-size: 4rem;
@@ -381,6 +388,12 @@ img-comparison-slider img {
 
 .client-logo-badge {
     z-index: 1;
+}
+
+.demo-cards {
+    padding: 5% 0;
+}
+.demo-cards .card {
 }
 
 /* 
@@ -496,7 +509,7 @@ img-comparison-slider img {
 
     /* Design */
     #design {
-        height: 100vh;
+        min-height: 80vh;
     }
 
     #design p {
@@ -516,13 +529,13 @@ img-comparison-slider img {
         font-weight: 100;
         line-height: 0.9em;
     }
+
     #development .wrapper {
         padding-bottom: 10%;
     }
     #development #parallax {
         height: 110vh;
         /* padding-bottom: 10%; */
-        width: 100%;
         background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
     }
 
@@ -552,9 +565,6 @@ img-comparison-slider img {
     }
 
     /* Demos section */
-    #demos {
-        height: 120vh;
-    }
 
     #demos .title-container {
         margin: auto;
