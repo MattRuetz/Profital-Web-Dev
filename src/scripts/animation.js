@@ -1,5 +1,5 @@
 // Import and register GSAP (UMD/CommonJS)
-import { gsap } from 'gsap';
+import { Expo, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,8 +17,59 @@ gsap.to('.thru-line', {
         end: '1300px top',
         trigger: '.thru-line',
         scrub: 3,
+        onLeave: showDesignLine,
+        onEnterBack: hideDesignLine,
     },
 });
+
+/**
+ * Sets elements starting positions to prep GSAP to anim. them in.
+ * Doing it this way so CSS represents static-state site (no js, etc...)
+ */
+function initializeScrollTrigElements() {
+    // set design bar to be hidden @ start
+    gsap.to('#design-line', {
+        startAt: { x: -100, opacity: 0 },
+    });
+    gsap.to('#design-dot', {
+        startAt: { scale: 2, rotateY: '180deg', opacity: 0 },
+    });
+}
+
+function showDesignLine() {
+    gsap.to('#design-line', {
+        x: 0,
+        opacity: 1,
+        ease: Expo,
+        duration: 1.2,
+        delay: 0.5,
+        onComplete: () => {
+            // Dot-flip animation when done
+            gsap.to('#design-dot', {
+                rotateY: '0deg',
+                opacity: 1,
+                scale: 1,
+                ease: 'expo',
+                duration: 0.4,
+            });
+        },
+    });
+}
+
+function hideDesignLine() {
+    gsap.to('#design-line', {
+        x: -400,
+        opacity: 0,
+        onComplete: () => {
+            // Dot-flip animation REVERSE
+            gsap.to('#design-dot', {
+                scale: 2,
+                rotateY: '180deg',
+                opacity: 0,
+            });
+        },
+    });
+}
 
 // animate slide-in words for demo section wipe-up
 let word_index = 0;
@@ -69,7 +120,7 @@ gsap.to('#launch', {
     ease: 'SlowMo',
     duration: 1,
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         start: 'top 60%',
         end: '+=20px',
         trigger: '#launch',

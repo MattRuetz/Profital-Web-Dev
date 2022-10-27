@@ -2,9 +2,10 @@
     "name": "profital_webdev",
     "version": "1.0.0",
     "description": "",
-    "main": "script.js",
+    "source": "./src/index.html",
+    "browserslist": "> 0.5%, last 2 versions, not dead",
     "scripts": {
-        "start": "parcel ./src/index.html",
+        "start": "parcel",
         "build": "parcel build"
     },
     "author": "Matt Ruetz",

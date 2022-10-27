@@ -49,11 +49,14 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
     z-index: -3;
     overflow: hidden;
 }
-
+.dot {
+    padding-right: 25px !important;
+}
 /* --------------------------------------------------------------------------------------- */
 
 body {
@@ -68,7 +71,7 @@ section {
 }
 
 section.panel {
-    height: 100vh;
+    height: 120vh;
 }
 
 h1,
@@ -199,6 +202,16 @@ button:hover .fa-solid {
     flex-grow: 0;
 }
 
+.line h2 {
+    font-size: 2.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding-top: 20px;
+    padding-bottom: 13px;
+    line-height: 0;
+}
+
 .design-line-container h2 {
     color: var(--background);
 }
@@ -271,6 +284,7 @@ button:hover .fa-solid {
 
 .dev-line .line {
     overflow-x: hidden;
+    color: var(--background);
     background-color: var(--primary-color);
     border-radius: 50px 0 0 50px;
 }
@@ -279,13 +293,6 @@ button:hover .fa-solid {
     background-color: var(--primary-color);
     border-radius: 50px;
     flex-grow: 0;
-}
-
-.dev-line h2 {
-    color: var(--background);
-
-    font-size: xx-large;
-    font-weight: 100;
 }
 
 #development .container.content .card {
@@ -527,13 +534,10 @@ img-comparison-slider img {
     }
     .design-line-container .dot {
         margin-left: 20px;
-        padding-right: 20px;
     }
     .design-line-container h2 {
         padding-left: 7%;
         font-size: xx-large;
-        font-weight: 100;
-        line-height: 0.9em;
     }
 
     #development .wrapper {
@@ -563,11 +567,9 @@ img-comparison-slider img {
     }
     .dev-line .dot {
         margin-left: 5%;
-        padding-right: 20px;
     }
     .dev-line h2 {
         padding-left: 7%;
-        line-height: 0.9em;
     }
 
     /* Demos section */
