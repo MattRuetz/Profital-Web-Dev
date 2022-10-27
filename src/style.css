@@ -170,8 +170,6 @@ button:hover .fa-solid {
 #design {
     padding-top: 110px;
     width: vw;
-    /* z-index: 3; */
-    /* background-color: rgba(0, 0, 0, 0.5); */
     background-image: linear-gradient(
         180deg,
         var(--background) 10%,

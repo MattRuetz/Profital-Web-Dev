@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 // SCROLL TRIGGERS
+initializeScrollTrigElements;
 
 // Thru line vertical down
 // PROBABLY ONLY COVERS DESKTOP
@@ -29,7 +30,7 @@ gsap.to('.thru-line', {
 function initializeScrollTrigElements() {
     // set design bar to be hidden @ start
     gsap.to('#design-line', {
-        startAt: { x: -100, opacity: 0 },
+        startAt: { scaleX: 0, opacity: 1 },
     });
     gsap.to('#design-dot', {
         startAt: { scale: 2, rotateY: '180deg', opacity: 0 },
@@ -38,8 +39,9 @@ function initializeScrollTrigElements() {
 
 function showDesignLine() {
     gsap.to('#design-line', {
-        x: 0,
+        scaleX: 1,
         opacity: 1,
+        transformOrigin: 'left',
         ease: Expo,
         duration: 1.2,
         delay: 0.5,
@@ -50,7 +52,7 @@ function showDesignLine() {
                 opacity: 1,
                 scale: 1,
                 ease: 'expo',
-                duration: 0.4,
+                duration: 0.2,
             });
         },
     });
@@ -58,8 +60,8 @@ function showDesignLine() {
 
 function hideDesignLine() {
     gsap.to('#design-line', {
-        x: -400,
-        opacity: 0,
+        scaleX: 0,
+        opacity: 1,
         onComplete: () => {
             // Dot-flip animation REVERSE
             gsap.to('#design-dot', {
