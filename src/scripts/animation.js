@@ -3,9 +3,6 @@ import { Expo, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-// SCROLL TRIGGERS
-initializeScrollTrigElements;
-
 // Thru line vertical down
 // PROBABLY ONLY COVERS DESKTOP
 gsap.to('.thru-line', {
@@ -27,15 +24,17 @@ gsap.to('.thru-line', {
  * Sets elements starting positions to prep GSAP to anim. them in.
  * Doing it this way so CSS represents static-state site (no js, etc...)
  */
-function initializeScrollTrigElements() {
-    // set design bar to be hidden @ start
-    gsap.to('#design-line', {
-        startAt: { scaleX: 0, opacity: 1 },
-    });
-    gsap.to('#design-dot', {
-        startAt: { scale: 2, rotateY: '180deg', opacity: 0 },
-    });
-}
+// ------------------------------------------------------
+gsap.set('#design-line', {
+    scaleX: 0,
+    opacity: 1,
+});
+gsap.set('#design-dot', {
+    scale: 2,
+    rotateY: '180deg',
+    opacity: 0,
+});
+// ------------------------------------------------------
 
 function showDesignLine() {
     gsap.to('#design-line', {
@@ -105,10 +104,6 @@ gsap.from('.demo-cards .card', {
         start: '-200px center',
         end: '+=100px',
         trigger: '.demo-cards .card',
-        onEnter: () =>
-            document.getElementById('bracket-left').classList.add('show'),
-        onLeaveBack: () =>
-            document.getElementById('bracket-left').classList.remove('show'),
         scrub: 5,
     },
 });
@@ -116,8 +111,7 @@ gsap.from('.demo-cards .card', {
 // LAUNCH section float up
 gsap.to('#launch', {
     borderRadius: 0,
-    backgroundSize: 'auto',
-    height: '100vh',
+    translateY: 0,
     scale: 1,
     ease: 'SlowMo',
     duration: 1,
@@ -126,10 +120,6 @@ gsap.to('#launch', {
         start: 'top 60%',
         end: '+=20px',
         trigger: '#launch',
-        onEnter: () =>
-            document.getElementById('bracket-left').classList.add('show'),
-        onLeaveBack: () =>
-            document.getElementById('bracket-left').classList.remove('show'),
         scrub: 3,
     },
 });
@@ -141,7 +131,7 @@ $(function () {
     var controller = new ScrollMagic.Controller({
         globalSceneOptions: {
             triggerHook: 'onLeave',
-            duration: '200%', // this works just fine with duration 0 as well
+            duration: '140%', // this works just fine with duration 0 as well
             // However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
             // Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
         },
