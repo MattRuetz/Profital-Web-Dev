@@ -28,6 +28,8 @@ AOS.init({
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 });
 
+const design_section = document.getElementById('design');
+
 // text fly-in for demo section
 
 // Set design cards to expand on hover w/ class replacement
@@ -35,6 +37,7 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
     item.addEventListener('mouseover', () => {
         // expand the box horizontally
         item.classList.replace('col-lg-7', 'col-lg-11');
+
         setTimeout(() => {
             if (
                 document
@@ -63,15 +66,14 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
                             .classList.replace('col-lg-11', 'col-lg-7');
                     }
                 });
-
                 setDesignBG();
             }
         }, 500);
     });
 });
-
+let mySrc = document.getElementById('vid-src');
+let myVideo = document.getElementById('myVideo');
 // change bg of design section based on the lowest open card
-const design_section = document.getElementById('design');
 
 function setDesignBG() {
     if (
@@ -79,21 +81,37 @@ function setDesignBG() {
             .getElementById('collapse-ctrl-3')
             .getAttribute('aria-expanded') === 'true'
     ) {
-        design_section.classList.add('bg-3');
+        mySrc.setAttribute('src', '/graphic1.228844a4.mp4');
     } else if (
         document
             .getElementById('collapse-ctrl-2')
             .getAttribute('aria-expanded') === 'true'
     ) {
-        design_section.classList.add('bg-2');
+        mySrc.setAttribute('src', '/graphic2.a90d02ad.mp4');
     } else if (
         document
             .getElementById('collapse-ctrl-1')
             .getAttribute('aria-expanded') === 'true'
     ) {
-        design_section.classList.add('bg-1');
+        mySrc.setAttribute('src', '/graphic3.715b61ff.mp4');
     }
+
+    loadNewVid();
+    // myVideo.load();
 }
+
+const video_wrapper = document.getElementById('video-wrapper');
+function loadNewVid() {
+    myVideo.classList.add('blink-overlay');
+    setTimeout(() => {
+        myVideo.load();
+    }, 400);
+    setTimeout(() => {
+        myVideo.classList.remove('blink-overlay');
+        // design_section.classList
+    }, 400);
+}
+
 // initScrollReveal(targetElements, defaultProps);
 initTiltEffect((res) => {
     console.log(res);

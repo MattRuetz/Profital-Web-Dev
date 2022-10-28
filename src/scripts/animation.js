@@ -42,8 +42,8 @@ function showDesignLine() {
         opacity: 1,
         transformOrigin: 'left',
         ease: Expo,
-        duration: 1.2,
-        delay: 0.5,
+        duration: 0.7,
+        delay: 0.3,
         onComplete: () => {
             // Dot-flip animation when done
             gsap.to('#design-dot', {
@@ -61,6 +61,7 @@ function hideDesignLine() {
     gsap.to('#design-line', {
         scaleX: 0,
         opacity: 1,
+        duration: 0.3,
         onComplete: () => {
             // Dot-flip animation REVERSE
             gsap.to('#design-dot', {
