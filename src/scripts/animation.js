@@ -2,24 +2,7 @@
 import { Expo, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-
-// Thru line vertical down
-// PROBABLY ONLY COVERS DESKTOP
-gsap.to('.thru-line', {
-    scale: 1,
-    y: 935,
-    ease: 'expo',
-    scrollTrigger: {
-        markers: true,
-        start: 'bottom top',
-        end: '1300px top',
-        trigger: '.thru-line',
-        scrub: 3,
-        onLeave: showDesignLine,
-        onEnterBack: hideDesignLine,
-    },
-});
-
+import { Collapse } from 'bootstrap';
 /**
  * Sets elements starting positions to prep GSAP to anim. them in.
  * Doing it this way so CSS represents static-state site (no js, etc...)
@@ -34,44 +17,171 @@ gsap.set('#design-dot', {
     rotateY: '180deg',
     opacity: 0,
 });
+gsap.to('#design-line h2', {
+    opacity: 0,
+});
+gsap.set('#dev-line', {
+    scaleX: 0,
+    opacity: 1,
+});
+gsap.set('#dev-dot', {
+    scale: 2,
+    rotateY: '180deg',
+    opacity: 0,
+});
 // ------------------------------------------------------
 
-function showDesignLine() {
-    gsap.to('#design-line', {
-        scaleX: 1,
-        opacity: 1,
-        transformOrigin: 'left',
-        ease: Expo,
-        duration: 0.7,
-        delay: 0.3,
-        onComplete: () => {
-            // Dot-flip animation when done
-            gsap.to('#design-dot', {
-                rotateY: '0deg',
-                opacity: 1,
-                scale: 1,
-                ease: 'expo',
-                duration: 0.2,
-            });
+let cardNum = 1;
+document.querySelectorAll('.demo').forEach((demo_card) => {
+    gsap.to('#' + demo_card.id, {
+        scrollTrigger: {
+            markers: true,
+            start: 'top 80%',
+            end: '+=40%',
+            reversed: true,
+            trigger: '#' + demo_card.id,
+            onEnter: () => {
+                toggleCard(demo_card.id[5], 'open');
+            },
+            onEnterBack: () => {
+                toggleCard(demo_card.id[5], 'open');
+            },
+            onLeave: () => {
+                toggleCard(demo_card.id[5], 'close');
+            },
+            onLeaveBack: () => {
+                toggleCard(demo_card.id[5], 'close');
+            },
         },
     });
+    cardNum++;
+});
+
+function toggleCard(cardNum, action) {
+    const ctrlEl = document.getElementById('collapse-ctrl-demo_' + cardNum);
+    //want to open, and not open? OPEN
+    if (
+        (action === 'open' &&
+            ctrlEl.getAttribute('aria-expanded') === 'false') ||
+        (action === 'close' && ctrlEl.getAttribute('aria-expanded') === 'true')
+    ) {
+        document.getElementById('collapse-ctrl-demo_' + cardNum).click();
+    }
 }
 
-function hideDesignLine() {
-    gsap.to('#design-line', {
-        scaleX: 0,
-        opacity: 1,
-        duration: 0.3,
-        onComplete: () => {
-            // Dot-flip animation REVERSE
+// Thru line vertical down
+// PROBABLY ONLY COVERS DESKTOP
+gsap.to('.thru-line', {
+    scale: 1,
+    y: '220vh',
+    ease: 'expo',
+    scrollTrigger: {
+        markers: true,
+        start: 'bottom top',
+        end: '250% top',
+        trigger: '.thru-line',
+        scrub: 2,
+        // onLeave: showDesignLine,
+        // onEnterBack: hideDesignLine,
+    },
+});
+gsap.to('.thru-line2', {
+    scale: 1,
+    y: '100px',
+    ease: 'expo',
+    scrollTrigger: {
+        markers: true,
+        start: 'bottom center',
+        end: '+=70px',
+        trigger: '.thru-line2',
+        scrub: 2,
+        // onLeave: showDesignLine,
+        // onEnterBack: hideDesignLine,
+    },
+});
+
+gsap.to('#design-line', {
+    scaleX: 1,
+    opacity: 1,
+    transformOrigin: 'left',
+    ease: 'ease-in-out',
+    scrollTrigger: {
+        markers: true,
+        start: 'top center',
+        end: '+=1px',
+        trigger: '#design-line',
+        toggleActions: 'play none play reverse',
+        onLeaveBack: () => {
             gsap.to('#design-dot', {
                 scale: 2,
                 rotateY: '180deg',
                 opacity: 0,
             });
+            gsap.to('#design-line h2', {
+                opacity: 0,
+                ease: 'ease',
+                duration: 0.3,
+            });
         },
-    });
-}
+        // onEnterBack: hideDesignLine,
+    },
+    onComplete: () => {
+        // Dot-flip animation when done
+        gsap.to('#design-dot', {
+            rotateY: '0deg',
+            opacity: 1,
+            scale: 1,
+            ease: 'expo',
+            duration: 0.2,
+        });
+        gsap.to('#design-line h2', {
+            opacity: 1,
+            ease: 'ease',
+            duration: 0.6,
+        });
+    },
+});
+
+gsap.to('#dev-line', {
+    scaleX: 1,
+    opacity: 1,
+    transformOrigin: 'left',
+    ease: 'ease-in-out',
+    scrollTrigger: {
+        markers: true,
+        start: 'top center',
+        end: '+=1px',
+        trigger: '#dev-line',
+        toggleActions: 'play none play reverse',
+        onLeaveBack: () => {
+            gsap.to('#dev-dot', {
+                scale: 2,
+                rotateY: '180deg',
+                opacity: 0,
+            });
+            gsap.to('#dev-line h2', {
+                opacity: 0,
+                ease: 'ease',
+                duration: 0.3,
+            });
+        },
+    },
+    onComplete: () => {
+        // Dot-flip animation when done
+        gsap.to('#dev-dot', {
+            rotateY: '0deg',
+            opacity: 1,
+            scale: 1,
+            ease: 'expo',
+            duration: 0.2,
+        });
+        gsap.to('#dev-line h2', {
+            opacity: 1,
+            ease: 'ease',
+            duration: 0.6,
+        });
+    },
+});
 
 // animate slide-in words for demo section wipe-up
 let word_index = 0;
@@ -139,8 +249,9 @@ $(function () {
     });
 
     // get all slides
-    var slides = document.querySelectorAll('section.panel');
-
+    if (window.innerWidth > 576) {
+        var slides = document.querySelectorAll('section.panel');
+    }
     // create scene for every slide
     for (var i = 0; i < slides.length; i++) {
         new ScrollMagic.Scene({
@@ -150,3 +261,5 @@ $(function () {
             .addTo(controller);
     }
 });
+
+window.onresize;

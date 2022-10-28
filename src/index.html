@@ -60,14 +60,12 @@
         </div>
         <!-- Hero section (Frame 1) -->
         <section id="hero">
-            <div class="container-fluid">
+            <div class="container-fluid d-inline-flex">
                 <div id="logo">
                     <img src="img/Logo_NoDMA.png" alt="profital logo" />
                 </div>
 
-                <div class="headline">
-                    Let's make your business <span id="change-phrase"></span>
-                </div>
+                <h1 class="headline">It's time to make your mark.</h1>
             </div>
             <div
                 class="image-container js-tilt"
@@ -83,37 +81,34 @@
                 />
             </div>
         </section>
-        <!-- 3D image transition - May implement later -->
-        <!-- <div id="three-container"></div>
-        <div id="instructions">click and drag to control the animation</div> -->
-        <!--  -->
+
         <!-- Intro section (Frame 1) -->
         <section id="intro">
             <div class="container-fluid">
                 <div class="row copy">
-                    <div
-                        class="col-md-7 col-12"
-                        data-aos="fade-right"
-                        data-aos-duration="1000"
-                        data-aos-easing="ease-in-out"
-                        data-aos-once="true"
-                    >
-                        <h1>It's time to make your mark.</h1>
+                    <div class="col-md-6 col-12">
+                        <h2 class="highlight">
+                            Boring websites are bad for business.
+                        </h2>
                         <p>
-                            Boring websites are bad for business. It's as simple
-                            as that. Your website is the first impression that
-                            new customers will have about your business. That's
-                            where we come in!
+                            Your website is the first impression that new
+                            customers will have about your business.
                         </p>
+                        <p>
+                            At Profital, we have an incredible creative
+                            development team with a passion for building
+                            websites that feel great, and work flawlessly!
+                        </p>
+                        <p>Don't settle for another boring website.</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-3 col-6">
+                <div class="row my-3">
+                    <div class="mb-3 col-md-3 col-sm-6 col-xs-12">
                         <button class="btn btn-primary btn-lg">
                             <i class="fa-solid fa-rocket"></i>Get Started
                         </button>
                     </div>
-                    <div class="col-md-3 col-6">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
                         <button class="btn btn-lg btn-outline-primary">
                             <i class="fa-solid fa-paintbrush"></i>Customize
                         </button>
@@ -127,7 +122,7 @@
             <div class="thru-line"></div>
             <div class="container-fluid">
                 <div class="row design-line-container">
-                    <div id="design-line" class="col-lg-8 col-10 line">
+                    <div id="design-line" class="col-8 line">
                         <h2>Design</h2>
                     </div>
                     <div id="design-dot" class="col dot offset-1"></div>
@@ -240,38 +235,19 @@
 
         <section class="panel" id="development">
             <div id="parallax">
+                <div class="thru-line2"></div>
                 <div class="wrapper overlay dark">
                     <!-- <div class="custom-shape-divider-top-1666295937"> -->
-                    <br />
-                    <div class="container-fluid">
-                        <div class="row dev-line">
-                            <div
-                                class="col dot"
-                                data-aos="flip-left"
-                                data-aos-duration="800"
-                                data-aos-delay="800"
-                                data-aos-offset="150"
-                                data-aos-easing="ease-in-out-quint"
-                            ></div>
-                            <div
-                                class="col line"
-                                data-aos="fade-left"
-                                data-aos-duration="1000"
-                                data-aos-easing="ease-in-out-quint"
-                            >
-                                <h2>Development</h2>
-                            </div>
+                    <div class="row dev-line-container">
+                        <div id="dev-line" class="col-8 line">
+                            <h2>Development</h2>
                         </div>
+                        <div id="dev-dot" class="col dot offset-1"></div>
                     </div>
                     <div class="container content">
                         <div class="row justify-content-center">
                             <div class="col center">
-                                <div
-                                    class="card text-center"
-                                    data-aos="zoom-in-up"
-                                    data-aos-duration="1400"
-                                    data-aos-delay="800"
-                                >
+                                <div class="card text-center">
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             You Call the Shots.
@@ -410,7 +386,7 @@
         <section class="panel" id="demos">
             <div class="container-fluid">
                 <div class="row demo-cards">
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-12">
                         <div class="title-container">
                             <h3 id="demo-section-title" class="title">
                                 <div id="word-1">From</div>
@@ -420,7 +396,7 @@
                             </h3>
                         </div>
                     </div>
-                    <div class="my-5 col-xl-9 col-lg-9 col-md-8 col-sm-12">
+                    <div class="my-5 col-xl-9 col-lg-9 col-md-8 col-12">
                         <div class="card info">
                             <div class="card-body align-content-center">
                                 <p class="card-text">
@@ -443,9 +419,18 @@
                         </div>
                     </div>
                     <div class="container-fluid mt-1">
-                        <div class="row flex-row offset-3">
-                            <div class="col col-3">
-                                <div class="card demo">
+                        <div class="row flex-row offset-md-3">
+                            <div class="mb-5 col-md-3 col-xs-12">
+                                <div id="demo-1" class="card demo">
+                                    <div
+                                        id="collapse-ctrl-demo_1"
+                                        class="collapse-ctrl-demo hidden"
+                                        data-bs-toggle="collapse"
+                                        aria-expanded="false"
+                                        href="#collapse_demo_1"
+                                        role="button"
+                                        aria-controls="collapse_demo_1"
+                                    ></div>
                                     <a
                                         class="client-logo-badge"
                                         href="http://sids-ponds.com/"
@@ -470,20 +455,25 @@
                                         <h5 class="card-title">
                                             Sid's Ponds and Gardenscapes
                                         </h5>
-                                        <p class="card-text">
-                                            Sid's Ponds is a gardenscape and
-                                            pond supply store located in
-                                            <a
-                                                href="http://sids-ponds.com"
-                                                target="_blank"
-                                                >Mississauga, Ontario</a
-                                            >.<br />
-                                            They asked us to update their site
-                                            to make it more engaging, and add
-                                            e-commerce so customers can browse
-                                            their products from anywhere in the
-                                            world.
-                                        </p>
+                                        <div
+                                            id="collapse_demo_1"
+                                            class="collapse"
+                                        >
+                                            <p class="card-text">
+                                                Sid's Ponds is a gardenscape and
+                                                pond supply store located in
+                                                <a
+                                                    href="http://sids-ponds.com"
+                                                    target="_blank"
+                                                    >Mississauga, Ontario</a
+                                                >.<br />
+                                                They asked us to update their
+                                                site to make it more engaging,
+                                                and add e-commerce so customers
+                                                can browse their products from
+                                                anywhere in the world.
+                                            </p>
+                                        </div>
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted"
@@ -497,8 +487,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-3">
-                                <div class="card demo">
+                            <div class="mb-5 col-md-3 col-xs-12">
+                                <div id="demo-2" class="card demo">
+                                    <div
+                                        id="collapse-ctrl-demo_2"
+                                        class="collapse-ctrl-demo hidden"
+                                        data-bs-toggle="collapse"
+                                        aria-expanded="false"
+                                        href="#collapse_demo_2"
+                                        role="button"
+                                        aria-controls="collapse_demo_2"
+                                    ></div>
                                     <a
                                         class="client-logo-badge"
                                         href="http://sids-ponds.com/"
@@ -523,20 +522,25 @@
                                         <h5 class="card-title">
                                             Sid's Ponds and Gardenscapes
                                         </h5>
-                                        <p class="card-text">
-                                            Sid's Ponds is a gardenscape and
-                                            pond supply store located in
-                                            <a
-                                                href="http://sids-ponds.com"
-                                                target="_blank"
-                                                >Mississauga, Ontario</a
-                                            >.<br />
-                                            They asked us to update their site
-                                            to make it more engaging, and add
-                                            e-commerce so customers can browse
-                                            their products from anywhere in the
-                                            world.
-                                        </p>
+                                        <div
+                                            id="collapse_demo_2"
+                                            class="collapse"
+                                        >
+                                            <p class="card-text">
+                                                Sid's Ponds is a gardenscape and
+                                                pond supply store located in
+                                                <a
+                                                    href="http://sids-ponds.com"
+                                                    target="_blank"
+                                                    >Mississauga, Ontario</a
+                                                >.<br />
+                                                They asked us to update their
+                                                site to make it more engaging,
+                                                and add e-commerce so customers
+                                                can browse their products from
+                                                anywhere in the world.
+                                            </p>
+                                        </div>
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted"
@@ -550,8 +554,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-3">
-                                <div class="card demo">
+                            <div class="mb-5 col-md-3 col-xs-12">
+                                <div id="demo-3" class="card demo">
+                                    <div
+                                        id="collapse-ctrl-demo_3"
+                                        class="collapse-ctrl-demo hidden"
+                                        data-bs-toggle="collapse"
+                                        aria-expanded="false"
+                                        href="#collapse_demo_3"
+                                        role="button"
+                                        aria-controls="collapse_demo_3"
+                                    ></div>
                                     <a
                                         class="client-logo-badge"
                                         href="http://sids-ponds.com/"
@@ -576,20 +589,25 @@
                                         <h5 class="card-title">
                                             Sid's Ponds and Gardenscapes
                                         </h5>
-                                        <p class="card-text">
-                                            Sid's Ponds is a gardenscape and
-                                            pond supply store located in
-                                            <a
-                                                href="http://sids-ponds.com"
-                                                target="_blank"
-                                                >Mississauga, Ontario</a
-                                            >.<br />
-                                            They asked us to update their site
-                                            to make it more engaging, and add
-                                            e-commerce so customers can browse
-                                            their products from anywhere in the
-                                            world.
-                                        </p>
+                                        <div
+                                            id="collapse_demo_3"
+                                            class="collapse"
+                                        >
+                                            <p class="card-text">
+                                                Sid's Ponds is a gardenscape and
+                                                pond supply store located in
+                                                <a
+                                                    href="http://sids-ponds.com"
+                                                    target="_blank"
+                                                    >Mississauga, Ontario</a
+                                                >.<br />
+                                                They asked us to update their
+                                                site to make it more engaging,
+                                                and add e-commerce so customers
+                                                can browse their products from
+                                                anywhere in the world.
+                                            </p>
+                                        </div>
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted"
@@ -603,8 +621,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-3">
-                                <div class="card demo">
+                            <div class="mb-5 col-md-3 col-sm-12">
+                                <div id="demo-4" class="card demo">
+                                    <div
+                                        id="collapse-ctrl-demo_4"
+                                        class="collapse-ctrl-demo hidden"
+                                        data-bs-toggle="collapse"
+                                        aria-expanded="false"
+                                        href="#collapse_demo_4"
+                                        role="button"
+                                        aria-controls="collapse_demo_4"
+                                    ></div>
                                     <a
                                         class="client-logo-badge"
                                         href="http://sids-ponds.com/"
@@ -629,20 +656,25 @@
                                         <h5 class="card-title">
                                             Sid's Ponds and Gardenscapes
                                         </h5>
-                                        <p class="card-text">
-                                            Sid's Ponds is a gardenscape and
-                                            pond supply store located in
-                                            <a
-                                                href="http://sids-ponds.com"
-                                                target="_blank"
-                                                >Mississauga, Ontario</a
-                                            >.<br />
-                                            They asked us to update their site
-                                            to make it more engaging, and add
-                                            e-commerce so customers can browse
-                                            their products from anywhere in the
-                                            world.
-                                        </p>
+                                        <div
+                                            id="collapse_demo_4"
+                                            class="collapse"
+                                        >
+                                            <p class="card-text">
+                                                Sid's Ponds is a gardenscape and
+                                                pond supply store located in
+                                                <a
+                                                    href="http://sids-ponds.com"
+                                                    target="_blank"
+                                                    >Mississauga, Ontario</a
+                                                >.<br />
+                                                They asked us to update their
+                                                site to make it more engaging,
+                                                and add e-commerce so customers
+                                                can browse their products from
+                                                anywhere in the world.
+                                            </p>
+                                        </div>
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted"

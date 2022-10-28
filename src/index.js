@@ -28,7 +28,8 @@ AOS.init({
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 });
 
-const design_section = document.getElementById('design');
+const mySrc = document.getElementById('vid-src');
+const myVideo = document.getElementById('myVideo');
 
 // text fly-in for demo section
 
@@ -71,8 +72,7 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
         }, 500);
     });
 });
-let mySrc = document.getElementById('vid-src');
-let myVideo = document.getElementById('myVideo');
+
 // change bg of design section based on the lowest open card
 
 function setDesignBG() {
@@ -97,7 +97,6 @@ function setDesignBG() {
     }
 
     loadNewVid();
-    // myVideo.load();
 }
 
 const video_wrapper = document.getElementById('video-wrapper');
@@ -105,11 +104,10 @@ function loadNewVid() {
     myVideo.classList.add('blink-overlay');
     setTimeout(() => {
         myVideo.load();
-    }, 400);
+    }, 200);
     setTimeout(() => {
         myVideo.classList.remove('blink-overlay');
-        // design_section.classList
-    }, 400);
+    }, 500);
 }
 
 // initScrollReveal(targetElements, defaultProps);
@@ -125,5 +123,13 @@ function invertLogo() {
         logo.classList.add('invert');
     }, 500);
 }
+
+// ---------- FUTURE FUNCTIONS I KNOW I WANT TO ADD
+
+/**
+ * change-phrase function, which uses a static array of random marketing phrases
+ * for the header-phrase, and switches randomly. First letters are sepparated and
+ * injected as spans, and individually animated in with GSAP tweens.
+ */
 
 invertLogo();

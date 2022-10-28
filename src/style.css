@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;400;600;700&display=swap');
 /* Variable sets for different color themes */
 :root {
-    --primary-color: rgb(251, 37, 118);
-    --primary-low-opacity: rgba(251, 37, 118, 0.1);
+    --primary-color: rgb(15, 181, 143);
+    --primary-med-opacity: rgba(15, 181, 143, 0.6);
+    --primary-low-opacity: rgba(15, 181, 143, 0.1);
     --body-font: 'League Spartan', sans-serif;
     --primary-variant: rgb(63, 0, 113);
     --emph-color: rgb(164, 1, 39);
     --secondary-color: rgb(21, 0, 80);
-    --on-primary: rgb(34, 34, 34);
+    --on-primary: rgb(252, 245, 255);
     --on-background: rgb(34, 34, 34);
     --on-background-alt: rgb(255, 238, 238);
     --background: rgb(252, 245, 255);
@@ -86,9 +87,9 @@ section {
     overflow: hidden;
 }
 
-section.panel {
+/* section.panel {
     height: 120vh;
-}
+} */
 
 h1,
 h2,
@@ -122,6 +123,32 @@ p {
 a {
     color: var(--emph-color) !important;
 }
+
+button .fa-solid {
+    padding-right: 8px;
+    transition: all 0.3s ease;
+}
+button:hover .fa-solid {
+    padding-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.highlight {
+    /* background-color: var(--primary-color); */
+    background-image: linear-gradient(
+        130deg,
+        var(--primary-color) 20%,
+        var(--primary-med-opacity) 100%
+    );
+    color: var(--on-primary);
+    padding: 10px;
+    width: fit-content;
+    margin: 13px 0;
+    border-radius: var(--border-radius);
+    box-shadow: inset var(--box-shadow);
+    text-shadow: 3px 3px var(--on-background);
+}
+
 .card {
     border-radius: var(--border-radius) !important;
 }
@@ -144,7 +171,7 @@ button:hover .fa-solid {
 }
 
 #hero {
-    overflow: hidden;
+    /* height: 40vh; */
 }
 
 #hero .container-fluid {
@@ -186,13 +213,14 @@ button:hover .fa-solid {
 }
 
 #intro {
+    height: 70vh;
     background-color: var(--background);
     color: var(--on-background);
 }
 
 #design {
     transition: all 0.5s ease;
-    padding-top: 110px;
+    /* padding-top: 20px; */
     height: 100vh;
     background-image: linear-gradient(
         180deg,
@@ -201,14 +229,26 @@ button:hover .fa-solid {
     );
 }
 
-#design .thru-line {
+.thru-line {
     position: absolute;
     background: var(--on-background);
     border-radius: 50px;
-    height: 1000px;
+    height: 230vh;
     /* FIXIT */
-    top: -1000px;
+    top: -230vh;
     z-index: 0;
+    left: 15px;
+    width: 20px;
+}
+
+.thru-line2 {
+    position: absolute;
+    background: var(--primary-color);
+    border-radius: 50px;
+    height: 150vh;
+    /* FIXIT */
+    top: -150vh;
+    /* z-index: 0; */
     left: 15px;
     width: 20px;
 }
@@ -220,6 +260,21 @@ button:hover .fa-solid {
 
 .design-line-container .dot {
     background-color: var(--on-background);
+    border-radius: 50px;
+    flex-grow: 0;
+}
+.dev-line-container {
+    /* space above dev-line */
+    padding-top: 70px;
+}
+
+.dev-line-container .line {
+    background-color: var(--primary-color);
+    border-radius: 50px;
+}
+
+.dev-line-container .dot {
+    background-color: var(--primary-color);
     border-radius: 50px;
     flex-grow: 0;
 }
@@ -282,6 +337,7 @@ button:hover .fa-solid {
 }
 
 #development #parallax {
+    position: relative;
     color: var(--background);
 }
 
@@ -298,23 +354,6 @@ button:hover .fa-solid {
     width: 100%;
     overflow: hidden;
     line-height: 0;
-}
-
-.dev-line {
-    overflow-x: hidden;
-}
-
-.dev-line .line {
-    overflow-x: hidden;
-    color: var(--background);
-    background-color: var(--primary-color);
-    border-radius: 50px 0 0 50px;
-}
-
-.dev-line .dot {
-    background-color: var(--primary-color);
-    border-radius: 50px;
-    flex-grow: 0;
 }
 
 #development .container.content .card {
@@ -522,8 +561,13 @@ canvas {
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+
+/* EXTRA SMALL (xs) devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    li {
+        padding: 10px 0;
+    }
+
     button .fa-solid {
         padding-right: 8px;
         transition: all 0.3s ease;
@@ -532,28 +576,168 @@ canvas {
         padding-right: 15px;
         transition: all 0.3s ease;
     }
-}
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-}
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-}
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    .bg-1 {
-        background: url('/src/video/graphic1.mp4');
-    }
-    .bg-2 {
-        background: url('/src/video/graphic2.mp4');
-    }
-    .bg-3 {
-        background: url('/src/video/graphic3.mp4');
+
+    /* Hero */
+
+    #hero .container-fluid {
+        padding-bottom: 50px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
     }
 
+    #hero .headline {
+        top: 80px;
+        /* right: 30px; */
+        font-size: 1.5rem;
+        line-height: normal;
+        width: 45%;
+    }
+
+    #hero #logo {
+        width: 40%;
+    }
+
+    #hero #logo img {
+        width: 100%;
+        margin: 30px 0 0 25px;
+        /* transform: translateX(-50%); */
+    }
+
+    #hero .image-container {
+        display: none;
+    }
+
+    /* Intro */
+    #intro {
+        margin-top: -150px;
+        padding-top: 150px;
+    }
+
+    #intro .row.copy {
+        margin: 40px 8%;
+    }
+
+    #intro .row.copy p {
+        line-height: 1.8em;
+    }
+    #intro .row {
+        margin: 0 0 0 5%;
+    }
+    #intro button {
+        width: 100%;
+    }
+
+    /* Design */
+
+    .thru-line,
+    .thru-line2 {
+        left: 5px;
+    }
+
+    #design {
+        min-height: 80vh;
+    }
+
+    #design p {
+        margin-top: 30px;
+    }
+
+    .design-line-container .line {
+        margin-left: 5px;
+    }
+    .design-line-container .dot {
+        margin-left: 20px;
+    }
+    .design-line-container h2 {
+        padding-left: 7%;
+        font-size: xx-large;
+    }
+
+    #development .wrapper {
+        padding-bottom: 10%;
+    }
+    #development #parallax {
+        /* height: 110vh; */
+        /* padding-bottom: 10%; */
+        background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
+    }
+
+    /*  */
+    #development h5 {
+        font-size: xx-large;
+    }
+    #development .custom-shape-divider-top-1666295937 {
+        margin-bottom: 4rem;
+    }
+
+    #development .container.content {
+        padding-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    .dev-line-container .line {
+        margin-left: 20px;
+    }
+    .dev-line-container .dot {
+        margin-left: 20px;
+    }
+    .dev-line-container h2 {
+        padding-left: 7%;
+        font-size: xx-large;
+    }
+
+    /* Demos section */
+
+    #demos .title {
+        font-size: 4em;
+        letter-spacing: 2vw;
+        line-height: 1em;
+        margin: 8% 20px 0;
+        color: var(--background-high-opacity);
+        position: relative;
+    }
+
+    #demos .card {
+        border: 0px solid rgba(255, 255, 255, 0.6);
+        box-shadow: var(--box-shadow);
+    }
+    #demos .card.info {
+        border: 0px solid rgba(255, 255, 255, 0.6);
+        box-shadow: var(--box-shadow);
+    }
+
+    #demos .client-logo-badge {
+        filter: opacity(90%);
+        position: absolute;
+        top: 15px;
+        transform: rotateY(90deg);
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+        padding: 7px 7px 30px 7px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1);
+        width: 22%;
+    }
+    #demos .card:hover .client-logo-badge {
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1.6);
+        width: 25%;
+        top: -65px;
+        filter: opacity(100);
+        transform: none;
+        /* z-index: 1; */
+        /* border: 2px solid var(--on-background); */
+    }
+    #demos .client-logo-badge:hover {
+        /* filter: opacity(100%) !important; */
+        background-color: rgb(255, 255, 255);
+    }
+    #demos .client-logo-badge img {
+        width: 100%;
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
     li {
         padding: 10px 0;
     }
@@ -604,10 +788,8 @@ canvas {
 
     /* Intro */
     #intro {
-        height: 450px;
         margin-top: -150px;
         padding-top: 150px;
-        padding-bottom: 100px;
     }
 
     #intro .row.copy {
@@ -642,6 +824,172 @@ canvas {
         padding-bottom: 10%;
     }
     #development #parallax {
+        /* height: 110vh; */
+        /* padding-bottom: 10%; */
+        background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
+    }
+
+    /*  */
+    #development h5 {
+        font-size: xx-large;
+    }
+    #development .custom-shape-divider-top-1666295937 {
+        margin-bottom: 4rem;
+    }
+
+    #development .container.content {
+        padding-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    .dev-line-container .line {
+        margin-left: 30px;
+    }
+    .dev-line-container .dot {
+        margin-left: 20px;
+    }
+    .dev-line-container h2 {
+        padding-left: 7%;
+        font-size: xx-large;
+    }
+
+    /* Demos section */
+
+    #demos .title {
+        font-size: 8vw;
+        letter-spacing: -0.1vw;
+        line-height: 20vh;
+        color: var(--background-high-opacity);
+        position: absolute;
+    }
+
+    #demos .card {
+        border: 0px solid rgba(255, 255, 255, 0.6);
+        box-shadow: var(--box-shadow);
+    }
+    #demos .card.info {
+        border: 0px solid rgba(255, 255, 255, 0.6);
+        box-shadow: var(--box-shadow);
+    }
+
+    #demos .client-logo-badge {
+        filter: opacity(90%);
+        position: absolute;
+        top: 15px;
+        transform: rotateY(90deg);
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+        padding: 7px 7px 30px 7px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1);
+        width: 22%;
+    }
+    #demos .card:hover .client-logo-badge {
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1.6);
+        width: 25%;
+        top: -65px;
+        filter: opacity(100);
+        transform: none;
+        /* z-index: 1; */
+        /* border: 2px solid var(--on-background); */
+    }
+    #demos .client-logo-badge:hover {
+        /* filter: opacity(100%) !important; */
+        background-color: rgb(255, 255, 255);
+    }
+    #demos .client-logo-badge img {
+        width: 100%;
+    }
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    section.panel {
+        height: 120vh;
+    }
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    li {
+        padding: 10px 0;
+    }
+
+    button .fa-solid {
+        padding-right: 8px;
+        transition: all 0.3s ease;
+    }
+    button:hover .fa-solid {
+        padding-right: 15px;
+        transition: all 0.3s ease;
+    }
+
+    /* Hero */
+    #hero .container-fluid {
+        height: 500px;
+        padding-bottom: 50px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #hero .headline {
+        top: 80px;
+        right: 50%;
+        transform: translateX(100%);
+        font-size: 2.2rem;
+    }
+
+    #hero #logo img {
+        width: 350px;
+        margin: 50px 0 0 100%;
+        transform: translateX(-50%);
+    }
+
+    #hero .image-container {
+        top: 200px;
+        right: 4%;
+        width: 50%;
+        max-width: 650px;
+        z-index: 2;
+    }
+
+    #hero img.diagram {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Intro */
+    #intro {
+        margin-top: -150px;
+        padding-top: 150px;
+    }
+
+    #intro .row.copy {
+        margin: 40px 5% 0;
+        padding-bottom: 20px;
+    }
+    #intro .row {
+        margin: 0 0 0 5%;
+    }
+
+    /* Design */
+    #design {
+        min-height: 80vh;
+    }
+
+    #design p {
+        margin-top: 30px;
+    }
+
+    #development .wrapper {
+        padding-bottom: 10%;
+    }
+    #development #parallax {
         height: 110vh;
         /* padding-bottom: 10%; */
         background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
@@ -660,14 +1008,15 @@ canvas {
         margin-bottom: 30px;
     }
 
-    .dev-line .line {
+    .dev-line-container .line {
+        margin-left: 30px;
+    }
+    .dev-line-container .dot {
         margin-left: 20px;
     }
-    .dev-line .dot {
-        margin-left: 5%;
-    }
-    .dev-line h2 {
+    .dev-line-container h2 {
         padding-left: 7%;
+        font-size: xx-large;
     }
 
     /* Demos section */
