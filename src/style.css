@@ -116,8 +116,9 @@ li:hover {
 p {
     color: var(--on-background);
     margin-top: 0;
-    font-size: 1.1em;
-    line-height: 20px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    font-family: var(--body-font);
 }
 
 a {
@@ -143,10 +144,11 @@ button:hover .fa-solid {
     color: var(--on-primary);
     padding: 10px;
     width: fit-content;
+    font-weight: 600;
     margin: 13px 0;
     border-radius: var(--border-radius);
     box-shadow: inset var(--box-shadow);
-    text-shadow: 3px 3px var(--on-background);
+    text-shadow: 2px 2px var(--on-background);
 }
 
 .card {
@@ -338,6 +340,8 @@ button:hover .fa-solid {
 
 #development #parallax {
     position: relative;
+    background-position: 50% 50%;
+    background-repeat: repeat;
     color: var(--background);
 }
 

@@ -31,11 +31,23 @@ gsap.set('#dev-dot', {
 });
 // ------------------------------------------------------
 
+gsap.to('#parallax', {
+    backgroundPosition: '50% 0%',
+    ease: 'none',
+    scrollTrigger: {
+        markers: true,
+        trigger: '#parallax',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 5,
+    },
+});
+
 let cardNum = 1;
 document.querySelectorAll('.demo').forEach((demo_card) => {
     gsap.to('#' + demo_card.id, {
         scrollTrigger: {
-            markers: true,
+            // markers: true,
             start: 'top 80%',
             end: '+=40%',
             reversed: true,
@@ -76,7 +88,7 @@ gsap.to('.thru-line', {
     y: '220vh',
     ease: 'expo',
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         start: 'bottom top',
         end: '250% top',
         trigger: '.thru-line',
@@ -90,7 +102,7 @@ gsap.to('.thru-line2', {
     y: '100px',
     ease: 'expo',
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         start: 'bottom center',
         end: '+=70px',
         trigger: '.thru-line2',
@@ -106,7 +118,7 @@ gsap.to('#design-line', {
     transformOrigin: 'left',
     ease: 'ease-in-out',
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         start: 'top center',
         end: '+=1px',
         trigger: '#design-line',
@@ -148,7 +160,7 @@ gsap.to('#dev-line', {
     transformOrigin: 'left',
     ease: 'ease-in-out',
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         start: 'top center',
         end: '+=1px',
         trigger: '#dev-line',
