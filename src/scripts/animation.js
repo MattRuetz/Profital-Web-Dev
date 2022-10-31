@@ -29,17 +29,20 @@ gsap.set('#dev-dot', {
     rotateY: '180deg',
     opacity: 0,
 });
+
 // ------------------------------------------------------
+
+const enable_panels = false;
 
 gsap.to('#parallax', {
     backgroundPosition: '50% 0%',
     ease: 'none',
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         trigger: '#parallax',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 5,
+        scrub: 2,
     },
 });
 
@@ -85,7 +88,8 @@ function toggleCard(cardNum, action) {
 // PROBABLY ONLY COVERS DESKTOP
 gsap.to('.thru-line', {
     scale: 1,
-    y: '220vh',
+    // y: '220vh',
+    y: '110%',
     ease: 'expo',
     scrollTrigger: {
         // markers: true,
@@ -197,7 +201,6 @@ gsap.to('#dev-line', {
 
 // animate slide-in words for demo section wipe-up
 let word_index = 0;
-let word_count = document.getElementById('demo-section-title').children.length;
 for (const word of document.getElementById('demo-section-title').children) {
     word_index++;
     gsap.from('#' + word.id, {
@@ -232,20 +235,27 @@ gsap.from('.demo-cards .card', {
 });
 
 // LAUNCH section float up
-gsap.to('#launch', {
-    borderRadius: 0,
-    translateY: 0,
-    scale: 1,
-    ease: 'SlowMo',
-    duration: 1,
-    scrollTrigger: {
-        // markers: true,
-        start: 'top 60%',
-        end: '+=20px',
-        trigger: '#launch',
-        scrub: 3,
-    },
-});
+if (window.innerWidth > 1200 && enable_panels) {
+    gsap.set('#launch', {
+        scale: 0.5,
+        borderRadius: '50vw',
+        y: '-50%',
+    });
+    gsap.to('#launch', {
+        borderRadius: 0,
+        translateY: 0,
+        scale: 1,
+        ease: 'SlowMo',
+        duration: 1,
+        scrollTrigger: {
+            markers: true,
+            start: 'top 60%',
+            end: '+=20px',
+            trigger: '#launch',
+            scrub: 3,
+        },
+    });
+}
 
 // Section Wipe script
 $(function () {
@@ -254,14 +264,15 @@ $(function () {
     var controller = new ScrollMagic.Controller({
         globalSceneOptions: {
             triggerHook: 'onLeave',
-            duration: '140%', // this works just fine with duration 0 as well
+            duration: '190%', // this works just fine with duration 0 as well
             // However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
             // Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
         },
     });
 
     // get all slides
-    if (window.innerWidth > 576) {
+    if (window.innerWidth > 1200 && enable_panels) {
+        console.log('panels');
         var slides = document.querySelectorAll('section.panel');
     }
     // create scene for every slide
