@@ -39,6 +39,8 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
         // expand the box horizontally
         item.classList.replace('col-lg-7', 'col-lg-11');
 
+        let others = [3];
+
         setTimeout(() => {
             if (
                 document
