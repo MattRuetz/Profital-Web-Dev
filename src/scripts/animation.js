@@ -53,7 +53,7 @@ let cardNum = 1;
 document.querySelectorAll('.demo').forEach((demo_card) => {
     gsap.to('#' + demo_card.id, {
         scrollTrigger: {
-            markers: true,
+            // markers: true,
             start: 'top 80%',
             end: '+=40%',
             reversed: true,
@@ -251,7 +251,7 @@ if (window.innerWidth > 1200 && enable_panels) {
         ease: 'SlowMo',
         duration: 1,
         scrollTrigger: {
-            markers: true,
+            // markers: true,
             start: 'top 60%',
             end: '+=20px',
             trigger: '#launch',
