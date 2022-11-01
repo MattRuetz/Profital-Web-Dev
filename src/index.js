@@ -3,6 +3,9 @@ import './scripts/animation.js';
 import initTiltEffect from './scripts/tiltAnimation.js';
 // import { targetElements, defaultProps } from './data/scrollRevealConfig';
 import { Collapse } from 'bootstrap';
+import { Expo, gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 import AOS, { refresh } from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -34,13 +37,13 @@ const myVideo = document.getElementById('myVideo');
 
 // text fly-in for demo section
 
-// Set design cards to expand on hover w/ class replacement
+// Set design cards to expand on hover w/ fake btn clicks
 document.querySelectorAll('.design-card-col').forEach((item, i) => {
     item.addEventListener('mouseover', () => {
         // expand the box horizontally
         item.classList.replace('col-lg-7', 'col-lg-11');
 
-        let others = [3];
+        let others = [2];
 
         setTimeout(() => {
             if (
@@ -56,10 +59,15 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
                     : (others = [1, 2]);
 
                 others.forEach((other_ind) => {
+                    console.log(
+                        document
+                            .getElementById('design-col-' + other_ind)
+                            .classList.contains('col-lg-11')
+                    );
                     if (
                         document
-                            .getElementById('collapse-ctrl-' + other_ind)
-                            .getAttribute('aria-expanded') === 'true'
+                            .getElementById('design-col-' + other_ind)
+                            .classList.contains('col-lg-11')
                     ) {
                         document
                             .getElementById('collapse-ctrl-' + other_ind)
@@ -70,10 +78,34 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
                             .classList.replace('col-lg-11', 'col-lg-7');
                     }
                 });
-                setDesignBG();
+                // setDesignBG();
             }
-        }, 500);
+        }, 300);
     });
+});
+
+// design card slide in
+// document.querySelectorAll('.design-card-col').forEach((item) => {
+
+// });
+
+gsap.set('.design-card-col', {
+    x: '-100vw',
+    opacity: 1,
+});
+gsap.to('.design-card-col', {
+    x: '0',
+    opacity: 1,
+    transformOrigin: 'left',
+    ease: 'ease-in-out',
+    stagger: 0.2,
+    scrollTrigger: {
+        markers: true,
+        start: 'top center',
+        end: 'center center',
+        trigger: '#design-col-1',
+        toggleActions: 'play none resume reverse',
+    },
 });
 
 // change bg of design section based on the lowest open card
