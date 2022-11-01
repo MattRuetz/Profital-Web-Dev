@@ -4,7 +4,7 @@ import initTiltEffect from './scripts/tiltAnimation.js';
 // import { targetElements, defaultProps } from './data/scrollRevealConfig';
 import { Collapse } from 'bootstrap';
 
-import AOS from 'aos';
+import AOS, { refresh } from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init({
@@ -133,21 +133,21 @@ function invertLogo() {
 var color_options = document.forms['color-form'].elements['radio_color'];
 for (var i = 0, max = color_options.length; i < max; i++) {
     color_options[i].onclick = function () {
-        console.log('new color: ' + this.value);
+        // console.log('new color: ' + this.value);
         body.setAttribute('data-color', this.value);
     };
 }
 var font_options = document.forms['font-form'].elements['radio_font'];
 for (var i = 0, max = font_options.length; i < max; i++) {
     font_options[i].onclick = function () {
-        console.log('new font: ' + this.value);
+        // console.log('new font: ' + this.value);
         body.setAttribute('data-font', this.value);
     };
 }
 var corner_options = document.forms['corners-form'].elements['radio_corners'];
 for (var i = 0, max = corner_options.length; i < max; i++) {
     corner_options[i].onclick = function () {
-        console.log('new corners: ' + this.value);
+        // console.log('new corners: ' + this.value);
         body.setAttribute('data-corners', this.value);
     };
 }
@@ -155,7 +155,6 @@ var flatness_options =
     document.forms['flatness-form'].elements['radio_flatness'];
 for (var i = 0, max = flatness_options.length; i < max; i++) {
     flatness_options[i].onclick = function () {
-        console.log('new flatness: ' + this.value);
         body.setAttribute('data-flatness', this.value);
     };
 }

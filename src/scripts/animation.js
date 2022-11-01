@@ -3,6 +3,7 @@ import { Expo, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 import { Collapse } from 'bootstrap';
+import VanillaTilt from 'vanilla-tilt';
 
 // Not sure if I want panels for any size yet..
 const enable_panels = false;
