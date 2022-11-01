@@ -1,10 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=League+Spartan:wght@100;400;600;700&family=Roboto+Slab:wght@100;400;600;700&display=swap');
 /* Variable sets for different color themes */
 :root {
-    --body-font: 'League Spartan', sans-serif;
-
-    --box-shadow: 0 3px 4px rgba(34, 34, 34, 0.5);
-    --box-shadow-colored: 0 3px 4px var(--primary-low-opacity);
 }
 
 [data-color='Deep Space'] {
@@ -38,19 +34,29 @@
     --background-low-opacity: rgba(252, 245, 255, 0.1);
 }
 [data-color='Pastels'] {
-    --primary-color: rgb(255, 135, 135);
-    --primary-med-opacity: rgb(242, 211, 136);
+    --primary-color: #f675a8;
+    --primary-med-opacity: rgb(188, 226, 158);
     --primary-low-opacity: rgb(188, 226, 158, 0.3);
     --primary-variant: rgb(242, 211, 136);
     --emph-color: rgb(112, 108, 238);
     --secondary-color: rgb(188, 226, 158);
-    --on-primary: rgb(34, 34, 34);
+    --on-primary: rgb(255, 238, 238);
     --on-background: rgb(34, 34, 34);
     --on-background-alt: rgb(255, 238, 238);
-    --background: rgb(248, 196, 180);
+    --background: rgb(205, 252, 246);
     --background-high-opacity: rgba(252, 245, 255, 0.9);
     --background-med-opacity: rgba(252, 245, 255, 0.7);
     --background-low-opacity: rgba(252, 245, 255, 0.3);
+}
+
+[data-font='Sans-Serif'] {
+    --body-font: 'League Spartan', sans-serif;
+}
+[data-font='Serif'] {
+    --body-font: 'Roboto Slab', serif;
+}
+[data-font='Script'] {
+    --body-font: 'Courgette', cursive;
 }
 
 [data-corners='Sharp'] {
@@ -64,6 +70,19 @@
 [data-corners='Circular'] {
     --border-radius: 50px;
     --border-radius-round: 100px;
+}
+
+[data-flatness='Normal'] {
+    --box-shadow: 0 3px 4px rgba(34, 34, 34, 0.5);
+    --box-shadow-colored: 0 3px 4px var(--primary-low-opacity);
+}
+[data-flatness='Flat'] {
+    --box-shadow: 0px 0px 3px rgba(34, 34, 34, 0.2);
+    --box-shadow-colored: 0px 0px 3px var(--primary-low-opacity);
+}
+[data-flatness='Pop-Out'] {
+    --box-shadow: 0px 5px 5px rgba(34, 34, 34, 0.8);
+    --box-shadow-colored: 0px 5px 5px var(--primary-med-opacity);
 }
 
 /* [data-theme='space'] {
@@ -131,6 +150,7 @@
 
 .btn {
     border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 .btn:hover {

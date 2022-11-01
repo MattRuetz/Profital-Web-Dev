@@ -141,6 +141,7 @@ var font_options = document.forms['font-form'].elements['radio_font'];
 for (var i = 0, max = font_options.length; i < max; i++) {
     font_options[i].onclick = function () {
         console.log('new font: ' + this.value);
+        body.setAttribute('data-font', this.value);
     };
 }
 var corner_options = document.forms['corners-form'].elements['radio_corners'];
@@ -155,6 +156,7 @@ var flatness_options =
 for (var i = 0, max = flatness_options.length; i < max; i++) {
     flatness_options[i].onclick = function () {
         console.log('new flatness: ' + this.value);
+        body.setAttribute('data-flatness', this.value);
     };
 }
 
