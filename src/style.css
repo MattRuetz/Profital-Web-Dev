@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Courgette&family=League+Spartan:wght@100;400;600;700&family=Roboto+Slab:wght@100;400;600;700&display=swap');
-/* Variable sets for different color themes */
-:root {
-}
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=League+Spartan:wght@100;400;600;700&family=Spectral:wght@200;400;500;600;700&display=swap');
+/* :root {
+} */
 
 [data-color='Deep Space'] {
-    --primary-color: rgb(15, 181, 143);
+    --primary-color: #0fb58f;
     --primary-med-opacity: rgba(15, 181, 143, 0.6);
     --primary-low-opacity: rgba(15, 181, 143, 0.2);
     --primary-variant: rgb(118, 113, 209);
     --emph-color: rgb(164, 1, 39);
-    --secondary-color: rgb(21, 0, 80);
+    --secondary-color: rgb(44, 134, 223);
     --on-primary: rgb(252, 245, 255);
     --on-background: rgb(34, 34, 34);
     --on-background-alt: rgb(255, 238, 238);
@@ -17,6 +16,7 @@
     --background-high-opacity: rgba(252, 245, 255, 0.65);
     --background-med-opacity: rgba(252, 245, 255, 0.4);
     --background-low-opacity: rgba(252, 245, 255, 0.1);
+    --diagram-filter: hue-rotate(20deg);
 }
 [data-color='Go Green'] {
     --primary-color: rgb(55, 146, 55);
@@ -32,6 +32,7 @@
     --background-high-opacity: rgba(252, 245, 255, 0.65);
     --background-med-opacity: rgba(252, 245, 255, 0.4);
     --background-low-opacity: rgba(252, 245, 255, 0.1);
+    --diagram-filter: hue-rotate(200deg);
 }
 [data-color='Pastels'] {
     --primary-color: #f675a8;
@@ -47,13 +48,14 @@
     --background-high-opacity: rgba(252, 245, 255, 0.9);
     --background-med-opacity: rgba(252, 245, 255, 0.7);
     --background-low-opacity: rgba(252, 245, 255, 0.3);
+    --diagram-filter: hue-rotate(100deg);
 }
 
 [data-font='Sans-Serif'] {
     --body-font: 'League Spartan', sans-serif;
 }
 [data-font='Serif'] {
-    --body-font: 'Roboto Slab', serif;
+    --body-font: 'Spectral', serif;
 }
 [data-font='Script'] {
     --body-font: 'Courgette', cursive;
@@ -81,7 +83,7 @@
     --box-shadow-colored: 0px 0px 3px var(--primary-low-opacity);
 }
 [data-flatness='Pop-Out'] {
-    --box-shadow: 0px 5px 5px rgba(34, 34, 34, 0.8);
+    --box-shadow: 4px 5px 10px rgba(34, 34, 34, 0.9);
     --box-shadow-colored: 0px 5px 5px var(--primary-med-opacity);
 }
 
@@ -366,11 +368,10 @@ button:hover .fa-solid {
 #hero .image-container {
     width: auto;
     position: absolute;
-    overflow: hidden;
 }
 
 #hero img.diagram {
-    filter: drop-shadow(4px 8px 5px rgb(0 0 0 / 0.1));
+    filter: var(--diagram-filter) drop-shadow(var(--box-shadow));
 }
 
 #intro {
@@ -425,6 +426,19 @@ button:hover .fa-solid {
     border-radius: var(--border-radius-round);
     flex-grow: 0;
 }
+
+#design .card {
+    box-shadow: var(--box-shadow);
+}
+
+#design .card-title {
+    font-size: 2rem;
+}
+
+#design .card-text {
+    line-height: 1.8rem;
+}
+
 .dev-line-container {
     /* space above dev-line */
     padding-top: 70px;
@@ -566,7 +580,7 @@ button:hover .fa-solid {
 }
 
 #demos {
-    background: var(--primary-color);
+    background: var(--secondary-color);
     background-image: url(/src/img/diagonal-striped-brick.png);
 }
 
@@ -1299,7 +1313,7 @@ canvas {
 
     #demos .title {
         font-size: 8vw;
-        letter-spacing: -0.1vw;
+        letter-spacing: -0.5vw;
         line-height: 20vh;
         color: var(--background-high-opacity);
         position: absolute;
