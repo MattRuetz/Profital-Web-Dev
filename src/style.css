@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;400;600;700&display=swap');
 /* Variable sets for different color themes */
 :root {
+    --body-font: 'League Spartan', sans-serif;
+
+    --box-shadow: 0 3px 4px rgba(34, 34, 34, 0.5);
+    --box-shadow-colored: 0 3px 4px var(--primary-low-opacity);
+}
+
+[data-color='Deep Space'] {
     --primary-color: rgb(15, 181, 143);
     --primary-med-opacity: rgba(15, 181, 143, 0.6);
-    --primary-low-opacity: rgba(15, 181, 143, 0.1);
-    --body-font: 'League Spartan', sans-serif;
-    --primary-variant: rgb(63, 0, 113);
+    --primary-low-opacity: rgba(15, 181, 143, 0.2);
+    --primary-variant: rgb(118, 113, 209);
     --emph-color: rgb(164, 1, 39);
     --secondary-color: rgb(21, 0, 80);
     --on-primary: rgb(252, 245, 255);
@@ -15,12 +21,49 @@
     --background-high-opacity: rgba(252, 245, 255, 0.65);
     --background-med-opacity: rgba(252, 245, 255, 0.4);
     --background-low-opacity: rgba(252, 245, 255, 0.1);
-    --box-shadow: 0 3px 4px rgba(34, 34, 34, 0.5);
-    --box-shadow-colored: 0 3px 4px var(--primary-low-opacity);
+}
+[data-color='Go Green'] {
+    --primary-color: rgb(55, 146, 55);
+    --primary-med-opacity: rgba(55, 146, 55, 0.6);
+    --primary-low-opacity: rgba(55, 146, 55, 0.2);
+    --primary-variant: rgb(240, 255, 66);
+    --emph-color: rgb(5, 116, 1);
+    --secondary-color: rgb(84, 180, 53);
+    --on-primary: rgb(255, 255, 255);
+    --on-background: rgb(41, 65, 45);
+    --on-background-alt: rgb(214, 238, 194);
+    --background: rgb(252, 245, 255);
+    --background-high-opacity: rgba(252, 245, 255, 0.65);
+    --background-med-opacity: rgba(252, 245, 255, 0.4);
+    --background-low-opacity: rgba(252, 245, 255, 0.1);
+}
+[data-color='Pastels'] {
+    --primary-color: rgb(255, 135, 135);
+    --primary-med-opacity: rgb(242, 211, 136);
+    --primary-low-opacity: rgb(188, 226, 158, 0.3);
+    --primary-variant: rgb(242, 211, 136);
+    --emph-color: rgb(112, 108, 238);
+    --secondary-color: rgb(188, 226, 158);
+    --on-primary: rgb(34, 34, 34);
+    --on-background: rgb(34, 34, 34);
+    --on-background-alt: rgb(255, 238, 238);
+    --background: rgb(248, 196, 180);
+    --background-high-opacity: rgba(252, 245, 255, 0.9);
+    --background-med-opacity: rgba(252, 245, 255, 0.7);
+    --background-low-opacity: rgba(252, 245, 255, 0.3);
+}
+
+[data-corners='Sharp'] {
+    --border-radius: 0px;
+    --border-radius-round: 5px;
+}
+[data-corners='Rounded'] {
     --border-radius: 12px;
-    --video-1-src: '/src/video/graphic1.mp4';
-    --video-2-src: '/src/video/graphic2.mp4';
-    --video-3-src: '/src/video/graphic3.mp4';
+    --border-radius-round: 35px;
+}
+[data-corners='Circular'] {
+    --border-radius: 50px;
+    --border-radius-round: 100px;
 }
 
 /* [data-theme='space'] {
@@ -72,6 +115,102 @@
 
 .blink-overlay {
     filter: opacity(0);
+}
+
+/* Bootstrap overwrites */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-med-opacity);
+}
+
+.btn-outline-primary {
+    background-color: white;
+    color: var(--primary-color);
+    border-color: var(--primary-med-opacity);
+}
+
+.btn {
+    border-radius: var(--border-radius);
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Ctrl Panel - RADIO BUTTONS */
+/* Customize the label (the container) */
+.radio-container {
+    display: block;
+    position: relative;
+    padding: 10px 20px 10px 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--on-background);
+    background-color: rgba(0, 0, 0, 0.03);
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 15px;
+    /* border: 0.5px solid var(--primary-variant); */
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a --primary background */
+.radio-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
 }
 
 /* --------------------------------------------------------------------------------------- */
@@ -142,7 +281,7 @@ button:hover .fa-solid {
         var(--primary-med-opacity) 100%
     );
     color: var(--on-primary);
-    padding: 10px;
+    padding: 10px 10px 10px 30px;
     width: fit-content;
     font-weight: 600;
     margin: 13px 0;
@@ -235,7 +374,7 @@ button:hover .fa-solid {
 .thru-line {
     position: absolute;
     background: var(--on-background);
-    border-radius: 50px;
+    border-radius: var(--border-radius-round);
     height: 230vh;
     /* FIXIT */
     top: -230vh;
@@ -247,7 +386,7 @@ button:hover .fa-solid {
 .thru-line2 {
     position: absolute;
     background: var(--primary-color);
-    border-radius: 50px;
+    border-radius: var(--border-radius-round);
     height: 150vh;
     /* FIXIT */
     top: -150vh;
@@ -258,12 +397,12 @@ button:hover .fa-solid {
 
 .design-line-container .line {
     background-color: var(--on-background);
-    border-radius: 50px;
+    border-radius: var(--border-radius-round);
 }
 
 .design-line-container .dot {
     background-color: var(--on-background);
-    border-radius: 50px;
+    border-radius: var(--border-radius-round);
     flex-grow: 0;
 }
 .dev-line-container {
@@ -271,14 +410,18 @@ button:hover .fa-solid {
     padding-top: 70px;
 }
 
+.dev-line-container h2 {
+    color: var(--on-primary);
+}
+
 .dev-line-container .line {
     background-color: var(--primary-color);
-    border-radius: 50px;
+    border-radius: var(--border-radius-round);
 }
 
 .dev-line-container .dot {
     background-color: var(--primary-color);
-    border-radius: 50px;
+    border-radius: var(--border-radius-round);
     flex-grow: 0;
 }
 
@@ -303,7 +446,7 @@ button:hover .fa-solid {
     text-align: center;
     width: fit-content;
     height: min-content;
-    border-radius: 50px;
+    border-radius: var(--border-radius-round);
     color: white;
     font-weight: 600;
     font-size: 1.2em;
@@ -392,8 +535,9 @@ button:hover .fa-solid {
 
 .control-panel .card {
     background-color: #ccc;
-    box-shadow: inset 0 0 2px var(--background-med-opacity);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
+
 .control-panel .card-title {
     color: var(--on-background) !important;
 }
@@ -443,11 +587,14 @@ button:hover .fa-solid {
 }
 #demos .card.info .card-text span:hover {
     filter: hue-rotate(270deg);
-    margin: 10px 30px;
     transition: all 2s ease;
 }
 #demos .card.demo {
     z-index: 1;
+}
+
+#demos .card-body {
+    padding: 10px;
 }
 
 /* remaining cards are DEMO cards */
@@ -472,10 +619,21 @@ button:hover .fa-solid {
 }
 
 #demos .card-footer {
-    padding: 2px 10px;
-    background-color: var(--background-med-opacity);
+    padding: 2px 20px;
+    /* background-color: var(--background-med-opacity); */
     border-bottom-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
+}
+
+.card-badge-title {
+    display: flex;
+    justify-content: space-between;
+}
+.client-logo-badge img {
+    width: 60px;
+    padding: 3px;
+    border-radius: var(--border-radius);
+    background-color: var(--background-med-opacity);
 }
 
 img-comparison-slider {
@@ -489,13 +647,6 @@ img-comparison-slider {
     --default-handle-color: var(--on-background);
     max-height: 200px;
 }
-/* img-comparison-slider:hover {
-    transform: scale(2);
-    box-shadow: var(--box-shadow);
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-    transition: all 0.3s ease;
-} */
 
 img-comparison-slider img {
     height: 100%;
@@ -524,12 +675,14 @@ img-comparison-slider img {
 
 #launch .card {
     padding: 10px 20px;
-    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
-    background-color: var(--background);
+    background-color: var(--background-high-opacity);
+    color: var(--on-background);
 }
+
 #launch .card .card {
     padding: 20px 20px 0;
-    background: var(--background);
+    background: var(--background-high-opacity);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Image explode effect */
@@ -554,7 +707,27 @@ canvas {
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Media Queries for device sizes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -708,35 +881,6 @@ canvas {
         border: 0px solid rgba(255, 255, 255, 0.6);
         box-shadow: var(--box-shadow);
     }
-
-    #demos .client-logo-badge {
-        filter: opacity(90%);
-        position: absolute;
-        top: 15px;
-        transform: rotateY(90deg);
-        border-radius: 8px;
-        background-color: rgba(255, 255, 255, 0.95);
-        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
-        padding: 7px 7px 30px 7px;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1);
-        width: 22%;
-    }
-    #demos .card:hover .client-logo-badge {
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1.6);
-        width: 25%;
-        top: -65px;
-        filter: opacity(100);
-        transform: none;
-        /* z-index: 1; */
-        /* border: 2px solid var(--on-background); */
-    }
-    #demos .client-logo-badge:hover {
-        /* filter: opacity(100%) !important; */
-        background-color: rgb(255, 255, 255);
-    }
-    #demos .client-logo-badge img {
-        width: 100%;
-    }
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
@@ -829,7 +973,7 @@ canvas {
     }
 
     /*  */
-    #development h5 {
+    #development .info h5 {
         font-size: xx-large;
     }
     #development .custom-shape-divider-top-1666295937 {
@@ -852,6 +996,10 @@ canvas {
         font-size: xx-large;
     }
 
+    .control-panel .card-title {
+        font-size: large;
+    }
+
     /* Demos section */
 
     #demos .title {
@@ -869,35 +1017,6 @@ canvas {
     #demos .card.info {
         border: 0px solid rgba(255, 255, 255, 0.6);
         box-shadow: var(--box-shadow);
-    }
-
-    #demos .client-logo-badge {
-        filter: opacity(90%);
-        position: absolute;
-        top: 15px;
-        transform: rotateY(90deg);
-        border-radius: 8px;
-        background-color: rgba(255, 255, 255, 0.95);
-        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
-        padding: 7px 7px 30px 7px;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1);
-        width: 22%;
-    }
-    #demos .card:hover .client-logo-badge {
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1.6);
-        width: 25%;
-        top: -65px;
-        filter: opacity(100);
-        transform: none;
-        /* z-index: 1; */
-        /* border: 2px solid var(--on-background); */
-    }
-    #demos .client-logo-badge:hover {
-        /* filter: opacity(100%) !important; */
-        background-color: rgb(255, 255, 255);
-    }
-    #demos .client-logo-badge img {
-        width: 100%;
     }
 }
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
@@ -993,7 +1112,7 @@ canvas {
     }
 
     /*  */
-    #development h5 {
+    #development .info h5 {
         font-size: xx-large;
     }
     #development .custom-shape-divider-top-1666295937 {
@@ -1040,42 +1159,13 @@ canvas {
         box-shadow: var(--box-shadow);
     }
 
-    #demos .client-logo-badge {
-        filter: opacity(90%);
-        position: absolute;
-        top: 10%;
-        transform: rotateY(90deg);
-        border-radius: 8px;
-        background-color: rgba(255, 255, 255, 0.95);
-        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
-        padding: 7px 7px 30px 7px;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1);
-        width: 22%;
-    }
-    #demos .card:hover .client-logo-badge {
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1.6);
-        /* width: 25%; */
-        top: -10%;
-        filter: opacity(100);
-        transform: none;
-        /* z-index: 1; */
-        /* border: 2px solid var(--on-background); */
-    }
-    #demos .client-logo-badge:hover {
-        /* filter: opacity(100%) !important; */
-        background-color: rgb(255, 255, 255);
-    }
-    #demos .client-logo-badge img {
-        width: 100%;
-    }
-
     #demos .card.demo .card-title {
         font-size: 1.1rem;
         padding: 2px 5%;
     }
     #demos .card.demo .card-text {
         font-size: 1rem;
-        padding: 2px 5px;
+        padding: 10px 15px;
     }
 }
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
@@ -1162,7 +1252,7 @@ canvas {
     }
 
     /*  */
-    #development h5 {
+    #development .info h5 {
         font-size: xx-large;
     }
     #development .custom-shape-divider-top-1666295937 {
@@ -1204,42 +1294,13 @@ canvas {
         box-shadow: var(--box-shadow);
     }
 
-    #demos .client-logo-badge {
-        filter: opacity(90%);
-        position: absolute;
-        top: 15px;
-        transform: rotateY(90deg);
-        border-radius: 8px;
-        background-color: rgba(255, 255, 255, 0.95);
-        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
-        padding: 7px 7px 30px 7px;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1);
-        width: 25%;
-    }
-    #demos .card:hover .client-logo-badge {
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.1, 1.6);
-        width: 25%;
-        top: -50px;
-        filter: opacity(100);
-        transform: none;
-        /* z-index: 1; */
-        /* border: 2px solid var(--on-background); */
-    }
-    #demos .client-logo-badge:hover {
-        /* filter: opacity(100%) !important; */
-        background-color: rgb(255, 255, 255);
-    }
-    #demos .client-logo-badge img {
-        width: 100%;
-    }
-
     #demos .card.demo .card-title {
         font-size: 1.1rem;
         padding: 2px 5%;
     }
     #demos .card.demo .card-text {
         font-size: 1rem;
-        padding: 2px 5px;
+        /* padding: 2px 5px; */
     }
 }
 

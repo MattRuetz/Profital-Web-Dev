@@ -28,6 +28,7 @@ AOS.init({
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 });
 
+const body = document.querySelector('body');
 const mySrc = document.getElementById('vid-src');
 const myVideo = document.getElementById('myVideo');
 
@@ -127,6 +128,35 @@ function invertLogo() {
 }
 
 // ---------- FUTURE FUNCTIONS I KNOW I WANT TO ADD
+
+// Radio buttons event listeners
+var color_options = document.forms['color-form'].elements['radio_color'];
+for (var i = 0, max = color_options.length; i < max; i++) {
+    color_options[i].onclick = function () {
+        console.log('new color: ' + this.value);
+        body.setAttribute('data-color', this.value);
+    };
+}
+var font_options = document.forms['font-form'].elements['radio_font'];
+for (var i = 0, max = font_options.length; i < max; i++) {
+    font_options[i].onclick = function () {
+        console.log('new font: ' + this.value);
+    };
+}
+var corner_options = document.forms['corners-form'].elements['radio_corners'];
+for (var i = 0, max = corner_options.length; i < max; i++) {
+    corner_options[i].onclick = function () {
+        console.log('new corners: ' + this.value);
+        body.setAttribute('data-corners', this.value);
+    };
+}
+var flatness_options =
+    document.forms['flatness-form'].elements['radio_flatness'];
+for (var i = 0, max = flatness_options.length; i < max; i++) {
+    flatness_options[i].onclick = function () {
+        console.log('new flatness: ' + this.value);
+    };
+}
 
 /**
  * change-phrase function, which uses a static array of random marketing phrases

@@ -3,6 +3,10 @@ import { Expo, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 import { Collapse } from 'bootstrap';
+
+// Not sure if I want panels for any size yet..
+const enable_panels = false;
+
 /**
  * Sets elements starting positions to prep GSAP to anim. them in.
  * Doing it this way so CSS represents static-state site (no js, etc...)
@@ -32,8 +36,6 @@ gsap.set('#dev-dot', {
 
 // ------------------------------------------------------
 
-const enable_panels = false;
-
 gsap.to('#parallax', {
     backgroundPosition: '50% 0%',
     ease: 'none',
@@ -50,7 +52,7 @@ let cardNum = 1;
 document.querySelectorAll('.demo').forEach((demo_card) => {
     gsap.to('#' + demo_card.id, {
         scrollTrigger: {
-            // markers: true,
+            markers: true,
             start: 'top 80%',
             end: '+=40%',
             reversed: true,
@@ -205,7 +207,7 @@ for (const word of document.getElementById('demo-section-title').children) {
     word_index++;
     gsap.from('#' + word.id, {
         opacity: 0,
-        scale: 3,
+        // scale: 2,
         x: 1800,
         ease: 'expo',
         scrollTrigger: {
@@ -285,4 +287,21 @@ $(function () {
     }
 });
 
-window.onresize;
+function destroyTilt() {
+    var tiltElements = document.querySelectorAll(`[data-tilt]`);
+    var mq = window.matchMedia('(max-width: 1025px)');
+    if (mq.matches) {
+        for (var i = 0, len = tiltElements.length; i < len; i++) {
+            tiltElements[i].vanillaTilt.destroy();
+        }
+    } else {
+        console.log('pedal');
+    }
+}
+
+destroyTilt();
+
+// THIS WILL TRIGGER ON RESIZE...
+// addEventListener('resize', (event) => {
+
+// });
