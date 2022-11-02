@@ -35,6 +35,10 @@ const body = document.querySelector('body');
 const mySrc = document.getElementById('vid-src');
 const myVideo = document.getElementById('myVideo');
 
+// mobile ?
+if (window.innerWidth > 576) {
+    document.getElementById('collapse-dev').classList.remove('collapse');
+}
 // text fly-in for demo section
 
 // Set design cards to expand on hover w/ fake btn clicks
@@ -80,7 +84,7 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
                 });
                 // setDesignBG();
             }
-        }, 300);
+        }, 200);
     });
 });
 

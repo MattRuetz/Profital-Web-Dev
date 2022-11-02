@@ -89,6 +89,12 @@
 
 /* --------------------------------------------------------------------------------------- */
 /* TEST ZONE - MOVE OR DELETE BEFORE LAUNCH */
+.outline-box {
+    border: 2px solid var(--on-background);
+    padding: 25px 25px 10px 25px;
+    border-radius: var(--border-radius);
+}
+
 .design-card-col {
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -258,7 +264,7 @@ p {
     color: var(--on-background);
     margin-top: 0;
     font-size: 1.2em;
-    line-height: 1.2em;
+    line-height: 1.6em;
     font-family: var(--body-font);
 }
 
@@ -346,7 +352,6 @@ button:hover .fa-solid {
 }
 
 #hero .image-container {
-    width: auto;
     position: absolute;
 }
 
@@ -409,6 +414,13 @@ button:hover .fa-solid {
 
 #design .card {
     box-shadow: var(--box-shadow);
+    transition: all 0.5s ease;
+}
+
+#design .card:active {
+    box-shadow: none;
+    border: 3px solid var(--emph-color);
+    transition: all 0.1s ease;
 }
 
 #design .card-title {
@@ -534,7 +546,7 @@ button:hover .fa-solid {
     background-color: #ddd;
     background-repeat: repeat;
     background-image: url('https://www.transparenttextures.com/patterns/squared-metal.png');
-
+    max-width: 80%;
     border: 4px solid #ffffff22;
     border-radius: var(--border-radius);
 }
@@ -544,7 +556,7 @@ button:hover .fa-solid {
     font-weight: 100;
 }
 .control-panel h4 {
-    font-size: 2em;
+    font-size: 1.9em;
 }
 
 .control-panel .card {
@@ -784,13 +796,12 @@ canvas {
     }
 
     #hero #logo {
-        width: 40%;
+        width: 50%;
     }
 
     #hero #logo img {
         width: 100%;
-        margin: 30px 0 0 25px;
-        /* transform: translateX(-50%); */
+        margin: 3vh 0 0 2vw;
     }
 
     #hero .image-container {
@@ -804,12 +815,9 @@ canvas {
     }
 
     #intro .row.copy {
-        margin: 40px 8%;
+        margin: 20px 0 20px 20px;
     }
 
-    #intro .row.copy p {
-        line-height: 1.8em;
-    }
     #intro .row {
         margin: 0 0 0 5%;
     }
@@ -821,15 +829,15 @@ canvas {
 
     .thru-line,
     .thru-line2 {
-        left: 5px;
+        left: 2px;
     }
 
     #design {
         min-height: 80vh;
     }
 
-    #design p {
-        /* margin-top: 30px; */
+    #design .container {
+        padding-left: 40px;
     }
 
     .design-line-container .line {
@@ -852,10 +860,11 @@ canvas {
         background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
     }
 
-    /*  */
-    #development h5 {
-        font-size: xx-large;
+    .control-panel .card-title {
+        font-size: larger;
     }
+
+    /*  */
     #development .custom-shape-divider-top-1666295937 {
         margin-bottom: 4rem;
     }
@@ -866,7 +875,7 @@ canvas {
     }
 
     .dev-line-container .line {
-        margin-left: 20px;
+        margin-left: 17px;
     }
     .dev-line-container .dot {
         margin-left: 20px;
@@ -874,6 +883,18 @@ canvas {
     .dev-line-container h2 {
         padding-left: 7%;
         font-size: xx-large;
+    }
+
+    .dropdown-btn {
+        transform: translateX(-100%);
+        margin-right: 15px;
+    }
+
+    .dropdown-btn i {
+        border-radius: var(--border-radius);
+        padding: 10px;
+        color: var(--on-background);
+        outline: 1px solid var(--on-background);
     }
 
     /* Demos section */
@@ -927,17 +948,19 @@ canvas {
         font-size: 2.2rem;
     }
 
+    #hero #logo {
+        width: 50%;
+    }
+
     #hero #logo img {
         width: 350px;
-        margin: 50px 0 0 100%;
-        transform: translateX(-50%);
+        margin: 10vh 0 0 10vw;
     }
 
     #hero .image-container {
         top: 200px;
         right: 4%;
-        width: 50%;
-        max-width: 650px;
+        width: 50vw;
         z-index: 2;
     }
 
@@ -1069,17 +1092,18 @@ canvas {
         font-size: 2.2rem;
     }
 
+    #hero #logo {
+        width: 50%;
+    }
+
     #hero #logo img {
-        width: 300px;
-        margin: 50px 0 0 70%;
-        transform: translateX(-50%);
+        width: 350px;
     }
 
     #hero .image-container {
         top: 150px;
         right: 10%;
-        width: 40%;
-        max-width: 650px;
+        width: 40vw;
         z-index: 2;
     }
 
@@ -1196,7 +1220,7 @@ canvas {
 
     /* Hero */
     #hero .container-fluid {
-        height: 500px;
+        height: 50vh;
         padding-bottom: 50px;
         position: relative;
         display: flex;
@@ -1210,17 +1234,19 @@ canvas {
         font-size: 2.2rem;
     }
 
+    #hero #logo {
+        width: 50%;
+    }
+
     #hero #logo img {
         width: 350px;
-        margin: 50px 0 0 100%;
-        transform: translateX(-50%);
     }
 
     #hero .image-container {
         top: 200px;
         right: 4%;
-        width: 50%;
-        max-width: 650px;
+        width: 40vw;
+        /* max-width: 650px; */
         z-index: 2;
     }
 
@@ -1309,5 +1335,3 @@ canvas {
         /* padding: 2px 5px; */
     }
 }
-
-/* Fancy buttons */
