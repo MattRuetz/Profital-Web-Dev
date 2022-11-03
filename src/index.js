@@ -37,10 +37,28 @@ const myVideo = document.getElementById('myVideo');
 
 // mobile ?
 if (window.innerWidth > 576) {
-    document.getElementById('collapse-dev').classList.remove('collapse');
+    document.getElementById('collapse_dev').classList.remove('collapse');
 }
-// text fly-in for demo section
 
+// text fly-in for demo section
+gsap.set('.design-card-col', {
+    x: '-100vw',
+    opacity: 1,
+});
+gsap.to('.design-card-col', {
+    x: '0',
+    opacity: 1,
+    transformOrigin: 'left',
+    ease: 'ease-in-out',
+    stagger: 0.2,
+    scrollTrigger: {
+        markers: true,
+        start: 'top center',
+        end: 'center center',
+        trigger: '#design-col-1',
+        toggleActions: 'play none resume reverse',
+    },
+});
 // Set design cards to expand on hover w/ fake btn clicks
 document.querySelectorAll('.design-card-col').forEach((item, i) => {
     item.addEventListener('mouseover', () => {
@@ -92,25 +110,6 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
 // document.querySelectorAll('.design-card-col').forEach((item) => {
 
 // });
-
-gsap.set('.design-card-col', {
-    x: '-100vw',
-    opacity: 1,
-});
-gsap.to('.design-card-col', {
-    x: '0',
-    opacity: 1,
-    transformOrigin: 'left',
-    ease: 'ease-in-out',
-    stagger: 0.2,
-    scrollTrigger: {
-        markers: true,
-        start: 'top center',
-        end: 'center center',
-        trigger: '#design-col-1',
-        toggleActions: 'play none resume reverse',
-    },
-});
 
 // change bg of design section based on the lowest open card
 
