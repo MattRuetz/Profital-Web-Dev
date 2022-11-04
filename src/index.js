@@ -63,46 +63,50 @@ gsap.to('.design-card-col', {
 document.querySelectorAll('.design-card-col').forEach((item, i) => {
     item.addEventListener('mouseover', () => {
         // expand the box horizontally
-        item.classList.replace('col-lg-7', 'col-lg-11');
+
+        item.classList.replace('col-lg-9', 'col-lg-11');
+        item.classList.add('open');
 
         let others = [2];
 
-        setTimeout(() => {
-            if (
-                document
-                    .getElementById('collapse-ctrl-' + (i + 1))
-                    .getAttribute('aria-expanded') === 'false'
-            ) {
-                $('#collapse-ctrl-' + (i + 1)).click();
-                i + 1 == 1
-                    ? (others = [2, 3])
-                    : i + 1 == 2
-                    ? (others = [1, 3])
-                    : (others = [1, 2]);
+        // setTimeout(() => {
+        if (
+            document
+                .getElementById('collapse-ctrl-' + (i + 1))
+                .getAttribute('aria-expanded') === 'false'
+        ) {
+            $('#collapse-ctrl-' + (i + 1)).click();
+            // setTimeout(() => {
+            //     i + 1 == 1
+            //         ? (others = [2, 3])
+            //         : i + 1 == 2
+            //         ? (others = [1, 3])
+            //         : (others = [1, 2]);
 
-                others.forEach((other_ind) => {
-                    console.log(
-                        document
-                            .getElementById('design-col-' + other_ind)
-                            .classList.contains('col-lg-11')
-                    );
-                    if (
-                        document
-                            .getElementById('design-col-' + other_ind)
-                            .classList.contains('col-lg-11')
-                    ) {
-                        document
-                            .getElementById('collapse-ctrl-' + other_ind)
-                            .click();
+            //     others.forEach((other_ind) => {
+            //         const col = document.getElementById(
+            //             'design-col-' + other_ind
+            //         );
+            //         const ctrl = document.getElementById(
+            //             'collapse-ctrl-' + other_ind
+            //         );
+            //         if (
+            //             col.classList.contains('col-lg-11') ||
+            //             col.getAttribute('aria-expanded') == true
+            //         ) {
+            //             try {
+            //                 col.classList.replace('col-lg-11', 'col-lg-9');
+            //             } catch (e) {
+            //                 console.log('already shrunk: ' + e);
+            //             }
 
-                        document
-                            .getElementById('design-col-' + other_ind)
-                            .classList.replace('col-lg-11', 'col-lg-7');
-                    }
-                });
-                // setDesignBG();
-            }
-        }, 200);
+            //             col.classList.remove('open');
+            //             ctrl.click();
+            //         }
+            //     });
+            // }, 300);
+        }
+        // }, 200);
     });
 });
 
