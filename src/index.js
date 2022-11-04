@@ -35,11 +35,18 @@ const body = document.querySelector('body');
 const mySrc = document.getElementById('vid-src');
 const myVideo = document.getElementById('myVideo');
 
-// mobile ?
-if (window.innerWidth > 576) {
-    document.getElementById('collapse_dev').classList.remove('collapse');
-}
+$(window).on('load', function () {
+    if (window.innerWidth > 576) {
+        document.getElementById('collapse_dev').classList.remove('collapse');
+    }
+});
 
+$(window).on('resize', function () {
+    // mobile ?
+    if (window.innerWidth > 576) {
+        document.getElementById('collapse_dev').classList.remove('collapse');
+    }
+});
 // text fly-in for demo section
 gsap.set('.design-card-col', {
     x: '-100vw',

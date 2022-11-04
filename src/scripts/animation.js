@@ -13,6 +13,7 @@ const enable_panels = false;
  * Doing it this way so CSS represents static-state site (no js, etc...)
  */
 // ------------------------------------------------------
+
 gsap.set('#design-line', {
     scaleX: 0,
     opacity: 1,
@@ -22,7 +23,7 @@ gsap.set('#design-dot', {
     rotateY: '180deg',
     opacity: 0,
 });
-gsap.to('#design-line h2', {
+gsap.set('#design-line h2', {
     opacity: 0,
 });
 gsap.set('#dev-line', {
@@ -34,8 +35,15 @@ gsap.set('#dev-dot', {
     rotateY: '180deg',
     opacity: 0,
 });
-
+// Functions to run on window load (delayed)
+$(window).on('load', function () {
+    setThruLines();
+});
 // ------------------------------------------------------
+
+$(window).on('resize', function () {
+    setThruLines();
+});
 
 gsap.to('#parallax', {
     backgroundPosition: '50% 0%',
@@ -87,37 +95,57 @@ function toggleCard(cardNum, action) {
     }
 }
 
-// Thru line vertical down
-// PROBABLY ONLY COVERS DESKTOP
-gsap.to('.thru-line', {
-    scale: 1,
-    // y: '220vh',
-    y: '110%',
-    ease: 'expo',
-    scrollTrigger: {
-        // markers: true,
-        start: 'bottom top',
-        end: '250% top',
-        trigger: '.thru-line',
-        scrub: 2,
-        // onLeave: showDesignLine,
-        // onEnterBack: hideDesignLine,
-    },
-});
-gsap.to('.thru-line2', {
-    scale: 1,
-    y: '100px',
-    ease: 'expo',
-    scrollTrigger: {
-        // markers: true,
-        start: 'bottom center',
-        end: '+=70px',
-        trigger: '.thru-line2',
-        scrub: 2,
-        // onLeave: showDesignLine,
-        // onEnterBack: hideDesignLine,
-    },
-});
+function setThruLines() {
+    // Thru line vertical down
+    if (window.innerWidth > 400) {
+        // PROBABLY ONLY COVERS DESKTOP
+        gsap.to('.thru-line', {
+            scale: 1,
+            // y: '220vh',
+            y: '110%',
+            ease: 'expo',
+            scrollTrigger: {
+                // markers: true,
+                start: 'bottom top',
+                end: '250% top',
+                trigger: '.thru-line',
+                scrub: 2,
+                // onLeave: showDesignLine,
+                // onEnterBack: hideDesignLine,
+            },
+        });
+    } else {
+        gsap.to('.thru-line', {
+            scale: 1,
+            // y: '220vh',
+            y: '130%',
+            ease: 'expo',
+            scrollTrigger: {
+                // markers: true,
+                start: 'bottom top',
+                end: '290% top',
+                trigger: '.thru-line',
+                scrub: 2,
+                // onLeave: showDesignLine,
+                // onEnterBack: hideDesignLine,
+            },
+        });
+    }
+    gsap.to('.thru-line2', {
+        scale: 1,
+        y: '100px',
+        ease: 'expo',
+        scrollTrigger: {
+            // markers: true,
+            start: 'bottom center',
+            end: '+=70px',
+            trigger: '.thru-line2',
+            scrub: 2,
+            // onLeave: showDesignLine,
+            // onEnterBack: hideDesignLine,
+        },
+    });
+}
 
 gsap.to('#design-line', {
     scaleX: 1,

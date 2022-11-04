@@ -230,6 +230,7 @@ body {
     margin: 0;
     font-family: var(--body-font);
     background-color: var(--primary-color) !important;
+    overflow-x: hidden;
 }
 
 section {
@@ -305,10 +306,6 @@ button:hover .fa-solid {
     border-radius: var(--border-radius) !important;
 }
 
-.line h2 {
-    margin: 4px 0;
-}
-
 p.emph-text {
     color: var(--primary-color);
 }
@@ -376,7 +373,7 @@ button:hover .fa-solid {
     background-image: linear-gradient(
         180deg,
         var(--background) 10%,
-        var(--background-low-opacity) 100%
+        var(--background-low-opacity) 90%
     );
 }
 
@@ -413,10 +410,10 @@ button:hover .fa-solid {
     border-radius: var(--border-radius-round);
     flex-grow: 0;
 }
-
+/* 
 #design {
     height: 900px;
-}
+} */
 
 #design .card {
     box-shadow: var(--box-shadow);
@@ -459,13 +456,8 @@ button:hover .fa-solid {
 }
 
 .line h2 {
-    font-size: 2.2rem;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    padding-top: 20px;
-    padding-bottom: 13px;
-    line-height: 0;
 }
 
 .design-line-container h2 {
@@ -505,7 +497,7 @@ button:hover .fa-solid {
 }
 
 .open .card-title {
-    transform: translate(6%, -90%);
+    transform: translate(8px, -90%);
     transition: all 1s ease;
     color: var(--on-primary);
     /* z-index: 4; */
@@ -818,7 +810,7 @@ footer .footer-link i {
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 /* EXTRA SMALL (xs) devices (portrait phones, up to 576px) */
-@media (max-width: 576px) {
+@media (min-width: 280px) {
     li {
         padding: 10px 0;
     }
@@ -886,8 +878,16 @@ footer .footer-link i {
         left: 2px;
     }
 
-    #design {
-        min-height: 80vh;
+    /* #design {
+        min-height: 1130px;
+    } */
+    .line h2 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        padding-top: 20px;
+        padding-bottom: 13px;
+        line-height: 0;
+        margin: 4px 0;
     }
 
     #design .container {
@@ -901,8 +901,15 @@ footer .footer-link i {
         margin-left: 20px;
     }
     .design-line-container h2 {
-        padding-left: 7%;
+        padding-left: 2%;
         font-size: xx-large;
+    }
+
+    .open .card-badge {
+        width: 110%;
+    }
+    #design .open .card-title {
+        font-size: 1.5rem;
     }
 
     #development .wrapper {
@@ -935,7 +942,7 @@ footer .footer-link i {
         margin-left: 20px;
     }
     .dev-line-container h2 {
-        padding-left: 7%;
+        padding-left: 2%;
         font-size: xx-large;
     }
 
@@ -1039,6 +1046,20 @@ footer .footer-link i {
 
     /* Design */
 
+    .thru-line,
+    .thru-line2 {
+        left: 15px;
+    }
+
+    .line h2 {
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+        padding-top: 20px;
+        padding-bottom: 13px;
+        line-height: 0;
+        margin: 4px 0;
+    }
+
     .design-line-container .line {
         margin-left: 15px;
     }
@@ -1048,6 +1069,9 @@ footer .footer-link i {
     .design-line-container h2 {
         padding-left: 7%;
         font-size: xx-large;
+    }
+    .open .card-badge {
+        width: 85.266%;
     }
 
     #development .wrapper {
@@ -1180,7 +1204,7 @@ footer .footer-link i {
 
     /* Design */
     /* #design {
-        min-height: 80vh;
+        min-height: 1000px;
     } */
 
     #design p {
@@ -1188,11 +1212,16 @@ footer .footer-link i {
         margin-left: 20px;
     }
 
+    .thru-line,
+    .thru-line2 {
+        left: 15px;
+    }
+
     #development .wrapper {
         padding-bottom: 10%;
     }
     #development #parallax {
-        height: 110vh;
+        height: 120vh;
         /* padding-bottom: 10%; */
         background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
     }
