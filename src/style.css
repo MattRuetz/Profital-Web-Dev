@@ -597,6 +597,10 @@ button:hover .fa-solid {
     background-image: url(/src/img/diagonal-striped-brick.png);
 }
 
+#demos video {
+    border-radius: var(--border-radius);
+}
+
 #demos .row .col {
     z-index: 1;
 }
@@ -638,6 +642,7 @@ button:hover .fa-solid {
 }
 #demos .card.demo {
     z-index: 1;
+    margin: 5% 0%;
 }
 
 #demos .card-body {

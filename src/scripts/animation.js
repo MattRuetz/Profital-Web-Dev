@@ -37,12 +37,12 @@ gsap.set('#dev-dot', {
 });
 // Functions to run on window load (delayed)
 $(window).on('load', function () {
-    setThruLines();
+    updateForScreen(window.innerWidth);
 });
 // ------------------------------------------------------
 
 $(window).on('resize', function () {
-    setThruLines();
+    updateForScreen(window.innerWidth);
 });
 
 gsap.to('#parallax', {
@@ -57,32 +57,6 @@ gsap.to('#parallax', {
     },
 });
 
-let cardNum = 1;
-document.querySelectorAll('.demo').forEach((demo_card) => {
-    gsap.to('#' + demo_card.id, {
-        scrollTrigger: {
-            // markers: true,
-            start: 'top 80%',
-            end: '+=40%',
-            reversed: true,
-            trigger: '#' + demo_card.id,
-            onEnter: () => {
-                toggleCard(demo_card.id[5], 'open');
-            },
-            onEnterBack: () => {
-                toggleCard(demo_card.id[5], 'open');
-            },
-            onLeave: () => {
-                toggleCard(demo_card.id[5], 'close');
-            },
-            onLeaveBack: () => {
-                toggleCard(demo_card.id[5], 'close');
-            },
-        },
-    });
-    cardNum++;
-});
-
 function toggleCard(cardNum, action) {
     const ctrlEl = document.getElementById('collapse-ctrl-demo_' + cardNum);
     //want to open, and not open? OPEN
@@ -95,9 +69,34 @@ function toggleCard(cardNum, action) {
     }
 }
 
-function setThruLines() {
-    // Thru line vertical down
-    if (window.innerWidth > 400) {
+function updateForScreen(width) {
+    // DESKTOP + UHD
+    if (width > 991) {
+        document.querySelectorAll('.demo').forEach((demo_card) => {
+            gsap.to('#' + demo_card.id, {
+                scrollTrigger: {
+                    // markers: true,
+                    start: 'top 80%',
+                    end: '+=40%',
+                    reversed: true,
+                    trigger: '#' + demo_card.id,
+                    onEnter: () => {
+                        toggleCard(demo_card.id[5], 'open');
+                    },
+                    onEnterBack: () => {
+                        toggleCard(demo_card.id[5], 'open');
+                    },
+                    onLeave: () => {
+                        toggleCard(demo_card.id[5], 'close');
+                    },
+                    onLeaveBack: () => {
+                        toggleCard(demo_card.id[5], 'close');
+                    },
+                },
+            });
+        });
+    }
+    if (width > 400) {
         // PROBABLY ONLY COVERS DESKTOP
         gsap.to('.thru-line', {
             scale: 1,
