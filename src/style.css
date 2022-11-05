@@ -598,7 +598,10 @@ button:hover .fa-solid {
 }
 
 #demos video {
-    border-radius: var(--border-radius);
+    width: 100%;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    border-bottom: 2px solid var(--background-high-opacity);
 }
 
 #demos .row .col {
