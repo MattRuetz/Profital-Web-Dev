@@ -477,7 +477,7 @@ button:hover .fa-solid {
     font-size: 1.2em;
     position: absolute;
     top: -15px;
-    left: -2px;
+    left: -16px;
     transform: rotate(6deg);
     /* z-index: 0; */
 }
@@ -494,6 +494,7 @@ button:hover .fa-solid {
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 2.675);
     border: 2px solid white;
     border-radius: var(--border-radius);
+    left: 0;
 }
 
 .open .card-title {
@@ -601,7 +602,15 @@ button:hover .fa-solid {
     width: 100%;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
-    border-bottom: 2px solid var(--background-high-opacity);
+    border: 5px solid;
+    border-color: var(--background-med-opacity);
+    transition: all 0.3s ease;
+}
+
+#demos video:hover {
+    transition: all 0.3s ease;
+    border-radius: var(--border-radius);
+    border-color: var(--primary-color);
 }
 
 #demos .row .col {
