@@ -38,6 +38,13 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
+        <!-- Kute.js for animated SVG blob -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/kute.js/2.2.4/kute.min.js"
+            integrity="sha512-ExzTv2b9+LEDBzzlAfT4rSa2C6ncivquUGYGWCPS4yIPjhg+eVi5cSi5NLGZZfK8p/xA4OqAohgfmJT8uWKgpw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
         <!-- scripts for particle image transition -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
@@ -49,7 +56,7 @@
     </head>
     <body
         data-corners="Rounded"
-        data-color="Deep Space"
+        data-color="Profital Purple"
         data-font="Sans-Serif"
         data-flatness="Normal"
     >
@@ -57,7 +64,7 @@
             <video autoplay muted loop id="myVideo">
                 <source
                     id="vid-src"
-                    src="/src/video/graphic3.mp4"
+                    src="/src/video/graphic1.mp4"
                     type="video/mp4"
                 />
             </video>
@@ -122,10 +129,9 @@
                 </div>
             </div>
         </section>
-
+        <div class="thru-line"></div>
         <!-- Design section (Frame 2) -->
-        <section id="design">
-            <div class="thru-line"></div>
+        <section class="panel" id="design">
             <div class="container-fluid">
                 <div class="row design-line-container">
                     <div id="design-line" class="col-8 line">
@@ -240,10 +246,244 @@
         </section>
 
         <!-- Development section (Frame 2) -->
-        <section class="panel" id="development">
+        <section id="development">
             <div id="parallax">
                 <div class="thru-line2"></div>
                 <div class="wrapper overlay dark">
+                    <!-- <svg
+                        id="blob-motion"
+                        viewBox="0 0 1920 1080"
+                        width="1920"
+                        height="1080"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        version="1.1"
+                    >
+                        <g
+                            transform="translate(886.0903885891139 530.238889427469)"
+                        >
+                            <path
+                                id="blob1"
+                                d="M293.8 -476.8C391.2 -452.6 487.9 -395 513 -310C538 -225 491.5 -112.5 482.1 -5.4C472.8 101.7 500.5 203.3 462.2 265.4C423.9 327.5 319.4 349.9 231.4 397.9C143.3 445.9 71.7 519.5 6.2 508.8C-59.3 498.1 -118.7 403.2 -192.1 346.8C-265.6 290.4 -353.2 272.4 -369.5 221.1C-385.9 169.7 -330.9 84.8 -294 21.3C-257.1 -42.2 -238.1 -84.4 -219.7 -132.2C-201.3 -179.9 -183.4 -233.3 -146.9 -292.7C-110.3 -352.1 -55.2 -417.6 21.5 -454.8C98.2 -492 196.3 -501.1 293.8 -476.8"
+                                fill="var(--primary-color)"
+                                stroke="var(--background-med-opacity)"
+                                stroke-width="6"
+                            ></path>
+                        </g>
+                        <g
+                            transform="translate(1020.4450771147497 660.7880976721982)"
+                            style="visibility: hidden"
+                        >
+                            <path
+                                id="blob2"
+                                d="M258.4 -515.7C296.8 -425.4 263.6 -279.2 307.9 -183.9C352.2 -88.7 474.1 -44.3 478 2.2C481.9 48.8 367.8 97.7 311.9 172.9C256 248.1 258.2 349.6 216 367.4C173.7 385.2 86.8 319.2 6.2 308.5C-74.5 297.8 -149 342.5 -242.1 354C-335.2 365.6 -446.9 344 -515.5 279.5C-584.1 215 -609.5 107.5 -595.1 8.3C-580.7 -90.8 -526.3 -181.7 -443.8 -222.1C-361.3 -262.5 -250.7 -252.5 -172 -319.6C-93.3 -386.7 -46.7 -530.8 31.7 -585.7C110 -640.5 220 -606.1 258.4 -515.7"
+                                stroke-width="6"
+                            ></path>
+                        </g>
+                    </svg> -->
+                    <svg
+                        id="wave-motion"
+                        viewBox="0 0 1920 1080"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        version="1.1"
+                    >
+                        <rect
+                            x="0"
+                            y="0"
+                            width="2000px"
+                            height="100%"
+                            fill="none"
+                        ></rect>
+                        <defs>
+                            <linearGradient
+                                id="grad1_0"
+                                x1="43.8%"
+                                y1="100%"
+                                x2="100%"
+                                y2="0%"
+                            >
+                                <stop
+                                    offset="14.444444444444446%"
+                                    stop-color="#6600ff"
+                                    stop-opacity="1"
+                                ></stop>
+                                <stop
+                                    offset="85.55555555555554%"
+                                    stop-color="#6600ff"
+                                    stop-opacity="1"
+                                ></stop>
+                            </linearGradient>
+                        </defs>
+                        <defs>
+                            <linearGradient
+                                id="grad1_1"
+                                x1="43.8%"
+                                y1="100%"
+                                x2="100%"
+                                y2="0%"
+                            >
+                                <stop
+                                    offset="14.444444444444446%"
+                                    stop-color="#6600ff"
+                                    stop-opacity="1"
+                                ></stop>
+                                <stop
+                                    offset="85.55555555555554%"
+                                    stop-color="#0000c7"
+                                    stop-opacity="1"
+                                ></stop>
+                            </linearGradient>
+                        </defs>
+                        <defs>
+                            <linearGradient
+                                id="grad1_2"
+                                x1="43.8%"
+                                y1="100%"
+                                x2="100%"
+                                y2="0%"
+                            >
+                                <stop
+                                    offset="14.444444444444446%"
+                                    stop-color="#000000"
+                                    stop-opacity="1"
+                                ></stop>
+                                <stop
+                                    offset="85.55555555555554%"
+                                    stop-color="#0000c7"
+                                    stop-opacity="1"
+                                ></stop>
+                            </linearGradient>
+                        </defs>
+                        <defs>
+                            <linearGradient
+                                id="grad2_0"
+                                x1="0%"
+                                y1="100%"
+                                x2="56.3%"
+                                y2="0%"
+                            >
+                                <stop
+                                    offset="14.444444444444446%"
+                                    stop-color="#6600ff"
+                                    stop-opacity="1"
+                                ></stop>
+                                <stop
+                                    offset="85.55555555555554%"
+                                    stop-color="#6600ff"
+                                    stop-opacity="1"
+                                ></stop>
+                            </linearGradient>
+                        </defs>
+                        <defs>
+                            <linearGradient
+                                id="grad2_1"
+                                x1="0%"
+                                y1="100%"
+                                x2="56.3%"
+                                y2="0%"
+                            >
+                                <stop
+                                    offset="14.444444444444446%"
+                                    stop-color="#0000c7"
+                                    stop-opacity="1"
+                                ></stop>
+                                <stop
+                                    offset="85.55555555555554%"
+                                    stop-color="#6600ff"
+                                    stop-opacity="1"
+                                ></stop>
+                            </linearGradient>
+                        </defs>
+                        <defs>
+                            <linearGradient
+                                id="grad2_2"
+                                x1="0%"
+                                y1="100%"
+                                x2="56.3%"
+                                y2="0%"
+                            >
+                                <stop
+                                    offset="14.444444444444446%"
+                                    stop-color="#0000c7"
+                                    stop-opacity="1"
+                                ></stop>
+                                <stop
+                                    offset="85.55555555555554%"
+                                    stop-color="#000000"
+                                    stop-opacity="1"
+                                ></stop>
+                            </linearGradient>
+                        </defs>
+                        <g transform="translate(1920, 1080)" id="bottom-waves">
+                            <path
+                                id="outer-wave-bottom-1"
+                                d="M-864 0C-844.9 -157.2 -825.9 -314.4 -748.2 -432C-670.6 -549.6 -534.5 -627.4 -400 -692.8C-265.5 -758.2 -132.8 -811.1 0 -864L0 0Z"
+                                fill="var(--primary-variant)"
+                            ></path>
+                            <path
+                                id="middle-wave-bottom-1"
+                                d="M-576 0C-563.3 -104.8 -550.6 -209.6 -498.8 -288C-447.1 -366.4 -356.3 -418.3 -266.7 -461.9C-177 -505.5 -88.5 -540.7 0 -576L0 0Z"
+                                fill="var(--emph-color)"
+                            ></path>
+                            <path
+                                id="inner-wave-bottom-1"
+                                d="M-288 0C-281.6 -52.4 -275.3 -104.8 -249.4 -144C-223.5 -183.2 -178.2 -209.1 -133.3 -230.9C-88.5 -252.7 -44.3 -270.4 0 -288L0 0Z"
+                                fill="var(--secondary-color)"
+                            ></path>
+                        </g>
+                        <g transform="translate(0, 0)" id="top-waves">
+                            <path
+                                id="outer-wave-top-1"
+                                d="M864 0C742.3 93 620.6 186.1 563.8 325.5C507 464.9 515.1 650.8 432 748.2C348.9 845.7 174.4 854.9 0 864L0 0Z"
+                                fill="var(--primary-variant)"
+                            ></path>
+                            <path
+                                id="middle-wave-top-1"
+                                d="M576 0C494.9 62 413.7 124 375.9 217C338 310 343.4 433.8 288 498.8C232.6 563.8 116.3 569.9 0 576L0 0Z"
+                                fill="var(--emph-color)"
+                            ></path>
+                            <path
+                                id="inner-wave-top-1"
+                                d="M288 0C247.4 31 206.9 62 187.9 108.5C169 155 171.7 216.9 144 249.4C116.3 281.9 58.1 285 0 288L0 0Z"
+                                fill="var(--secondary-color)"
+                            ></path>
+                        </g>
+                        <g
+                            transform="translate(1920, 1080)"
+                            style="visibility: hidden"
+                        >
+                            <path
+                                id="outer-wave-bottom-2"
+                                d="M-972 0C-832.6 -103.2 -693.2 -206.5 -629.6 -363.5C-566 -520.5 -578.3 -731.4 -486 -841.8C-393.7 -952.2 -196.9 -962.1 0 -972L0 0Z"
+                            ></path>
+                            <path
+                                id="middle-wave-bottom-2"
+                                d="M-648 0C-555.1 -68.8 -462.1 -137.6 -419.7 -242.3C-377.4 -347 -385.5 -487.6 -324 -561.2C-262.5 -634.8 -131.2 -641.4 0 -648L0 0Z"
+                            ></path>
+                            <path
+                                id="inner-wave-bottom-2"
+                                d="M-324 0C-277.5 -34.4 -231.1 -68.8 -209.9 -121.2C-188.7 -173.5 -192.8 -243.8 -162 -280.6C-131.2 -317.4 -65.6 -320.7 0 -324L0 0Z"
+                            ></path>
+                        </g>
+                        <g
+                            transform="translate(0, 0)"
+                            style="visibility: hidden"
+                        >
+                            <path
+                                id="outer-wave-top-2"
+                                d="M972 0C950.6 177 929.2 354 841.8 486C754.3 618 600.8 705.1 449.5 778.6C298.2 852.1 149.1 912 0 972L0 0Z"
+                            ></path>
+                            <path
+                                id="middle-wave-top-2"
+                                d="M648 0C633.7 118 619.5 236 561.2 324C502.9 412 400.5 470 299.7 519C198.8 568 99.4 608 0 648L0 0Z"
+                            ></path>
+                            <path
+                                id="inner-wave-top-2"
+                                d="M324 0C316.9 59 309.7 118 280.6 162C251.4 206 200.3 235 149.8 259.5C99.4 284 49.7 304 0 324L0 0Z"
+                            ></path>
+                        </g>
+                    </svg>
                     <!-- <div class="custom-shape-divider-top-1666295937"> -->
                     <div class="row dev-line-container">
                         <div id="dev-line" class="col-8 line">
@@ -331,23 +571,23 @@
                                             </h5>
                                             <form name="color-form">
                                                 <label class="radio-container"
-                                                    >Deep Space
+                                                    >Profital Purple
                                                     <input
                                                         type="radio"
-                                                        checked="checked"
                                                         name="radio_color"
-                                                        value="Deep Space"
+                                                        checked="checked"
+                                                        value="Profital Purple"
                                                     />
                                                     <span
                                                         class="checkmark"
                                                     ></span>
                                                 </label>
                                                 <label class="radio-container"
-                                                    >Go Green
+                                                    >Deep Space
                                                     <input
                                                         type="radio"
                                                         name="radio_color"
-                                                        value="Go Green"
+                                                        value="Deep Space"
                                                     />
                                                     <span
                                                         class="checkmark"
@@ -510,6 +750,19 @@
                             </div>
                         </div>
                     </div>
+                    <div class="custom-shape-divider-bottom-1667848863">
+                        <svg
+                            data-name="Layer 1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 1200 120"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                d="M892.25 114.72L0 0 0 120 1200 120 1200 0 892.25 114.72z"
+                                class="shape-fill"
+                            ></path>
+                        </svg>
+                    </div>
                 </div>
                 <!-- paralax over -->
             </div>
@@ -517,56 +770,58 @@
         </section>
 
         <!-- DEMOS section -->
-        <section class="panel" id="demos">
-            <div class="container-fluid">
-                <div class="row demo-cards">
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-12">
-                        <div class="title-container">
-                            <h3 id="demo-section-title" class="title">
-                                <div id="word-1">From</div>
-                                <div id="word-2">the</div>
-                                <div id="word-3">Ground</div>
-                                <div id="word-4">Up</div>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="my-5 col-xl-9 col-lg-8 col-md-9 col-12">
-                        <div class="card info">
-                            <div class="card-body align-content-center">
-                                <p class="card-text">
-                                    At Profital, we know that every business has
-                                    unique needs. Our team will meet any request
-                                    that you have for your site!<br
-                                        class="mt-5"
-                                    />Whether it's <span>detailed forms</span>,
-                                    <span>custom graphics</span>,
-                                    <span>animations</span>,
-                                    <span>web apps</span>, or anything
-                                    else...<span class="rainbow"
-                                        >If you can dream it, we can build
-                                        it!</span
-                                    >
-                                    Check out some of the apps made by our
-                                    development team.
-                                </p>
+        <section id="demos">
+            <div class="demos-overlay">
+                <div class="container-fluid">
+                    <div class="row demo-cards">
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-12">
+                            <div class="title-container">
+                                <h3 id="demo-section-title" class="title">
+                                    <div id="word-1">From</div>
+                                    <div id="word-2">the</div>
+                                    <div id="word-3">Ground</div>
+                                    <div id="word-4">Up</div>
+                                </h3>
                             </div>
                         </div>
-                    </div>
+                        <div class="my-5 col-md-9 col-12">
+                            <div class="card info">
+                                <div class="card-body align-content-center">
+                                    <p class="card-text">
+                                        At Profital, we know that every business
+                                        has unique needs. Our team will meet any
+                                        request that you have for your site!<br
+                                            class="mt-5"
+                                        />Whether it's
+                                        <span>detailed forms</span>,
+                                        <span>custom graphics</span>,
+                                        <span>animations</span>,
+                                        <span>web apps</span>, or anything
+                                        else...<span class="rainbow"
+                                            >If you can dream it, we can build
+                                            it!</span
+                                        >
+                                        Check out some of the apps made by our
+                                        development team.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <!-- <div class="row offset-md-3"> -->
-                    <div class="offset-md-3 mb-3 col-xl-3 col-lg-4 col-12">
-                        <div id="demo-1" class="card demo">
-                            <div
-                                id="collapse-ctrl-demo_1"
-                                class="collapse-ctrl-demo hidden"
-                                data-bs-toggle="collapse"
-                                aria-expanded="true"
-                                href="#collapse_demo_1"
-                                role="button"
-                                aria-controls="collapse_demo_1"
-                            ></div>
+                        <!-- <div class="row offset-md-3"> -->
+                        <div class="mb-3 offset-md-3 col-xl-3 col-md-4 col-12">
+                            <div id="demo-1" class="card demo">
+                                <div
+                                    id="collapse-ctrl-demo_1"
+                                    class="collapse-ctrl-demo hidden"
+                                    data-bs-toggle="collapse"
+                                    aria-expanded="true"
+                                    href="#collapse_demo_1"
+                                    role="button"
+                                    aria-controls="collapse_demo_1"
+                                ></div>
 
-                            <!-- <img-comparison-slider hover>
+                                <!-- <img-comparison-slider hover>
                                 <img
                                     slot="first"
                                     src="img/daniel-olah-HNkgPFBShSw-unsplash.jpg"
@@ -576,152 +831,160 @@
                                     src="img/profital_Logo_SVG.svg"
                                 />
                             </img-comparison-slider> -->
-                            <a
-                                class="demo-vid-wrapper"
-                                href="http://sids-ponds.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <video autoplay muted loop>
-                                    <source
-                                        id="vid-src"
-                                        src="/src/video/demos/Sids_C.webm"
-                                        type="video/mp4"
-                                    />
-                                </video>
-                            </a>
-                            <!--  -->
-
-                            <div class="card-body">
-                                <div class="card-badge-title">
-                                    <h5 class="card-title">
-                                        Sid's Ponds and Gardenscapes
-                                    </h5>
-                                    <a
-                                        class="client-logo-badge"
-                                        href="http://sids-ponds.com/"
-                                        target="_blank"
-                                    >
-                                        <img
-                                            src="https://sids-ponds.com/wp-content/uploads/2022/05/sids-logo-300x239.png"
-                                            alt="sids-ponds-logo"
+                                <a
+                                    class="demo-vid-wrapper"
+                                    href="http://sids-ponds.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <video autoplay muted loop>
+                                        <source
+                                            id="vid-src"
+                                            src="/src/video/demos/Sids_C.webm"
+                                            type="video/mp4"
                                         />
-                                    </a>
-                                </div>
+                                    </video>
+                                </a>
+                                <!--  -->
 
-                                <div id="collapse_demo_1" class="collapse show">
-                                    <p class="card-text">
-                                        Sid's Ponds is a gardenscape and pond
-                                        supply store located in
+                                <div class="card-body">
+                                    <div class="card-badge-title">
+                                        <h5 class="card-title">
+                                            Sid's Ponds and Gardenscapes
+                                        </h5>
+                                        <a
+                                            class="client-logo-badge"
+                                            href="http://sids-ponds.com/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="https://sids-ponds.com/wp-content/uploads/2022/05/sids-logo-300x239.png"
+                                                alt="sids-ponds-logo"
+                                            />
+                                        </a>
+                                    </div>
+
+                                    <div
+                                        id="collapse_demo_1"
+                                        class="collapse show"
+                                    >
+                                        <p class="card-text">
+                                            Sid's Ponds is a gardenscape and
+                                            pond supply store located in
+                                            <a
+                                                href="http://sids-ponds.com"
+                                                target="_blank"
+                                                >Mississauga, Ontario</a
+                                            >.<br />
+                                            They asked us to update their site
+                                            to make it more engaging, and add
+                                            e-commerce so customers can browse
+                                            their products from anywhere in the
+                                            world.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted"
+                                        >Visit:
                                         <a
                                             href="http://sids-ponds.com"
                                             target="_blank"
-                                            >Mississauga, Ontario</a
-                                        >.<br />
-                                        They asked us to update their site to
-                                        make it more engaging, and add
-                                        e-commerce so customers can browse their
-                                        products from anywhere in the world.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted"
-                                    >Visit:
-                                    <a
-                                        href="http://sids-ponds.com"
-                                        target="_blank"
-                                        >www.sids-ponds.com</a
-                                    ></small
-                                >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 col-xl-3 col-lg-4 col-12">
-                        <div id="demo-2" class="card demo">
-                            <div
-                                id="collapse-ctrl-demo_2"
-                                class="collapse-ctrl-demo hidden"
-                                data-bs-toggle="collapse"
-                                aria-expanded="true"
-                                href="#collapse_demo_2"
-                                role="button"
-                                aria-controls="collapse_demo_2"
-                            ></div>
-
-                            <a
-                                class="demo-vid-wrapper"
-                                href="http://odeedisplay.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <video autoplay muted loop>
-                                    <source
-                                        id="vid-src"
-                                        src="/src/video/demos/Odee_C.webm"
-                                        type="video/webm"
-                                    />
-                                </video>
-                            </a>
-                            <div class="card-body">
-                                <div class="card-badge-title">
-                                    <h5 class="card-title">
-                                        Odee Display Graphics
-                                    </h5>
-                                    <a
-                                        class="client-logo-badge"
-                                        href="http://odeedisplay.com/"
-                                        target="_blank"
+                                            >www.sids-ponds.com</a
+                                        ></small
                                     >
-                                        <img
-                                            src="img/Odee_Logo.png"
-                                            alt="odee-logo"
-                                        />
-                                    </a>
                                 </div>
-                                <div id="collapse_demo_2" class="collapse show">
-                                    <p class="card-text">
-                                        Sid's Ponds is a gardenscape and pond
-                                        supply store located in
-                                        <a
-                                            href="http://sids-ponds.com"
-                                            target="_blank"
-                                            >Mississauga, Ontario</a
-                                        >.<br />
-                                        They asked us to update their site to
-                                        make it more engaging, and add
-                                        e-commerce so customers can browse their
-                                        products from anywhere in the world.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted"
-                                    >Visit:
-                                    <a
-                                        href="http://sids-ponds.com"
-                                        target="_blank"
-                                        >www.sids-ponds.com</a
-                                    ></small
-                                >
                             </div>
                         </div>
-                    </div>
-                    <div
-                        class="mb-3 offset-xl-0 offset-md-3 col-xl-3 col-lg-4 col-12"
-                    >
-                        <div id="demo-3" class="card demo">
-                            <div
-                                id="collapse-ctrl-demo_3"
-                                class="collapse-ctrl-demo hidden"
-                                data-bs-toggle="collapse"
-                                aria-expanded="true"
-                                href="#collapse_demo_3"
-                                role="button"
-                                aria-controls="collapse_demo_3"
-                            ></div>
+                        <div class="mb-3 col-xl-3 col-lg-4 col-12">
+                            <div id="demo-2" class="card demo">
+                                <div
+                                    id="collapse-ctrl-demo_2"
+                                    class="collapse-ctrl-demo hidden"
+                                    data-bs-toggle="collapse"
+                                    aria-expanded="true"
+                                    href="#collapse_demo_2"
+                                    role="button"
+                                    aria-controls="collapse_demo_2"
+                                ></div>
 
-                            <!-- <img-comparison-slider hover>
+                                <a
+                                    class="demo-vid-wrapper"
+                                    href="http://odeedisplay.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <video autoplay muted loop>
+                                        <source
+                                            id="vid-src"
+                                            src="/src/video/demos/Odee_C.webm"
+                                            type="video/webm"
+                                        />
+                                    </video>
+                                </a>
+                                <div class="card-body">
+                                    <div class="card-badge-title">
+                                        <h5 class="card-title">
+                                            Odee Display Graphics
+                                        </h5>
+                                        <a
+                                            class="client-logo-badge"
+                                            href="http://odeedisplay.com/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="img/Odee_Logo.png"
+                                                alt="odee-logo"
+                                            />
+                                        </a>
+                                    </div>
+                                    <div
+                                        id="collapse_demo_2"
+                                        class="collapse show"
+                                    >
+                                        <p class="card-text">
+                                            Sid's Ponds is a gardenscape and
+                                            pond supply store located in
+                                            <a
+                                                href="http://sids-ponds.com"
+                                                target="_blank"
+                                                >Mississauga, Ontario</a
+                                            >.<br />
+                                            They asked us to update their site
+                                            to make it more engaging, and add
+                                            e-commerce so customers can browse
+                                            their products from anywhere in the
+                                            world.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted"
+                                        >Visit:
+                                        <a
+                                            href="http://odeedisplay.com"
+                                            target="_blank"
+                                            >www.odeedisplay.com</a
+                                        ></small
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="mb-3 offset-xl-0 offset-md-4 col-xl-3 col-md-8 col-12"
+                        >
+                            <div id="demo-3" class="card demo">
+                                <div
+                                    id="collapse-ctrl-demo_3"
+                                    class="collapse-ctrl-demo hidden"
+                                    data-bs-toggle="collapse"
+                                    aria-expanded="true"
+                                    href="#collapse_demo_3"
+                                    role="button"
+                                    aria-controls="collapse_demo_3"
+                                ></div>
+
+                                <!-- <img-comparison-slider hover>
                                 <img
                                     slot="first"
                                     src="img/daniel-olah-HNkgPFBShSw-unsplash.jpg"
@@ -731,61 +994,66 @@
                                     src="img/profital_Logo_SVG.svg"
                                 />
                             </img-comparison-slider> -->
-                            <a
-                                class="demo-vid-wrapper"
-                                href="http://ygtravelworkplay.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <video autoplay muted loop>
-                                    <source
-                                        id="vid-src"
-                                        src="/src/video/demos/YG_C.webm"
-                                        type="video/webm"
-                                    />
-                                </video>
-                            </a>
-                            <div class="card-body">
-                                <div class="card-badge-title">
-                                    <h5 class="card-title">
-                                        Young Guns - Travel, Work & Play
-                                    </h5>
-                                    <a
-                                        class="client-logo-badge"
-                                        href="http://ygtravelworkplay.com/"
-                                        target="_blank"
-                                    >
-                                        <img
-                                            src="img/yg-logo-cc.png"
-                                            alt="young-guns-logo"
-                                        />
-                                    </a>
-                                </div>
-                                <div id="collapse_demo_3" class="collapse show">
-                                    <p class="card-text">
-                                        Sid's Ponds is a gardenscape and pond
-                                        supply store located in
-                                        <a
-                                            href="http://sids-ponds.com"
-                                            target="_blank"
-                                            >Mississauga, Ontario</a
-                                        >.<br />
-                                        They asked us to update their site to
-                                        make it more engaging, and add
-                                        e-commerce so customers can browse their
-                                        products from anywhere in the world.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted"
-                                    >Visit:
-                                    <a
-                                        href="http://sids-ponds.com"
-                                        target="_blank"
-                                        >www.sids-ponds.com</a
-                                    ></small
+                                <a
+                                    class="demo-vid-wrapper"
+                                    href="http://ygtravelworkplay.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
+                                    <video autoplay muted loop>
+                                        <source
+                                            id="vid-src"
+                                            src="/src/video/demos/YG_C.webm"
+                                            type="video/webm"
+                                        />
+                                    </video>
+                                </a>
+                                <div class="card-body">
+                                    <div class="card-badge-title">
+                                        <h5 class="card-title">
+                                            Young Guns - Travel, Work & Play
+                                        </h5>
+                                        <a
+                                            class="client-logo-badge"
+                                            href="http://ygtravelworkplay.com/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="img/yg-logo-cc.png"
+                                                alt="young-guns-logo"
+                                            />
+                                        </a>
+                                    </div>
+                                    <div
+                                        id="collapse_demo_3"
+                                        class="collapse show"
+                                    >
+                                        <p class="card-text">
+                                            Sid's Ponds is a gardenscape and
+                                            pond supply store located in
+                                            <a
+                                                href="http://sids-ponds.com"
+                                                target="_blank"
+                                                >Mississauga, Ontario</a
+                                            >.<br />
+                                            They asked us to update their site
+                                            to make it more engaging, and add
+                                            e-commerce so customers can browse
+                                            their products from anywhere in the
+                                            world.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted"
+                                        >Visit:
+                                        <a
+                                            href="http://ygtravelworkplay.com"
+                                            target="_blank"
+                                            >www.ygtravelworkplay.com</a
+                                        ></small
+                                    >
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -794,7 +1062,8 @@
         </section>
 
         <!-- LAUNCH section -->
-        <section class="panel" id="launch">
+        <section id="launch">
+            <div id="launch-bg"></div>
             <div class="container text-center">
                 <div class="row title-row">
                     <div class="col">
@@ -906,9 +1175,84 @@
 
         <!-- Script -->
         <script type="module" src="./index.js"></script>
-        <script
+        <!-- <script
             defer
             src="https://unpkg.com/img-comparison-slider@7/dist/index.js"
-        ></script>
+        ></script> -->
+        <script>
+            const tween = KUTE.fromTo(
+                '#outer-wave-bottom-1',
+                { path: '#outer-wave-bottom-1' },
+                { path: '#outer-wave-bottom-2' },
+                {
+                    repeat: 999,
+                    duration: 7000,
+                    yoyo: true,
+                    easing: 'easingQuadraticInOut',
+                }
+            );
+            const tween2 = KUTE.fromTo(
+                '#middle-wave-bottom-1',
+                { path: '#middle-wave-bottom-1' },
+                { path: '#middle-wave-bottom-2' },
+                {
+                    repeat: 999,
+                    duration: 8000,
+                    yoyo: true,
+                    easing: 'easingQuadraticInOut',
+                }
+            );
+            const tween3 = KUTE.fromTo(
+                '#inner-wave-bottom-1',
+                { path: '#inner-wave-bottom-1' },
+                { path: '#inner-wave-bottom-2' },
+                {
+                    repeat: 999,
+                    duration: 9000,
+                    yoyo: true,
+                    easing: 'easingQuadraticInOut',
+                }
+            );
+            const tween4 = KUTE.fromTo(
+                '#outer-wave-top-1',
+                { path: '#outer-wave-top-1' },
+                { path: '#outer-wave-top-2' },
+                {
+                    repeat: 999,
+                    duration: 7000,
+                    yoyo: true,
+                    easing: 'easingQuadraticInOut',
+                }
+            );
+            const tween5 = KUTE.fromTo(
+                '#middle-wave-top-1',
+                { path: '#middle-wave-top-1' },
+                { path: '#middle-wave-top-2' },
+                {
+                    repeat: 999,
+                    duration: 8000,
+                    yoyo: true,
+                    easing: 'easingQuadraticInOut',
+                }
+            );
+            const tween6 = KUTE.fromTo(
+                '#inner-wave-top-1',
+                { path: '#inner-wave-top-1' },
+                { path: '#inner-wave-top-2' },
+                {
+                    repeat: 999,
+                    duration: 9000,
+                    yoyo: true,
+                    easing: 'easingQuadraticInOut',
+                }
+            );
+
+            tween.start();
+            tween2.start();
+            tween3.start();
+            tween4.start();
+            tween5.start();
+            tween6.start();
+        </script>
     </body>
 </html>

@@ -45,15 +45,15 @@ $(window).on('resize', function () {
     updateForScreen(window.innerWidth);
 });
 
-gsap.to('#parallax', {
-    backgroundPosition: '50% 0%',
+gsap.to('#launch-bg', {
+    filter: 'opacity(1)',
     ease: 'none',
     scrollTrigger: {
         // markers: true,
-        trigger: '#parallax',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 2,
+        trigger: '#launch-bg',
+        start: 'center bottom',
+        end: 'bottom bottom',
+        scrub: 4,
     },
 });
 
@@ -77,7 +77,7 @@ function updateForScreen(width) {
                 scrollTrigger: {
                     // markers: true,
                     start: 'top 80%',
-                    end: '+=40%',
+                    end: 'top top',
                     reversed: true,
                     trigger: '#' + demo_card.id,
                     onEnter: () => {
@@ -241,7 +241,7 @@ for (const word of document.getElementById('demo-section-title').children) {
         scrollTrigger: {
             // markers: true,
             start: 'top 80%',
-            end: 'top 30%',
+            end: 'top 50%',
             trigger: '#' + word.id,
             scrub: 5,
             // onLeave: word_index == word_count ? showCards : null, //CALLBACK ON FINISH
@@ -249,43 +249,36 @@ for (const word of document.getElementById('demo-section-title').children) {
     });
 }
 
-gsap.from('.demo-cards .card', {
+gsap.from('.demo-cards .demo.card', {
     opacity: 0,
     y: 400,
     ease: 'expo',
     duration: 2,
     stagger: 0.8,
+    delay: 2,
+    scrollTrigger: {
+        markers: true,
+        start: 'top bottom',
+        end: '+=100px',
+        trigger: '.demo-cards .demo.card',
+        scrub: 5,
+    },
+});
+
+gsap.from('.demo-cards .info.card', {
+    opacity: 0,
+    y: '-100%',
+    ease: 'back',
+    duration: 2,
+    stagger: 0.8,
     scrollTrigger: {
         // markers: true,
-        start: '-200px center',
+        start: 'bottom 80%',
         end: '+=100px',
         trigger: '.demo-cards .card',
         scrub: 5,
     },
 });
-
-// LAUNCH section float up
-if (window.innerWidth > 1200 && enable_panels) {
-    gsap.set('#launch', {
-        scale: 0.5,
-        borderRadius: '50vw',
-        y: '-50%',
-    });
-    gsap.to('#launch', {
-        borderRadius: 0,
-        translateY: 0,
-        scale: 1,
-        ease: 'SlowMo',
-        duration: 1,
-        scrollTrigger: {
-            // markers: true,
-            start: 'top 60%',
-            end: '+=20px',
-            trigger: '#launch',
-            scrub: 3,
-        },
-    });
-}
 
 // Section Wipe script
 $(function () {
@@ -303,7 +296,7 @@ $(function () {
     // get all slides
     if (window.innerWidth > 1200 && enable_panels) {
         console.log('panels');
-        var slides = document.querySelectorAll('section.panel');
+        var slides = document.querySelectorAll('.panel');
     }
     // create scene for every slide
     for (var i = 0; i < slides.length; i++) {
@@ -327,7 +320,7 @@ function destroyTilt() {
     }
 }
 
-destroyTilt();
+// destroyTilt();
 
 // THIS WILL TRIGGER ON RESIZE...
 // addEventListener('resize', (event) => {

@@ -8,7 +8,7 @@
     --primary-low-opacity: rgba(15, 181, 143, 0.2);
     --primary-variant: rgb(118, 113, 209);
     --emph-color: rgb(164, 1, 39);
-    --secondary-color: rgb(44, 134, 223);
+    --secondary-color: rgb(9, 3, 28);
     --on-primary: rgb(252, 245, 255);
     --on-background: rgb(34, 34, 34);
     --on-background-alt: rgb(255, 238, 238);
@@ -19,22 +19,22 @@
     --footer: rgb(0, 0, 8);
     --diagram-filter: hue-rotate(290deg);
 }
-[data-color='Go Green'] {
-    --primary-color: rgb(55, 146, 55);
-    --primary-med-opacity: rgba(55, 146, 55, 0.6);
-    --primary-low-opacity: rgba(55, 146, 55, 0.2);
-    --primary-variant: rgb(240, 255, 66);
-    --emph-color: rgb(5, 116, 1);
-    --secondary-color: rgb(84, 180, 53);
+[data-color='Profital Purple'] {
+    --primary-color: rgb(24, 2, 52);
+    --primary-med-opacity: rgba(24, 2, 52, 0.6);
+    --primary-low-opacity: rgba(24, 2, 52, 0.2);
+    --primary-variant: rgb(24, 206, 219);
+    --emph-color: rgb(184, 5, 5);
+    --secondary-color: rgb(9, 67, 104);
     --on-primary: rgb(255, 255, 255);
-    --on-background: rgb(41, 65, 45);
-    --on-background-alt: rgb(214, 238, 194);
+    --on-background: rgb(60, 41, 98);
+    --on-background-alt: rgb(194, 204, 247);
     --background: rgb(252, 245, 255);
     --background-high-opacity: rgba(252, 245, 255, 0.65);
     --background-med-opacity: rgba(252, 245, 255, 0.4);
     --background-low-opacity: rgba(252, 245, 255, 0.1);
-    --footer: rgb(0, 0, 15);
-    --diagram-filter: hue-rotate(200deg);
+    --footer: rgb(2, 2, 32);
+    --diagram-filter: hue-rotate(20deg);
 }
 [data-color='Pastels'] {
     --primary-color: #f675a8;
@@ -88,6 +88,19 @@
 [data-flatness='Pop-Out'] {
     --box-shadow: 4px 4px 0px rgba(34, 34, 34, 0.7);
     --box-shadow-colored: 0px 2px 8px var(--primary-med-opacity);
+}
+
+/* change demos BG pattern based on color theme */
+body[data-color|='Deep Space'] #demos {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='96' viewBox='0 0 60 96'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23555555' fill-opacity='0.2'%3E%3Cpath d='M36 10a6 6 0 0 1 12 0v12a6 6 0 0 1-6 6 6 6 0 0 0-6 6 6 6 0 0 1-12 0 6 6 0 0 0-6-6 6 6 0 0 1-6-6V10a6 6 0 1 1 12 0 6 6 0 0 0 12 0zm24 78a6 6 0 0 1-6-6 6 6 0 0 0-6-6 6 6 0 0 1-6-6V58a6 6 0 1 1 12 0 6 6 0 0 0 6 6v24zM0 88V64a6 6 0 0 0 6-6 6 6 0 0 1 12 0v12a6 6 0 0 1-6 6 6 6 0 0 0-6 6 6 6 0 0 1-6 6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+body[data-color|='Profital Purple'] #demos {
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+
+body[data-color|='Pastels'] #demos {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 /* --------------------------------------------------------------------------------------- */
@@ -319,10 +332,6 @@ button:hover .fa-solid {
     transition: all 0.3s ease;
 }
 
-/* #hero {
-    height: 40vh;
-} */
-
 #hero .container-fluid {
     z-index: 1;
     background-color: var(--primary-color);
@@ -335,6 +344,7 @@ button:hover .fa-solid {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     color: var(--on-primary);
+    z-index: 2;
 }
 
 #hero .headline {
@@ -365,18 +375,6 @@ button:hover .fa-solid {
     color: var(--on-background);
 }
 
-#design {
-    transition: all 0.5s ease;
-    /* padding-top: 20px; */
-    min-height: 60vh;
-    padding-bottom: 10%;
-    background-image: linear-gradient(
-        180deg,
-        var(--background) 10%,
-        var(--background-low-opacity) 90%
-    );
-}
-
 .thru-line {
     position: absolute;
     background: var(--on-background);
@@ -384,7 +382,7 @@ button:hover .fa-solid {
     height: 230vh;
     /* FIXIT */
     top: -230vh;
-    z-index: 0;
+    z-index: 1;
     left: 15px;
     width: 20px;
 }
@@ -398,6 +396,7 @@ button:hover .fa-solid {
     top: -150vh;
     left: 15px;
     width: 20px;
+    z-index: 3;
 }
 
 .design-line-container .line {
@@ -410,15 +409,23 @@ button:hover .fa-solid {
     border-radius: var(--border-radius-round);
     flex-grow: 0;
 }
-/* 
 #design {
-    height: 900px;
-} */
+    transition: all 0.5s ease;
+    /* padding-top: 20px; */
+    min-height: 60vh;
+    padding-bottom: 10%;
+    background-image: linear-gradient(
+        180deg,
+        var(--background) 10%,
+        var(--background-low-opacity) 90%
+    );
+}
 
 #design .card {
     box-shadow: var(--box-shadow);
     transition: all 0.5s ease;
     border: 3px solid transparent;
+    z-index: 2;
 }
 
 #design .card:active {
@@ -479,7 +486,7 @@ button:hover .fa-solid {
     top: -15px;
     left: -16px;
     transform: rotate(6deg);
-    /* z-index: 0; */
+    /* z-index: 2; */
 }
 
 .open .card-badge {
@@ -508,33 +515,35 @@ button:hover .fa-solid {
 
 .wrapper.overlay.dark {
     background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
     background-image: linear-gradient(
         130deg,
         rgba(0, 0, 0, 0.5) 20%,
         var(--primary-low-opacity) 100%
     );
     width: 100%;
-    height: 100%;
-    animation: shift 6s ease 0s infinite alternate;
+    min-height: 100%;
 }
-
-@keyframes shift {
-    0% {
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-    30% {
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-    100% {
-        background-color: var(--primary-low-opacity);
-    }
+#development {
+    height: 100vh;
 }
-
 #development #parallax {
+    width: 100%;
+    height: inherit;
+    z-index: 2;
     position: relative;
-    background-position: 50% 50%;
+    background-position: 0% 0%;
     background-repeat: repeat;
     color: var(--background);
+    background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
+}
+
+#wave-motion {
+    position: absolute;
+    z-index: 0;
+    filter: opacity(0.2);
+    min-width: 100%;
+    min-height: 100%;
 }
 
 #development h5 {
@@ -567,10 +576,11 @@ button:hover .fa-solid {
 .control-panel {
     background-color: #ddd;
     background-repeat: repeat;
-    background-image: url('https://www.transparenttextures.com/patterns/squared-metal.png');
-    max-width: 80%;
+    background-image: url('https://www.transparenttextures.com/patterns/brushed-alum-dark.png');
+    max-width: 95%;
     border: 4px solid #ffffff22;
     border-radius: var(--border-radius);
+    position: relative;
 }
 
 .control-panel h4 {
@@ -582,8 +592,9 @@ button:hover .fa-solid {
 }
 
 .control-panel .card {
-    background-color: var(--background-med-opacity);
+    background-color: var(--background-high-opacity);
     box-shadow: var(--box-shadow);
+    /* z-index: 6;  */
 }
 
 .control-panel .card-title {
@@ -593,9 +604,46 @@ button:hover .fa-solid {
     color: var(--on-background) !important;
 }
 
-#demos {
-    background: var(--secondary-color);
-    background-image: url(/src/img/diagonal-striped-brick.png);
+/* DEMOS section */
+
+.custom-shape-divider-bottom-1667848863 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1667848863 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 78px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1667848863 .shape-fill {
+    fill: var(--secondary-color);
+}
+
+body #demos {
+    position: relative;
+    background-color: var(--primary-color);
+    z-index: 0;
+}
+
+.demos-overlay {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    background: linear-gradient(
+        0deg,
+        var(--primary-color) 0%,
+        var(--primary-low-opacity) 10%,
+        var(--secondary-color) 90%
+    );
 }
 
 #demos video {
@@ -664,11 +712,14 @@ button:hover .fa-solid {
 /* remaining cards are DEMO cards */
 #demos .card.demo .card-title {
     background-color: var(--background-med-opacity);
-    width: fit-content;
+    width: 90%;
+    height: fit-content;
     padding: 2px 5%;
     font-size: 1.1rem;
     border-radius: var(--border-radius);
     text-align: center;
+    font-weight: 600;
+    text-shadow: 0 2px var(--background-high-opacity);
 }
 
 #demos .card.demo .card-text {
@@ -693,6 +744,12 @@ button:hover .fa-solid {
     display: flex;
     justify-content: space-between;
 }
+
+.client-logo-badge {
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+
 .client-logo-badge img {
     width: 60px;
     padding: 3px;
@@ -720,14 +777,49 @@ img-comparison-slider img {
 
 /* Launch (Hello World) section */
 
-#launch {
-    background: url(/src/img/earth-from-space.jpg);
-    background-position-y: -50px;
-    background-size: cover;
-    box-shadow: 0 -10px 30px 10px var(--background-med-opacity);
-    z-index: 2;
-    min-height: 100vh;
+.custom-shape-divider-top-1667851140 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
 }
+
+.custom-shape-divider-top-1667851140 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 78px;
+    filter: drop-shadow(4px 0px 10px rgba(255, 255, 255, 0.6));
+}
+
+.custom-shape-divider-top-1667851140 .shape-fill {
+    fill: var(--primary-color);
+}
+
+#launch {
+    position: relative;
+    z-index: 5;
+    min-height: clamp(100vh, 100vh, 120vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #080b10;
+}
+
+#launch-bg {
+    position: absolute;
+    background-image: url('img/earth-from-space.jpg');
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: opacity(0);
+    height: 100%;
+    width: 100%;
+}
+
 #launch .title {
     font-size: 4rem;
     color: whitesmoke;
@@ -892,7 +984,7 @@ footer .footer-link i {
 
     .thru-line,
     .thru-line2 {
-        left: 2px;
+        display: none;
     }
 
     /* #design {
@@ -912,13 +1004,13 @@ footer .footer-link i {
     }
 
     .design-line-container .line {
-        margin-left: 5px;
+        margin-left: -20px;
     }
     .design-line-container .dot {
         margin-left: 20px;
     }
     .design-line-container h2 {
-        padding-left: 2%;
+        padding-left: 30px;
         font-size: xx-large;
     }
 
@@ -931,11 +1023,6 @@ footer .footer-link i {
 
     #development .wrapper {
         padding-bottom: 10%;
-    }
-    #development #parallax {
-        /* height: 110vh; */
-        /* padding-bottom: 10%; */
-        background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
     }
 
     .control-panel .card-title {
@@ -953,13 +1040,13 @@ footer .footer-link i {
     }
 
     .dev-line-container .line {
-        margin-left: 17px;
+        margin-left: -20px;
     }
     .dev-line-container .dot {
         margin-left: 20px;
     }
     .dev-line-container h2 {
-        padding-left: 2%;
+        padding-left: 30px;
         font-size: xx-large;
     }
 
@@ -1065,6 +1152,7 @@ footer .footer-link i {
 
     .thru-line,
     .thru-line2 {
+        display: unset;
         left: 15px;
     }
 
@@ -1093,11 +1181,6 @@ footer .footer-link i {
 
     #development .wrapper {
         padding-bottom: 10%;
-    }
-    #development #parallax {
-        /* height: 110vh; */
-        /* padding-bottom: 10%; */
-        background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
     }
 
     /*  */
@@ -1237,11 +1320,6 @@ footer .footer-link i {
     #development .wrapper {
         padding-bottom: 10%;
     }
-    #development #parallax {
-        height: 120vh;
-        /* padding-bottom: 10%; */
-        background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
-    }
 
     /*  */
     #development .info h5 {
@@ -1270,7 +1348,7 @@ footer .footer-link i {
     /* Demos section */
 
     #demos {
-        min-height: 120vh;
+        min-height: 100vh;
     }
 
     #demos .title {
@@ -1383,11 +1461,6 @@ footer .footer-link i {
     #development .wrapper {
         padding-bottom: 10%;
     }
-    #development #parallax {
-        height: 110vh;
-        /* padding-bottom: 10%; */
-        background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
-    }
 
     /*  */
     #development .info h5 {
@@ -1415,10 +1488,6 @@ footer .footer-link i {
 
     /* Demos section */
 
-    #demos {
-        min-height: 120vh;
-    }
-
     #demos .title {
         font-size: 8vw;
         letter-spacing: -0.1vw;
@@ -1438,7 +1507,7 @@ footer .footer-link i {
     }
 
     #demos .card.demo .card-title {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         padding: 2px 5%;
     }
     #demos .card.demo .card-text {
@@ -1514,17 +1583,8 @@ footer .footer-link i {
     }
 
     /* Design */
-    /* #design {
-        min-height: 80vh;
-    } */
-
     #development .wrapper {
         padding-bottom: 10%;
-    }
-    #development #parallax {
-        height: 110vh;
-        /* padding-bottom: 10%; */
-        background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
     }
 
     /*  */
@@ -1571,7 +1631,7 @@ footer .footer-link i {
     }
 
     #demos .card.demo .card-title {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         padding: 2px 5%;
     }
     #demos .card.demo .card-text {

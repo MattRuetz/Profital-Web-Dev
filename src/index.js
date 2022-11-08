@@ -173,7 +173,7 @@ function invertLogo() {
     }, 500);
 }
 
-// ---------- FUTURE FUNCTIONS I KNOW I WANT TO ADD
+// Fade in launch bg.. on scroll
 
 // Radio buttons event listeners
 var color_options = document.forms['color-form'].elements['radio_color'];
