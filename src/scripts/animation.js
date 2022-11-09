@@ -13,7 +13,10 @@ const enable_panels = false;
  * Doing it this way so CSS represents static-state site (no js, etc...)
  */
 // ------------------------------------------------------
-
+//
+gsap.set('#design-info', {
+    opacity: 0,
+});
 gsap.set('#design-line', {
     scaleX: 0,
     opacity: 1,
@@ -70,6 +73,8 @@ function toggleCard(cardNum, action) {
 }
 
 function updateForScreen(width) {
+    console.log(width);
+
     // DESKTOP + UHD
     if (width > 991) {
         document.querySelectorAll('.demo').forEach((demo_card) => {
@@ -101,16 +106,14 @@ function updateForScreen(width) {
         gsap.to('.thru-line', {
             scale: 1,
             // y: '220vh',
-            y: '110%',
+            y: '2100px',
             ease: 'expo',
             scrollTrigger: {
                 // markers: true,
                 start: 'bottom top',
-                end: '250% top',
+                end: '220% top',
                 trigger: '.thru-line',
                 scrub: 2,
-                // onLeave: showDesignLine,
-                // onEnterBack: hideDesignLine,
             },
         });
     } else {
@@ -125,8 +128,6 @@ function updateForScreen(width) {
                 end: '290% top',
                 trigger: '.thru-line',
                 scrub: 2,
-                // onLeave: showDesignLine,
-                // onEnterBack: hideDesignLine,
             },
         });
     }
@@ -140,8 +141,6 @@ function updateForScreen(width) {
             end: '+=70px',
             trigger: '.thru-line2',
             scrub: 2,
-            // onLeave: showDesignLine,
-            // onEnterBack: hideDesignLine,
         },
     });
 }
@@ -152,7 +151,7 @@ gsap.to('#design-line', {
     transformOrigin: 'left',
     ease: 'ease-in-out',
     scrollTrigger: {
-        // markers: true,
+        markers: true,
         start: 'top center',
         end: '+=1px',
         trigger: '#design-line',
@@ -168,8 +167,12 @@ gsap.to('#design-line', {
                 ease: 'ease',
                 duration: 0.3,
             });
+            gsap.to('#design-info', {
+                opacity: 0,
+                ease: 'ease',
+                duration: 0.3,
+            });
         },
-        // onEnterBack: hideDesignLine,
     },
     onComplete: () => {
         // Dot-flip animation when done
@@ -183,6 +186,12 @@ gsap.to('#design-line', {
         gsap.to('#design-line h2', {
             opacity: 1,
             ease: 'ease',
+            duration: 0.6,
+        });
+        gsap.to('#design-info', {
+            opacity: 1,
+            ease: 'ease',
+            delay: 0.8,
             duration: 0.6,
         });
     },
@@ -257,7 +266,7 @@ gsap.from('.demo-cards .demo.card', {
     stagger: 0.8,
     delay: 2,
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         start: 'top bottom',
         end: '+=100px',
         trigger: '.demo-cards .demo.card',

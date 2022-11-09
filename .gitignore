@@ -1,5 +1,6 @@
 node_modules/
 dist/
+NO_PUSH/
 .parcel-cache
 .cache
 # src/video/

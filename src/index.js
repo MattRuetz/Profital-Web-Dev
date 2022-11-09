@@ -32,12 +32,15 @@ AOS.init({
 });
 
 const body = document.querySelector('body');
-const mySrc = document.getElementById('vid-src');
-const myVideo = document.getElementById('myVideo');
+const logo = document.getElementById('logo');
+const devSection = document.getElementById('development');
+const customizeExpandBtn = document.getElementById('customize-dropdown-ctrl');
 
 $(window).on('load', function () {
     if (window.innerWidth > 576) {
         document.getElementById('collapse_dev').classList.remove('collapse');
+    } else {
+        expandDevSection();
     }
 });
 
@@ -45,8 +48,27 @@ $(window).on('resize', function () {
     // mobile ?
     if (window.innerWidth > 576) {
         document.getElementById('collapse_dev').classList.remove('collapse');
+    } else {
+        expandDevSection();
     }
 });
+
+$(customizeExpandBtn).click(() => {
+    expandDevSection();
+});
+
+function expandDevSection() {
+    if (
+        customizeExpandBtn.getAttribute('aria-expanded') === 'true' &&
+        window.innerWidth <= 576
+    ) {
+        // item will expand, so expand dev. sec.
+        devSection.classList.add('mobile-expanded');
+    } else {
+        devSection.classList.remove('mobile-expanded');
+    }
+}
+
 // text fly-in for demo section
 gsap.set('.design-card-col', {
     x: '-100vw',
@@ -59,7 +81,7 @@ gsap.to('.design-card-col', {
     ease: 'ease-in-out',
     stagger: 0.2,
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         start: 'top center',
         end: 'center center',
         trigger: '#design-col-1',
@@ -71,7 +93,7 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
     item.addEventListener('mouseover', () => {
         // expand the box horizontally
 
-        item.classList.replace('col-lg-9', 'col-lg-11');
+        item.classList.replace('col-lg-10', 'col-lg-12');
         item.classList.add('open');
 
         let others = [2];
@@ -83,6 +105,13 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
                 .getAttribute('aria-expanded') === 'false'
         ) {
             $('#collapse-ctrl-' + (i + 1)).click();
+            document
+                .querySelectorAll(
+                    '#design-col-' + (i + 1) + ' .title-wrap .fa-solid'
+                )
+                .forEach((design_card) => {
+                    design_card.classList.add('open');
+                });
             // setTimeout(() => {
             //     i + 1 == 1
             //         ? (others = [2, 3])
@@ -117,54 +146,10 @@ document.querySelectorAll('.design-card-col').forEach((item, i) => {
     });
 });
 
-// design card slide in
-// document.querySelectorAll('.design-card-col').forEach((item) => {
-
-// });
-
-// change bg of design section based on the lowest open card
-
-function setDesignBG() {
-    if (
-        document
-            .getElementById('collapse-ctrl-3')
-            .getAttribute('aria-expanded') === 'true'
-    ) {
-        mySrc.setAttribute('src', '/graphic1.228844a4.mp4');
-    } else if (
-        document
-            .getElementById('collapse-ctrl-2')
-            .getAttribute('aria-expanded') === 'true'
-    ) {
-        mySrc.setAttribute('src', '/graphic2.a90d02ad.mp4');
-    } else if (
-        document
-            .getElementById('collapse-ctrl-1')
-            .getAttribute('aria-expanded') === 'true'
-    ) {
-        mySrc.setAttribute('src', '/graphic3.715b61ff.mp4');
-    }
-
-    loadNewVid();
-}
-
-const video_wrapper = document.getElementById('video-wrapper');
-function loadNewVid() {
-    myVideo.classList.add('blink-overlay');
-    setTimeout(() => {
-        myVideo.load();
-    }, 200);
-    setTimeout(() => {
-        myVideo.classList.remove('blink-overlay');
-    }, 500);
-}
-
 // initScrollReveal(targetElements, defaultProps);
 initTiltEffect((res) => {
     console.log(res);
 });
-
-let logo = document.getElementById('logo');
 
 // Flip logo to white after 500ms
 function invertLogo() {
@@ -204,11 +189,5 @@ for (var i = 0, max = flatness_options.length; i < max; i++) {
         body.setAttribute('data-flatness', this.value);
     };
 }
-
-/**
- * change-phrase function, which uses a static array of random marketing phrases
- * for the header-phrase, and switches randomly. First letters are sepparated and
- * injected as spans, and individually animated in with GSAP tweens.
- */
 
 invertLogo();
