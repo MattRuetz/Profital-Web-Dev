@@ -101,36 +101,36 @@ function updateForScreen(width) {
             });
         });
     }
-    if (width > 400) {
-        // PROBABLY ONLY COVERS DESKTOP
-        gsap.to('.thru-line', {
-            scale: 1,
-            // y: '220vh',
-            y: '2100px',
-            ease: 'expo',
-            scrollTrigger: {
-                // markers: true,
-                start: 'bottom top',
-                end: '220% top',
-                trigger: '.thru-line',
-                scrub: 2,
-            },
-        });
-    } else {
-        gsap.to('.thru-line', {
-            scale: 1,
-            // y: '220vh',
-            y: '130%',
-            ease: 'expo',
-            scrollTrigger: {
-                // markers: true,
-                start: 'bottom top',
-                end: '290% top',
-                trigger: '.thru-line',
-                scrub: 2,
-            },
-        });
-    }
+    // if (width > 400) {
+    // PROBABLY ONLY COVERS DESKTOP
+    gsap.to('.thru-line', {
+        scale: 1,
+        // y: '220vh',
+        y: 2100,
+        ease: 'expo',
+        scrollTrigger: {
+            // markers: true,
+            start: 'bottom top',
+            end: '+=2800px',
+            trigger: '.thru-line',
+            scrub: 2,
+        },
+    });
+    // } else {
+    //     gsap.to('.thru-line', {
+    //         scale: 1,
+    //         // y: '220vh',
+    //         y: '130%',
+    //         ease: 'expo',
+    //         scrollTrigger: {
+    //             // markers: true,
+    //             start: 'bottom top',
+    //             end: '290% top',
+    //             trigger: '.thru-line',
+    //             scrub: 2,
+    //         },
+    //     });
+    // }
     gsap.to('.thru-line2', {
         scale: 1,
         y: '100px',
@@ -151,7 +151,7 @@ gsap.to('#design-line', {
     transformOrigin: 'left',
     ease: 'ease-in-out',
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         start: 'top center',
         end: '+=1px',
         trigger: '#design-line',
