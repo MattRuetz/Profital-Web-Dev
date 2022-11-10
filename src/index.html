@@ -40,12 +40,7 @@
             referrerpolicy="no-referrer"
         ></script>
         <!-- Kute.js for animated SVG blob -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/kute.js/2.2.4/kute.min.js"
-            integrity="sha512-ExzTv2b9+LEDBzzlAfT4rSa2C6ncivquUGYGWCPS4yIPjhg+eVi5cSi5NLGZZfK8p/xA4OqAohgfmJT8uWKgpw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/kute.js@2/dist/kute.min.js"></script>
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>Profital Web Development</title>
@@ -1143,84 +1138,5 @@
 
         <!-- Script -->
         <script type="module" src="./index.js"></script>
-        <!-- <script
-            defer
-            src="https://unpkg.com/img-comparison-slider@7/dist/index.js"
-        ></script> -->
-        <script defer async>
-            const tween = KUTE.fromTo(
-                '#outer-wave-bottom-1',
-                { path: '#outer-wave-bottom-1' },
-                { path: '#outer-wave-bottom-2' },
-                {
-                    repeat: 999,
-                    duration: 7000,
-                    yoyo: true,
-                    easing: 'easingQuadraticInOut',
-                }
-            );
-            const tween2 = KUTE.fromTo(
-                '#middle-wave-bottom-1',
-                { path: '#middle-wave-bottom-1' },
-                { path: '#middle-wave-bottom-2' },
-                {
-                    repeat: 999,
-                    duration: 8000,
-                    yoyo: true,
-                    easing: 'easingQuadraticInOut',
-                }
-            );
-            const tween3 = KUTE.fromTo(
-                '#inner-wave-bottom-1',
-                { path: '#inner-wave-bottom-1' },
-                { path: '#inner-wave-bottom-2' },
-                {
-                    repeat: 999,
-                    duration: 9000,
-                    yoyo: true,
-                    easing: 'easingQuadraticInOut',
-                }
-            );
-            const tween4 = KUTE.fromTo(
-                '#outer-wave-top-1',
-                { path: '#outer-wave-top-1' },
-                { path: '#outer-wave-top-2' },
-                {
-                    repeat: 999,
-                    duration: 7000,
-                    yoyo: true,
-                    easing: 'easingQuadraticInOut',
-                }
-            );
-            const tween5 = KUTE.fromTo(
-                '#middle-wave-top-1',
-                { path: '#middle-wave-top-1' },
-                { path: '#middle-wave-top-2' },
-                {
-                    repeat: 999,
-                    duration: 8000,
-                    yoyo: true,
-                    easing: 'easingQuadraticInOut',
-                }
-            );
-            const tween6 = KUTE.fromTo(
-                '#inner-wave-top-1',
-                { path: '#inner-wave-top-1' },
-                { path: '#inner-wave-top-2' },
-                {
-                    repeat: 999,
-                    duration: 9000,
-                    yoyo: true,
-                    easing: 'easingQuadraticInOut',
-                }
-            );
-
-            tween.start();
-            tween2.start();
-            tween3.start();
-            tween4.start();
-            tween5.start();
-            tween6.start();
-        </script>
     </body>
 </html>

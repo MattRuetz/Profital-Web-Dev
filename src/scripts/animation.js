@@ -289,6 +289,81 @@ gsap.from('.demo-cards .info.card', {
     },
 });
 
+// Development section WAVES BG
+const tween = KUTE.fromTo(
+    '#outer-wave-bottom-1',
+    { path: '#outer-wave-bottom-1' },
+    { path: '#outer-wave-bottom-2' },
+    {
+        repeat: 999,
+        duration: 7000,
+        yoyo: true,
+        easing: 'easingQuadraticInOut',
+    }
+);
+const tween2 = KUTE.fromTo(
+    '#middle-wave-bottom-1',
+    { path: '#middle-wave-bottom-1' },
+    { path: '#middle-wave-bottom-2' },
+    {
+        repeat: 999,
+        duration: 8000,
+        yoyo: true,
+        easing: 'easingQuadraticInOut',
+    }
+);
+const tween3 = KUTE.fromTo(
+    '#inner-wave-bottom-1',
+    { path: '#inner-wave-bottom-1' },
+    { path: '#inner-wave-bottom-2' },
+    {
+        repeat: 999,
+        duration: 9000,
+        yoyo: true,
+        easing: 'easingQuadraticInOut',
+    }
+);
+const tween4 = KUTE.fromTo(
+    '#outer-wave-top-1',
+    { path: '#outer-wave-top-1' },
+    { path: '#outer-wave-top-2' },
+    {
+        repeat: 999,
+        duration: 7000,
+        yoyo: true,
+        easing: 'easingQuadraticInOut',
+    }
+);
+const tween5 = KUTE.fromTo(
+    '#middle-wave-top-1',
+    { path: '#middle-wave-top-1' },
+    { path: '#middle-wave-top-2' },
+    {
+        repeat: 999,
+        duration: 8000,
+        yoyo: true,
+        easing: 'easingQuadraticInOut',
+    }
+);
+const tween6 = KUTE.fromTo(
+    '#inner-wave-top-1',
+    { path: '#inner-wave-top-1' },
+    { path: '#inner-wave-top-2' },
+    {
+        repeat: 999,
+        duration: 9000,
+        yoyo: true,
+        easing: 'easingQuadraticInOut',
+    }
+);
+
+tween.start();
+tween2.start();
+tween3.start();
+tween4.start();
+tween5.start();
+tween6.start();
+
 // Section Wipe script
 $(function () {
     // wait for document ready
