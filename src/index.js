@@ -57,6 +57,14 @@ $(customizeExpandBtn).click(() => {
     expandDevSection();
 });
 
+$('.goto-customize').click(function (event) {
+    event.preventDefault();
+    $('html, body').animate(
+        { scrollTop: $($(this).attr('href')).offset().top },
+        500
+    );
+});
+
 function expandDevSection() {
     if (
         customizeExpandBtn.getAttribute('aria-expanded') === 'true' &&
