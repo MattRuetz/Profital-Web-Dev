@@ -35,7 +35,7 @@
 }
 [data-color='Pastels'] {
     --primary-color: rgb(246, 117, 168);
-    --primary-med-opacity: rgb(188, 226, 158);
+    --primary-med-opacity: rgba(246, 117, 168, 0.6);
     --primary-low-opacity: rgb(188, 226, 158, 0.3);
     --primary-variant: rgb(242, 211, 136);
     --emph-color: rgb(112, 108, 238);
@@ -79,15 +79,15 @@
 
 [data-flatness='Normal'] {
     --box-shadow: 0 3px 4px rgba(34, 34, 34, 0.5);
-    --box-shadow-colored: 0 2px 5px var(--primary-low-opacity);
+    --box-shadow-colored: 0 0px 4px var(--primary-low-opacity);
 }
 [data-flatness='Flat'] {
     --box-shadow: 0px 0px 3px rgba(34, 34, 34, 0.2);
-    --box-shadow-colored: 0px 0px 3px var(--primary-low-opacity);
+    --box-shadow-colored: 0px 0px 3px var(--primary-med-opacity);
 }
 [data-flatness='Pop-Out'] {
     --box-shadow: 4px 4px 0px rgba(34, 34, 34, 0.7);
-    --box-shadow-colored: 0px 2px 8px var(--primary-med-opacity);
+    --box-shadow-colored: 0px 0px 10px var(--primary-med-opacity);
 }
 
 /* change demos BG pattern based on color theme */
@@ -332,6 +332,12 @@ button:hover .fa-solid {
     transition: all 0.3s ease;
 }
 
+#hero {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    z-index: 2;
+}
+
 #hero .container-fluid {
     background-color: var(--primary-color);
     background-image: linear-gradient(
@@ -340,10 +346,7 @@ button:hover .fa-solid {
         var(--secondary-color) 100%
     );
     border-top: 0;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     color: var(--on-primary);
-    z-index: 2;
 }
 
 #hero .headline {
@@ -386,7 +389,7 @@ img.diagram {
     height: 2100px;
     /* FIXIT */
     top: -2100px;
-    z-index: 1;
+    z-index: 0;
     left: 15px;
     width: 20px;
 }
@@ -541,7 +544,7 @@ img.diagram {
 }
 
 .open .card-title {
-    transform: translate(8px, -90%);
+    transform: translate(8px, -100%);
     transition: all 0.6s ease;
     color: var(--on-primary);
     /* z-index: 4; */
@@ -787,7 +790,7 @@ body #demos {
 }
 
 .client-logo-badge img {
-    width: 60px;
+    width: 55px;
     padding: 3px;
     border-radius: var(--border-radius);
     background-color: var(--background-med-opacity);
@@ -838,10 +841,7 @@ img-comparison-slider img {
 #launch {
     position: relative;
     z-index: 5;
-    min-height: clamp(100vh, 100vh, 120vh);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: clamp(1000px, 100vh, 120vh);
     background-color: #080b10;
 }
 
@@ -861,20 +861,35 @@ img-comparison-slider img {
     color: whitesmoke;
 }
 #launch .title-row {
+    margin: 30px 0;
     height: 20vh;
     align-items: center;
 }
 
-#launch .card {
-    padding: 10px 20px;
-    background-color: var(--background-high-opacity);
+#launch .card.outer {
+    padding: 0 10px 20px 10px;
+    background-color: var(--background-med-opacity);
+    margin-bottom: 50px;
+}
+
+#launch .card .card-title {
+    text-shadow: 1px 1px 3px var(--on-background-alt);
+    padding: 2px;
     color: var(--on-background);
+    border-radius: var(--border-radius);
 }
 
 #launch .card .card {
     padding: 20px 20px 0;
-    background: var(--background-high-opacity);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background: var(--background-med-opacity);
+}
+
+#launch .card .card p {
+    margin-bottom: 0px;
+}
+
+#launch .card .card hr {
+    margin: 10px;
 }
 
 footer {
@@ -1252,7 +1267,7 @@ footer .footer-link i {
     #demos .title {
         font-size: 12vw;
         letter-spacing: -0.2vw;
-        line-height: 8vh;
+        line-height: 1em;
         color: var(--background-high-opacity);
         position: relative;
     }
@@ -1374,7 +1389,7 @@ footer .footer-link i {
     #demos .title {
         font-size: 8vw;
         letter-spacing: -0.1vw;
-        line-height: 20vh;
+        line-height: clamp(120px, 20vh, 1em);
         color: var(--background-high-opacity);
         position: absolute;
     }
@@ -1506,7 +1521,7 @@ footer .footer-link i {
     #demos .title {
         font-size: 8vw;
         letter-spacing: -0.2vw;
-        line-height: 20vh;
+        line-height: clamp(20vh, 150px, 1.5em);
         color: var(--background-high-opacity);
         position: absolute;
     }
