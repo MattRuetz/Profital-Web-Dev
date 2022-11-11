@@ -35,6 +35,10 @@ const body = document.querySelector('body');
 const logo = document.getElementById('logo');
 const devSection = document.getElementById('development');
 const customizeExpandBtn = document.getElementById('customize-dropdown-ctrl');
+const sidebar = document.getElementById('sidebar');
+const sidebar_toggle = document.getElementById('sidebar-toggle');
+const openIcon = document.getElementById('open-menu-icon');
+const closeIcon = document.getElementById('close-menu-icon');
 
 $(window).on('load', function () {
     if (window.innerWidth > 576) {
@@ -57,12 +61,21 @@ $(customizeExpandBtn).click(() => {
     expandDevSection();
 });
 
-$('.goto-customize').click(function (event) {
+$('.goto-customize').on('click', function (event) {
     event.preventDefault();
     $('html, body').animate(
         { scrollTop: $($(this).attr('href')).offset().top },
         500
     );
+});
+
+$(sidebar_toggle).on('click', function (event) {
+    sidebar.classList.toggle('open');
+    sidebar_toggle.classList.toggle('open');
+    // if (sidebar.classList.contains('open')) {
+    openIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    // }
 });
 
 function expandDevSection() {
