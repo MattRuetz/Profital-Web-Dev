@@ -54,13 +54,130 @@
         <div id="sidebar">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-4">
-                        <h1 class="modal-title">Prepare for Liftoff</h1>
-                        <form action=""></form>
+                    <div class="col-12">
+                        <h2 class="modal-title">Prepare for Launch..</h2>
+                        <hr />
+                        <p>
+                            Enter some information about the type of site you
+                            want to create:
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="d-flex justify-content-center"
+                    style="padding: none"
+                >
+                    <div
+                        class="col-lg-10 col-12"
+                        style="padding-left: 0; padding-right: 0"
+                    >
+                        <div class="outline-box-light">
+                            <form id="contact-form">
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <input
+                                                type="text"
+                                                id="form6Example1"
+                                                class="form-control"
+                                            />
+                                            <label
+                                                class="form-label"
+                                                for="form6Example1"
+                                                >First name</label
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <input
+                                                type="text"
+                                                id="form6Example2"
+                                                class="form-control"
+                                            />
+                                            <label
+                                                class="form-label"
+                                                for="form6Example2"
+                                                >Last name</label
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Text input -->
+                                <div class="form-outline">
+                                    <input
+                                        type="text"
+                                        id="form6Example3"
+                                        class="form-control"
+                                    />
+                                    <label
+                                        class="form-label"
+                                        for="form6Example3"
+                                        >Company name</label
+                                    >
+                                </div>
+
+                                <!-- Email input -->
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="form-outline">
+                                            <input
+                                                type="email"
+                                                id="form6Example5"
+                                                class="form-control"
+                                            />
+                                            <label
+                                                class="form-label"
+                                                for="form6Example5"
+                                                >Email</label
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <!-- Number input -->
+                                        <div class="form-outline">
+                                            <input
+                                                type="number"
+                                                id="form6Example6"
+                                                class="form-control"
+                                            />
+                                            <label
+                                                class="form-label"
+                                                for="form6Example6"
+                                                >Phone</label
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Message input -->
+                                <div class="form-outline">
+                                    <textarea
+                                        class="form-control"
+                                        id="form6Example7"
+                                        rows="4"
+                                    ></textarea>
+                                    <label
+                                        class="form-label"
+                                        for="form6Example7"
+                                        >Additional information</label
+                                    >
+                                </div>
+
+                                <!-- Submit button -->
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary btn-block mb-2"
+                                >
+                                    Send
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="sidebar-toggle">
+            <div id="sidebar-toggle" class="sidebar-toggle">
                 <a id="sidebar-toggle-btn">
                     <i id="open-menu-icon" class="fa-solid fa-rocket"></i>
                     <i
@@ -122,7 +239,7 @@
                 </div>
                 <div class="row my-3">
                     <div class="mb-3 col-md-3 col-sm-6 col-xs-12">
-                        <button class="btn btn-primary btn-lg">
+                        <button class="btn btn-primary btn-lg sidebar-toggle">
                             <i class="fa-solid fa-rocket"></i>Get Started
                         </button>
                     </div>
@@ -151,8 +268,38 @@
                 <p id="design-info">
                     At Profital, our development team works directly with you to
                     design the perfect website for your needs.
+                    <br />
+                    <span
+                        class="d-md-none small"
+                        style="
+                            color: var(--secondary-color);
+                            background: rgba(255, 255, 255, 0.9);
+                            padding: 3px 8px;
+                            border-radius: var(--border-radius);
+                        "
+                    >
+                        <i
+                            class="fa-solid fa-hand-pointer"
+                            style="color: var(--secondary-color)"
+                        ></i>
+                        Tap a card to learn more!
+                    </span>
+                    <span
+                        class="d-none d-md-inline small"
+                        style="
+                            color: var(--secondary-color);
+                            background: rgba(255, 255, 255, 0.9);
+                            padding: 3px 8px;
+                            border-radius: var(--border-radius);
+                        "
+                    >
+                        <i
+                            class="fa-solid fa-arrow-pointer"
+                            style="color: var(--secondary-color)"
+                        ></i
+                        >&nbsp; Hover over a card to learn more!
+                    </span>
                 </p>
-
                 <!-- HOVER CARDS -->
                 <div
                     id="collapse-ctrl-1"
@@ -163,7 +310,7 @@
                     role="button"
                     aria-controls="collapse_1"
                 ></div>
-                <div class="row mt-5 justify-content-center">
+                <div class="row mt-3 justify-content-center">
                     <div
                         id="design-col-1"
                         class="my-3 design-card-col col-lg-10 col-md-9 col-sm-12 justify-content-center"
@@ -1100,7 +1247,7 @@
                             <!-- button container - full width -->
                             <div class="container-fluid text-center">
                                 <button
-                                    class="btn cta-button btn-success btn-lg"
+                                    class="btn cta-button btn-success btn-lg sidebar-toggle"
                                 >
                                     Get Started
                                     <i class="fa-solid fa-rocket"></i>
