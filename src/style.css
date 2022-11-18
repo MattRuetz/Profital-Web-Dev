@@ -184,9 +184,19 @@ body[data-color|='Pastels'] #demos {
 .modal-title {
     color: var(--on-background-alt);
 }
+#modal-logo {
+    top: 0;
+}
+
+#modal-logo img {
+    width: 20%;
+    position: absolute;
+    top: -30px;
+}
 
 #sidebar .form-label {
-    color: var(--background-med-opacity);
+    color: var(--background-high-opacity);
+    font-weight: 200;
 }
 
 #sidebar hr {
