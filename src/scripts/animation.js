@@ -1,9 +1,9 @@
 // Import and register GSAP (UMD/CommonJS)
 import { Expo, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { destroy } from 'vanilla-tilt';
 gsap.registerPlugin(ScrollTrigger);
 // import { Collapse } from 'bootstrap';
-import VanillaTilt from 'vanilla-tilt';
 
 // Not sure if I want panels for any size yet..
 const enable_panels = false;
@@ -39,9 +39,27 @@ gsap.set('#dev-dot', {
     opacity: 0,
 });
 // Functions to run on window load (delayed)
-$(window).on('load', function () {
-    updateForScreen(window.innerWidth);
-});
+updateForScreen(window.innerWidth);
+
+let demoSectionTitle = document.getElementById('demo-section-title');
+// animate slide-in words for demo section wipe-up
+let word_index = 0;
+for (const word of demoSectionTitle.children) {
+    word_index++;
+    gsap.from('#' + word.id, {
+        opacity: 0,
+        // scale: 2,
+        x: 1800,
+        ease: 'expo',
+        scrollTrigger: {
+            // markers: true,
+            start: 'top 80%',
+            end: 'top 50%',
+            trigger: '#' + word.id,
+            scrub: 5,
+        },
+    });
+}
 // ------------------------------------------------------
 
 $(window).on('resize', function () {
@@ -73,8 +91,6 @@ function toggleCard(cardNum, action) {
 }
 
 function updateForScreen(width) {
-    console.log(width);
-
     // DESKTOP + UHD
     if (width > 991) {
         document.querySelectorAll('.demo').forEach((demo_card) => {
@@ -238,26 +254,6 @@ gsap.to('#dev-line', {
     },
 });
 
-// animate slide-in words for demo section wipe-up
-let word_index = 0;
-for (const word of document.getElementById('demo-section-title').children) {
-    word_index++;
-    gsap.from('#' + word.id, {
-        opacity: 0,
-        // scale: 2,
-        x: 1800,
-        ease: 'expo',
-        scrollTrigger: {
-            // markers: true,
-            start: 'top 80%',
-            end: 'top 50%',
-            trigger: '#' + word.id,
-            scrub: 5,
-            // onLeave: word_index == word_count ? showCards : null, //CALLBACK ON FINISH
-        },
-    });
-}
-
 gsap.from('.demo-cards .demo.card', {
     opacity: 0,
     y: 400,
@@ -288,123 +284,6 @@ gsap.from('.demo-cards .info.card', {
         scrub: 5,
     },
 });
-
-// Development section WAVES BG
-const tween = KUTE.fromTo(
-    '#outer-wave-bottom-1',
-    { path: '#outer-wave-bottom-1' },
-    { path: '#outer-wave-bottom-2' },
-    {
-        repeat: 999,
-        duration: 7000,
-        yoyo: true,
-        easing: 'easingQuadraticInOut',
-    }
-);
-const tween2 = KUTE.fromTo(
-    '#middle-wave-bottom-1',
-    { path: '#middle-wave-bottom-1' },
-    { path: '#middle-wave-bottom-2' },
-    {
-        repeat: 999,
-        duration: 8000,
-        yoyo: true,
-        easing: 'easingQuadraticInOut',
-    }
-);
-const tween3 = KUTE.fromTo(
-    '#inner-wave-bottom-1',
-    { path: '#inner-wave-bottom-1' },
-    { path: '#inner-wave-bottom-2' },
-    {
-        repeat: 999,
-        duration: 9000,
-        yoyo: true,
-        easing: 'easingQuadraticInOut',
-    }
-);
-const tween4 = KUTE.fromTo(
-    '#outer-wave-top-1',
-    { path: '#outer-wave-top-1' },
-    { path: '#outer-wave-top-2' },
-    {
-        repeat: 999,
-        duration: 7000,
-        yoyo: true,
-        easing: 'easingQuadraticInOut',
-    }
-);
-const tween5 = KUTE.fromTo(
-    '#middle-wave-top-1',
-    { path: '#middle-wave-top-1' },
-    { path: '#middle-wave-top-2' },
-    {
-        repeat: 999,
-        duration: 8000,
-        yoyo: true,
-        easing: 'easingQuadraticInOut',
-    }
-);
-const tween6 = KUTE.fromTo(
-    '#inner-wave-top-1',
-    { path: '#inner-wave-top-1' },
-    { path: '#inner-wave-top-2' },
-    {
-        repeat: 999,
-        duration: 9000,
-        yoyo: true,
-        easing: 'easingQuadraticInOut',
-    }
-);
-
-tween.start();
-tween2.start();
-tween3.start();
-tween4.start();
-tween5.start();
-tween6.start();
-
-// Section Wipe script
-$(function () {
-    // wait for document ready
-    // init
-    var controller = new ScrollMagic.Controller({
-        globalSceneOptions: {
-            triggerHook: 'onLeave',
-            duration: '190%', // this works just fine with duration 0 as well
-            // However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
-            // Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
-        },
-    });
-
-    // get all slides
-    if (window.innerWidth > 1200 && enable_panels) {
-        console.log('panels');
-        var slides = document.querySelectorAll('.panel');
-    }
-    // create scene for every slide
-    for (var i = 0; i < slides.length; i++) {
-        new ScrollMagic.Scene({
-            triggerElement: slides[i],
-        })
-            .setPin(slides[i], { pushFollowers: false })
-            .addTo(controller);
-    }
-});
-
-function destroyTilt() {
-    var tiltElements = document.querySelectorAll(`[data-tilt]`);
-    var mq = window.matchMedia('(max-width: 1025px)');
-    if (mq.matches) {
-        for (var i = 0, len = tiltElements.length; i < len; i++) {
-            tiltElements[i].vanillaTilt.destroy();
-        }
-    } else {
-        console.log('pedal');
-    }
-}
-
-// destroyTilt();
 
 // THIS WILL TRIGGER ON RESIZE...
 // addEventListener('resize', (event) => {

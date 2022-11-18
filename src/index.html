@@ -39,10 +39,11 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
-        <!-- Kute.js for animated SVG blob -->
-        <script src="https://cdn.jsdelivr.net/npm/kute.js@2/dist/kute.min.js"></script>
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- Kute.js for animated SVG blob -->
+        <script src="https://cdn.jsdelivr.net/npm/kute.js@2/dist/kute.min.js"></script>
+
         <title>Profital Web Development</title>
     </head>
     <body
@@ -182,7 +183,7 @@
                     <i id="open-menu-icon" class="fa-solid fa-rocket"></i>
                     <i
                         id="close-menu-icon"
-                        class="fa-solid fa-right-from-bracket hidden"
+                        class="fa-solid fa-circle-xmark hidden"
                     ></i>
                 </a>
             </div>
@@ -313,7 +314,7 @@
                 <div class="row mt-3 justify-content-center">
                     <div
                         id="design-col-1"
-                        class="my-3 design-card-col col-lg-10 col-md-9 col-sm-12 justify-content-center"
+                        class="my-3 design-card-col col-lg-10 col-md-11 col-sm-12 justify-content-center"
                     >
                         <div class="card">
                             <div class="card-body">
@@ -347,7 +348,7 @@
                     ></div>
                     <div
                         id="design-col-2"
-                        class="my-3 design-card-col col-lg-10 col-md-9 col-sm-12 justify-content-center"
+                        class="my-3 design-card-col col-lg-10 col-md-11 col-sm-12 justify-content-center"
                     >
                         <div class="card">
                             <div class="card-body">
@@ -380,7 +381,7 @@
                     ></div>
                     <div
                         id="design-col-3"
-                        class="my-3 design-card-col col-lg-10 col-md-9 col-sm-12 justify-content-center"
+                        class="my-3 design-card-col col-lg-10 col-md-11 col-sm-12 justify-content-center"
                     >
                         <div class="card">
                             <div class="card-body">
@@ -543,7 +544,10 @@
                                 ></stop>
                             </linearGradient>
                         </defs>
-                        <g transform="translate(1920, 1080)" id="bottom-waves">
+                        <g
+                            style="transform: translate(100%, 100%)"
+                            id="bottom-waves"
+                        >
                             <path
                                 id="outer-wave-bottom-1"
                                 d="M-864 0C-844.9 -157.2 -825.9 -314.4 -748.2 -432C-670.6 -549.6 -534.5 -627.4 -400 -692.8C-265.5 -758.2 -132.8 -811.1 0 -864L0 0Z"
@@ -560,7 +564,7 @@
                                 fill="var(--secondary-color)"
                             ></path>
                         </g>
-                        <g transform="translate(0, 0)" id="top-waves">
+                        <g style="transform: translate(0, 0)" id="top-waves">
                             <path
                                 id="outer-wave-top-1"
                                 d="M864 0C742.3 93 620.6 186.1 563.8 325.5C507 464.9 515.1 650.8 432 748.2C348.9 845.7 174.4 854.9 0 864L0 0Z"
@@ -577,38 +581,38 @@
                                 fill="var(--secondary-color)"
                             ></path>
                         </g>
-                        <g
-                            transform="translate(1920, 1080)"
-                            style="visibility: hidden"
-                        >
+                        <g style="transform: translate(100%, 100%)">
                             <path
                                 id="outer-wave-bottom-2"
                                 d="M-972 0C-832.6 -103.2 -693.2 -206.5 -629.6 -363.5C-566 -520.5 -578.3 -731.4 -486 -841.8C-393.7 -952.2 -196.9 -962.1 0 -972L0 0Z"
+                                fill="none"
                             ></path>
                             <path
                                 id="middle-wave-bottom-2"
                                 d="M-648 0C-555.1 -68.8 -462.1 -137.6 -419.7 -242.3C-377.4 -347 -385.5 -487.6 -324 -561.2C-262.5 -634.8 -131.2 -641.4 0 -648L0 0Z"
+                                fill="none"
                             ></path>
                             <path
                                 id="inner-wave-bottom-2"
                                 d="M-324 0C-277.5 -34.4 -231.1 -68.8 -209.9 -121.2C-188.7 -173.5 -192.8 -243.8 -162 -280.6C-131.2 -317.4 -65.6 -320.7 0 -324L0 0Z"
+                                fill="none"
                             ></path>
                         </g>
-                        <g
-                            transform="translate(0, 0)"
-                            style="visibility: hidden"
-                        >
+                        <g style="transform: translate(0, 0)">
                             <path
                                 id="outer-wave-top-2"
                                 d="M972 0C950.6 177 929.2 354 841.8 486C754.3 618 600.8 705.1 449.5 778.6C298.2 852.1 149.1 912 0 972L0 0Z"
+                                fill="none"
                             ></path>
                             <path
                                 id="middle-wave-top-2"
                                 d="M648 0C633.7 118 619.5 236 561.2 324C502.9 412 400.5 470 299.7 519C198.8 568 99.4 608 0 648L0 0Z"
+                                fill="none"
                             ></path>
                             <path
                                 id="inner-wave-top-2"
                                 d="M324 0C316.9 59 309.7 118 280.6 162C251.4 206 200.3 235 149.8 259.5C99.4 284 49.7 304 0 324L0 0Z"
+                                fill="none"
                             ></path>
                         </g>
                     </svg>
