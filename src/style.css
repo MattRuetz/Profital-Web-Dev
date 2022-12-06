@@ -21,7 +21,7 @@
     --primary-med-opacity: rgba(68, 18, 133, 0.6);
     --primary-low-opacity: rgba(68, 18, 133, 0.2);
     --primary-variant: rgb(157, 40, 211);
-    --emph-color: rgb(210, 246, 65);
+    --emph-color: rgb(255, 255, 255);
     --secondary-color: rgb(86, 11, 113);
     --on-primary: rgb(255, 255, 255);
     --on-background: #111;
@@ -79,15 +79,18 @@
 
 [data-flatness='Normal'] {
     --box-shadow: 0 3px 4px rgba(34, 34, 34, 0.5);
-    --box-shadow-colored: 0 0px 4px var(--primary-low-opacity);
+    --box-shadow-colored: 0px 0px 4px var(--primary-low-opacity);
+    --text-shadow: 2px 1px 2px var(--on-background);
 }
 [data-flatness='Flat'] {
     --box-shadow: 0px 0px 3px rgba(34, 34, 34, 0.2);
     --box-shadow-colored: 0px 0px 3px var(--primary-med-opacity);
+    --text-shadow: none;
 }
 [data-flatness='Pop-Out'] {
     --box-shadow: 4px 4px 0px rgba(34, 34, 34, 0.7);
     --box-shadow-colored: 0px 0px 10px var(--primary-med-opacity);
+    --text-shadow: 2px 2px var(--on-background);
 }
 
 /* change demos BG pattern based on color theme */
@@ -188,6 +191,11 @@ body[data-color|='Pastels'] #demos {
     top: 0;
 }
 
+.focus-span {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
 #modal-logo img {
     width: 20%;
     position: absolute;
@@ -215,6 +223,10 @@ body[data-color|='Pastels'] #demos {
     border: 2px solid rgba(0, 0, 0, 0.2);
     padding: 15px 15px 10px 15px;
     border-radius: var(--border-radius);
+}
+
+.outline-box p {
+    line-height: 2em;
 }
 
 .outline-box-light {
@@ -376,10 +388,10 @@ h6 {
     font-family: var(--header-font) !important;
 }
 
-ul {
+#launch ul {
     padding-left: 0;
 }
-li {
+#launch li {
     list-style: none;
     transition: all ease 0.5s;
     color: var(--on-background);
@@ -424,7 +436,7 @@ button:hover .fa-solid {
     margin: 13px 0;
     border-radius: var(--border-radius);
     box-shadow: inset var(--box-shadow);
-    text-shadow: 2px 2px var(--on-background);
+    text-shadow: var(--text-shadow);
 }
 
 .card {
@@ -445,8 +457,6 @@ button:hover .fa-solid {
 }
 
 #hero {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     z-index: 2;
 }
 
@@ -532,8 +542,8 @@ img.diagram {
     transition: all 0.5s ease;
     min-height: 60vh;
     background-color: var(--background);
-    background-image: url(img/skulls.png);
-    /* background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png'); */
+    /* background-image: url(img/skulls.png); */
+    background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png');
 }
 
 .title-wrap .fa-solid {
@@ -1028,6 +1038,10 @@ footer hr {
     margin: 5px 0.5em;
     width: 60%;
 }
+footer ul {
+    padding-left: 0px;
+    list-style: none;
+}
 footer li {
     padding: 0.2em 0 0 0;
 }
@@ -1178,6 +1192,14 @@ footer .footer-link i {
     }
     #design .open .card-title {
         font-size: 1.5rem;
+    }
+    #design ul {
+        margin: 0;
+        padding-left: 0;
+        padding-right: 10%;
+    }
+    #design li {
+        padding: 5px 0;
     }
 
     #development {
@@ -1348,6 +1370,15 @@ footer .footer-link i {
     }
     .open .card-badge {
         width: 85.266%;
+    }
+
+    #design ul {
+        /* margin: 0; */
+        padding-left: 5%;
+        padding-right: 10%;
+    }
+    #design li {
+        padding: 5px 0;
     }
 
     #development {
