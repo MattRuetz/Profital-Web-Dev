@@ -40,9 +40,9 @@
     --primary-variant: rgb(242, 211, 136);
     --emph-color: rgb(112, 108, 238);
     --secondary-color: rgb(113, 192, 225);
-    --on-primary: rgb(255, 238, 238);
+    --on-primary: rgb(255, 255, 255);
     --on-background: rgb(34, 34, 34);
-    --on-background-alt: rgb(255, 238, 238);
+    --on-background-alt: rgb(255, 255, 255);
     --background: rgb(205, 252, 246);
     --background-high-opacity: rgba(252, 245, 255, 0.9);
     --background-med-opacity: rgba(252, 245, 255, 0.7);
@@ -698,9 +698,10 @@ img.diagram {
     z-index: 2;
     position: relative;
     background-position: 0% 0%;
-    background-repeat: repeat;
+    /* background-repeat: repeat; */
+    background-size: cover;
     color: var(--background);
-    background-image: url('img/daniel-olah-HNkgPFBShSw-unsplash.jpg');
+    background-image: url('img/aldebaran.jpg');
 }
 
 #wave-motion {
