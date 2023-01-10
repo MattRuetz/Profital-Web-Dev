@@ -31,4 +31,6 @@ tiltAnimation.js handles the VanillaTilt initalization only.
 
 A demo of the site is temporarily available at: https://profitalwebdev.com/
 
-    Please note this website is not finished. There is no server file created, it simply loads from HTML. The contact form is not connected to any email service or inbox. Please do not reach out to the developer for information about this project in the future, as he is not interested in seeing it again. Cheers.
+    Please note this website is not finished. There is no server file created, it simply loads from HTML. The contact form is not connected to any email service or inbox. Please do not reach out to the developer for information about this project in the future, as he is not interested in seeing it again.
+
+Cheers.
