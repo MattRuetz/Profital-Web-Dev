@@ -29,4 +29,4 @@ The CSS for responsive design is heavily reliant on media queries. All CSS is co
 
 ## Demo
 
-A demo of the site is temporarily available at: http://profitalwebdev.com/
+A demo of the site is temporarily available at: https://profitalwebdev.com/
